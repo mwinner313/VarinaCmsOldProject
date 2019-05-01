@@ -1,0 +1,47 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-icon="select"></md-icon>
+            انتخاب محصول
+            <span flex></span>
+            <md-button ng-click="vm.select()" class="md-fab down-edge" ng-show="vm.selectedProducts.length">
+                <md-tooltip>انتخاب</md-tooltip>
+                <md-icon md-svg-icon="check-white"></md-icon>
+            </md-button>
+
+        </div>
+
+    </md-toolbar>
+    <md-dialog-content layout="column">
+        <md-card>
+            <md-table-container>
+                <table md-table md-row-select multiple ng-model="vm.selectedProducts" md-progress="vm.tableProgressPromise">
+                    <thead md-head fix-head>
+                        <tr md-row>
+                            <th md-column md-numeric>تصویر</th>
+                            <th md-column md-numeric>عنوان</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row md-select="product" md-select-id="id" ng-repeat="product in vm.products.items">
+                            <td md-cell>
+                                <img class="product-image" ng-src="http://localhost:21217{{product.primaryImage.path}}" alt="">
+                            </td>
+                            <td md-cell class="md-title" ng-bind="product.title | strlimit:44"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15,20,30]" md-page="vm.query.pageNumber" md-total="{{vm.products.count}}"
+            md-on-paginate="vm.getProducts" md-page-select>
+        </md-table-pagination>
+        <md-input-container style="margin:15px;">
+            <label for="searchText">جستجو</label>
+            <input type="text" ng-model="vm.searchText">
+        </md-input-container>
+        <md-button ng-click="vm.getProducts(1,30)" class="md-primary">بگرد</md-button>
+    </md-dialog-actions>
+</md-dialog>

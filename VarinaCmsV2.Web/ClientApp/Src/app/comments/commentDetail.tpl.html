@@ -1,0 +1,20 @@
+<md-dialog>
+    <md-dialog-content layout-padding>
+        <img width="50" class="" alt="{{vm.comment.creator.avatarPath}}" src="{{vm.comment.creator.avatarPath}}">
+        <h4 class="md-title">{{vm.comment.creator.name || vm.comment.creator.userName || vm.comment.email}}</h4>
+        <p class="md-subhead"> متن پیام : {{vm.comment.text}}</p>
+        <p class="md-subtitle"> در {{vm.commentTargetTitle}}</p>
+        <div ng-if="::!!vm.comment.parent" style="padding:30px;">
+            در جواب به
+            <br>
+            <img width="50" class="" alt="{{vm.comment.parent.creator.avatarPath}}" src="{{vm.comment.creator.avatarPath}}">
+            <h4 class="md-title">{{vm.comment.parent.creator.name || vm.comment.creator.userName || vm.comment.email}}</h4>
+            <p class="md-subhead"> متن پیام : {{vm.comment.parent.text}}</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout-align="right">
+        <md-button class="md-raised" target="_blank" href="{{vm.comment.target.toUrl}}">
+            نمایش در سایت
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

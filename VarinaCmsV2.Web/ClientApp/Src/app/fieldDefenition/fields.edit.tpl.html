@@ -1,0 +1,81 @@
+<md-dialog dir="rtl" ng-keydown="($event.ctrlKey && $event.which==83) &&($event.preventDefault() ||vm.edit()) " style="min-width: 95%;min-height: 90%">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-icon="edit"></md-icon> &nbsp; ویرایش فیلد
+            <span flex></span>
+            <md-button class="md-fab down-edge md-button" ng-click="vm.edit()">
+                <md-icon md-svg-icon="check-white"></md-icon>
+            </md-button>
+        </div>
+
+    </md-toolbar>
+    <md-dialog-content flex style="background-color: rgba(224, 226, 229, 0.14);">
+
+            <form layout="row"  layout-align="center start" flex name="vm.fieldDefenitionForm" layout-align="center center"
+                novalidate>
+                <md-card flex-gt-md="50" layout-padding>
+                    <md-input-container class="md-block" md-is-error="(vm.fieldDefenitionForm.title.$invalid && (vm.fieldDefenitionForm.title.$dirty||vm.fieldDefenitionForm.$submitted))">
+                        <label for="title">عنوان</label>
+                        <input type="text" ng-model="vm.fd.title" name="title" ng-required="true" />
+                        <div ng-messages="vm.fieldDefenitionForm.title.$error">
+                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" md-is-error="(vm.fieldDefenitionForm.handle.$invalid && (vm.fieldDefenitionForm.handle.$dirty||vm.fieldDefenitionForm.$submitted))">
+                        <label for="">
+                            دستگیره
+                        </label>
+                        <input type="text" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="vm.fd.handle" name="handle" ng-required="true" />
+                        <div ng-messages="vm.fieldDefenitionForm.handle.$error">
+                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                            <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                        </div>
+                    </md-input-container>
+                    <md-autocomplete class="md-block" md-input-name="typeautomopelete" style="margin-top: 13px;" md-no-cache="true" md-selected-item="vm.selectedType"
+                        md-selected-item-change="vm.fd.type=vm.selectedType.type" md-items="item in vm.fieldTypes |filter:{title:vm.fdSearchTxt}"
+                        md-search-text="vm.fdSearchTxt" md-item-text="item.title" md-min-length="0" placeholder="نوع فیلد ؟؟">
+                        <md-item-template>
+                            <md-icon md-svg-icon="{{item.type}}"></md-icon>
+                            {{item.title}}
+                        </md-item-template>
+                        <md-not-found>
+                            چیزی یافت نشد
+                        </md-not-found>
+                    </md-autocomplete>
+
+                    <md-input-container class="md-block" md-is-error="(vm.fieldDefenitionForm.type.$invalid && vm.fieldDefenitionForm.$submitted)">
+                        <input type="text" ng-hide="true" ng-model="vm.fd.type" name="type" ng-required="true" />
+                        <div ng-messages="vm.fieldDefenitionForm.type.$error">
+                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex class="md-block">
+                        <label for="">توضیحات</label>
+                        <textarea rows="2" ng-model="vm.fd.description" name="description"> </textarea>
+                    </md-input-container>
+                    <md-checkbox name="isRequired" ng-model="vm.fd.isRequired">
+                        اجباری بودن مقدار
+                    </md-checkbox>
+                    <!-- <md-checkbox name="isArray" ng-model="vm.fd.isArray">
+                        این فیلد از نوع آرایه است
+                    </md-checkbox> -->
+                    <md-checkbox name="showInTable" ng-model="vm.fd.showInTable">
+                        درون جدول نمایش داده شود
+                    </md-checkbox>
+                </md-card>
+                <md-card flex-gt-md="50">
+                    <div class='md-subheader _md' role='heading' aria-level='2'>
+                        <div class='md-subheader-inner'>
+                            <div class='md-subheader-content'>مقدار پیش فرض</div>
+                        </div>
+                    </div>
+                    <div flex layout-padding>
+                        <field-configuration-factory fd="vm.fd"></field-configuration-factory>
+                        <field-factory flex model="vm.defaultValueForFd" disable-required-validation="true" form="vm.fieldDefenitionForm" fd="vm.fd"></field-factory>
+                    </div>
+                </md-card>
+            </form>
+        </md-card>
+    </md-dialog-content>
+</md-dialog>

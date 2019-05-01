@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="/Content/jquery.toast.min.css">    
+    <script src="/Scripts/libs/jquery.min.js"></script>
+    <script src="/Scripts/libs/parsley.min.js"></script>
+    <script src="/Scripts/libs/jquery.toast.min.js"></script>
+    <script src="/Scripts/cms/cart.js"></script>
+</head>
+<body>
+    {{vm.current_user.shopping_cart_items.size}}
+<form>
+    <button add-to-cart product-id="{{vm.model.id}}">add to cart</button>
+    <select name="quantity">
+        <option value="2">2</option>
+        <option value="4">4</option>
+    </select>
+    <button remove-from-cart product-id="{{vm.model.id}}">remove</button>
+    {%antiforgery_token_input%}
+</form>
+</body>
+</html>

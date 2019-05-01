@@ -1,0 +1,36 @@
+<md-toolbar class="md-hue-2">
+    <md-progress-linear class="md-warn" ng-show="vm.isUpdating" md-mode="indeterminate"></md-progress-linear>
+    <div class="md-toolbar-tools">
+        <h1>
+            <md-icon md-svg-icon="check-white"></md-icon>
+            ویرایش {{vm.scheme.title}}
+        </h1>
+        <span flex></span>
+        <md-button ng-disabled="vm.isUpdating||vm.entityForm.$pending" class="md-fab" ng-click="vm.edit()">
+            <md-icon md-svg-icon="check-white"></md-icon>
+            <md-tooltip>
+                اعمال تغییرات
+            </md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content ng-keydown="($event.ctrlKey && $event.which==83 && ($event.preventDefault() ||vm.edit()))" ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <md-card>
+        <form name="vm.entityForm" novalidate layout-padding>
+
+            <md-card-content dir="rtl">
+                <div layout-gt-sm="row" flex layout-padding>
+                    <div replace ng-include="'/Src/app/entities/enitiyAdd-Update-sharedFields.html'"></div>
+                </div>
+                <div layout-gt-sm="column" flex layout-padding>
+                    <md-whiteframe style="background-color: rgba(224, 226, 229, 0.14);" class="md-whiteframe-4dp" flex layout="column">
+                            <fields-organizer form="vm.entityForm" entity="vm.entity"
+                             primary-category="vm.entity.primaryCategory" scheme="vm.scheme"></fields-organizer>
+
+                    </md-whiteframe>
+                </div>
+
+            </md-card-content>
+        </form>
+    </md-card>
+</md-content>

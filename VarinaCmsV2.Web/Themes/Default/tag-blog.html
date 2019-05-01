@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="fa" xmlns="http://www.w3.org/1999/xhtml" dir="rtl" ng-app="app" class="no-js">
+
+<head>
+    <title> عنوان وبسایت | {{vm.model.title}}</title>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/styles' %}
+       <script src="/Scripts/plugin/modernizr.js"></script>
+</head>
+
+<body>
+ 
+    <div class="wrapper">
+    {% include 'partials/header' %}
+        <section id="header" class="blog-list">
+            <div data-parallax="scroll" data-image-src="/Content/HomeImages/puzmag-img-010.jpg" class="background parallax-window"></div>
+            <div class="container-puz">
+           
+            </div>
+        </section>
+        <section class="article-list">
+            <div class="container-puz width sm">
+                <div class="row color-row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <section>
+                            <p class="number-p">تگ : {{vm.model.title}}</p>
+                           {%for blog in vm.model.entities %}
+                            <article class="puzmag color-f sm border">
+                                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+                                    <figure>
+                                        <a href="{{blog.to_url}}" style="background-image:url('{{blog.image.resizeds.small}}')" title="{{blog.title}}"
+                                            class="img-puzmag"></a>
+                                        <div class="box-date">
+                                            <span>{{blog.publish_date_time.day}}</span>
+                                            <span class="month">{{blog.publish_date_time.month_name}}</span>
+                                        </div>
+                                    </figure>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+                                    <div class="description">
+                                        <h4>
+                                            <a href="{{blog.primary_category.to_url}}" title="{{blog.primary_category.title}}" class="category">{{blog.primary_category.title}}</a>
+                                        </h4>
+                                        <h3>
+                                            <a href="{{blog.to_url}}" title="{{blog.title}}" class="title">{{blog.title}}</a>
+                                        </h3>
+                                        <p>{{blog.short_description}}</p>
+                                        <ul class="list-h">
+                                          
+                                            <li class="comment">
+                                                <span>{{blog.comments.length}}</span>
+                                                <i class="fa fa-commenting-o pull-right"></i>
+                                            </li>
+                                            <li class="heart">
+                                                <span>{{blog.like_count}}</span>
+                                                <i class="fa fa-heart-o pull-right"></i>
+                                            </li>
+                                        </ul>
+                                        <a href="{{blog.to_url}}" title="بیشتر بخوانید" class="read-more">بیشتر بخوانید
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                            <div class="clearfix"></div>
+                           {%endfor%}
+                              <div class="pagination-container">
+                                <ul class="pagination pagination-split">
+                                    {%- assign previews_page = vm.model.current_page | minus:1 -%}
+                                    {% if previews_page != 0%}
+                                    <li class="PagedList-skipToPrevious next">
+                                        <a href="{% paginate_link vm.model previews_page  %}" rel="prev">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                    </li>
+                                    {%endif%}
+                                    {% for i in (1..vm.model.all_pages_count) %}
+                                    <li class="PagedList-ellipses">
+                                        <a href="{% paginate_link vm.model i %}">{{i}}</a>
+                                    </li>
+                                    {% endfor %}
+                                    {% assign next_page = vm.model.current_page | plus : 1  %}
+                                    {% if next_page <= vm.model.all_pages_count%}
+                                    <li class="PagedList-skipToNext prev">
+                                        <a href="{% paginate_link vm.model next_page  %}" rel="next">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                    {%endif%}
+                                    
+                                </ul>
+                            </div>
+                        <div class="clearfix"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+    {% include 'partials/footer' %}
+        <!--include footer-->
+        <a href="#header" class="go-to-top page-scroll"></a>
+    </div>
+  {% include 'partials/scripts' %}
+</body>
+</html>

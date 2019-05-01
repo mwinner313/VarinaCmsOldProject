@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0068CE0-4431-4BDE-9A42-57D7D329CC83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VarinaCmsV2.Core.Logic</RootNamespace>
+    <AssemblyName>VarinaCmsV2.Core.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DotLiquid, Version=2.0.254.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.0.254\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipg">
+      <HintPath>..\VarinaCmsV2.Web\bin\Ipg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTelebot, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTelebot.1.0.12\lib\NetTelebot.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDate, Version=3.5.6540.21108, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDate.3.5.3\lib\net35\PersianDate.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDateTime, Version=1.1.5082.36395, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDateTime.1.1.5082.36395\lib\net40\PersianDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.7.11.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.7.11\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\GenericIEntityBuilder.cs" />
+    <Compile Include="Builders\SchemeBuilder.cs" />
+    <Compile Include="CustomFields\Factories\DateTimeFieldFactory.cs" />
+    <Compile Include="CustomFields\Factories\DropDownListFieldFactory.cs" />
+    <Compile Include="CustomFields\Factories\FileFieldFactory.cs" />
+    <Compile Include="CustomFields\Fields\DropDownField.cs" />
+    <Compile Include="CustomFields\Fields\FileField.cs" />
+    <Compile Include="CustomFields\FieldTemplates\DropDownListFieldTemplate.cs" />
+    <Compile Include="CustomFields\FieldTemplates\FileFieldTemplate.cs" />
+    <Compile Include="CustomFields\Fields\UrlField.cs" />
+    <Compile Include="CustomFields\Factories\UrlFieldFactory.cs" />
+    <Compile Include="CustomFields\FieldTemplates\UrlFieldTemplate.cs" />
+    <Compile Include="CustomFields\Fields\EmailField.cs" />
+    <Compile Include="CustomFields\Factories\EmailFieldFactory.cs" />
+    <Compile Include="CustomFields\FieldTemplates\EmailFieldTemplate.cs" />
+    <Compile Include="CustomFields\Factories\HtmlFieldFactory.cs" />
+    <Compile Include="CustomFields\Fields\DateField.cs" />
+    <Compile Include="CustomFields\Factories\DateFieldFactory.cs" />
+    <Compile Include="CustomFields\Factories\ImageFieldFactory.cs" />
+    <Compile Include="CustomFields\Factories\NumberFieldFactory.cs" />
+    <Compile Include="CustomFields\Factories\TextFieldFactory.cs" />
+    <Compile Include="CustomFields\Fields\DateTimeField.cs" />
+    <Compile Include="CustomFields\Fields\HtmlField.cs" />
+    <Compile Include="CustomFields\FieldTemplates\HtmlFieldTemplate.cs" />
+    <Compile Include="CustomFields\Fields\ImageField.cs" />
+    <Compile Include="CustomFields\Fields\NumberField.cs" />
+    <Compile Include="CustomFields\Fields\TextField.cs" />
+    <Compile Include="CustomFields\FieldTemplates\DateTimeAndDateTemplate.cs" />
+    <Compile Include="CustomFields\FieldTemplates\ImageTemplate.cs" />
+    <Compile Include="CustomFields\FieldTemplates\NumberTemplate.cs" />
+    <Compile Include="CustomFields\FieldTemplates\TextTemplate.cs" />
+    <Compile Include="CustomFields\MetaDataTemplate\DropDownFieldMetaData.cs" />
+    <Compile Include="DataSeeds\ExistingFolderFilesSeedDataBase.cs" />
+    <Compile Include="Decorators\CurrentUserLiquidDataDecorator.cs" />
+    <Compile Include="Decorators\WebsiteInformationLiquidDataDecorator.cs" />
+    <Compile Include="Facades\DiscountFacade.cs" />
+    <Compile Include="Facades\ProductFacade.cs" />
+    <Compile Include="Helpers\AddressMapHelper.cs" />
+    <Compile Include="Helpers\CommentMapHelper.cs" />
+    <Compile Include="Helpers\CommentQueryHelper.cs" />
+    <Compile Include="Helpers\DiscountMapHelper.cs" />
+    <Compile Include="Helpers\DiscountQueryHelper.cs" />
+    <Compile Include="Helpers\EntitySchemeMapHelper.cs" />
+    <Compile Include="Helpers\MessageServiceAccountTypeHelper.cs" />
+    <Compile Include="Helpers\OrderMapHelper.cs" />
+    <Compile Include="Helpers\OrderQueryHelper.cs" />
+    <Compile Include="Helpers\ProductCategoryMapHelper.cs" />
+    <Compile Include="Helpers\ProductCategoryQueryHelper.cs" />
+    <Compile Include="Helpers\ProductMapHelper.cs" />
+    <Compile Include="Helpers\ProductQueryHelper.cs" />
+    <Compile Include="Helpers\ProductReviewMapHelper.cs" />
+    <Compile Include="Helpers\ShippmentMapHelper.cs" />
+    <Compile Include="Helpers\ShoppingCartMapHelper.cs" />
+    <Compile Include="Helpers\StateProvinceMapHelper.cs" />
+    <Compile Include="JobsRegistry.cs" />
+    <Compile Include="ModelFactories\CartModelFactory.cs" />
+    <Compile Include="ModelFactories\CheckoutModelFactory.cs" />
+    <Compile Include="ModelFactories\PaymentPageLiquidViewData.cs" />
+    <Compile Include="Services\Cart\CartService.cs" />
+    <Compile Include="Services\Comment\CommentService.cs" />
+    <Compile Include="Services\CurrentUser\CurrentUserService.cs" />
+    <Compile Include="Services\Dashboard\ChartData.cs" />
+    <Compile Include="Services\Dashboard\ChartDataHelper.cs" />
+    <Compile Include="Services\Dashboard\DashboardService.cs" />
+    <Compile Include="Services\Dashboard\WidgetDataCreators\BestSellingProductWidgetDataCreator.cs" />
+    <Compile Include="Services\Dashboard\WidgetDataCreators\CommonStatisticsDashboardWidgetDataCreator.cs" />
+    <Compile Include="Services\Dashboard\WidgetDataCreators\OrderChartDataCreator.cs" />
+    <Compile Include="Services\Dashboard\WidgetDataCreators\OrderTotalsTableDataCreator.cs" />
+    <Compile Include="Services\Dashboard\WidgetDataCreators\WebSiteUserRegisterChart.cs" />
+    <Compile Include="Services\Discounts\DiscountService.cs" />
+    <Compile Include="Services\Dashboard\IDashboardWidgetDataCreator.cs" />
+    <Compile Include="Services\Orders\OrderLogger.cs" />
+    <Compile Include="Services\Orders\OrderService.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryService.cs" />
+    <Compile Include="Services\Products\ProductService.cs" />
+    <Compile Include="Services\Settings\SettingService.cs" />
+    <Compile Include="Templating\Liquid\Blocks\EntityFieldFinder.cs" />
+    <Compile Include="Templating\Liquid\Blocks\PaginationLinkBuilder.cs" />
+    <Compile Include="Templating\Liquid\Blocks\ProductPriceCalculator.cs" />
+    <Compile Include="Templating\Liquid\Blocks\UserCreatedEntitiesPaginator.cs" />
+    <Compile Include="Templating\Strategies\ProductTagTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\OrderTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\ProductCategoryTeplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\ProductTeplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\EntitySearchTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Liquid\Blocks\EntityPaginator.cs" />
+    <Compile Include="Templating\Liquid\Tags\AntiForgeryTokenTag.cs" />
+    <Compile Include="Templating\Strategies\PageTagTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\UserCreatedEntityTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\UserCartTeplateFinderStrategy.cs" />
+    <Compile Include="WebWorkContext.cs" />
+    <Compile Include="Web\UrlBuilding\ProductCategoryUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\ProductUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\UserCreatedEntityUrlBuilder.cs" />
+    <Compile Include="Widgets\LiquidWidgetFinder.cs" />
+    <Compile Include="Decorators\ModelLiquidDataDecorator.cs" />
+    <Compile Include="Decorators\RelatedEntityLoaderForEntityDecorator.cs" />
+    <Compile Include="Decorators\WidgetContainerLiquidAdapterDecorator.cs" />
+    <Compile Include="Exceptions\MisingEntityField.cs" />
+    <Compile Include="Exceptions\MisingEntityScheme.cs" />
+    <Compile Include="Facades\EntityFacade.cs" />
+    <Compile Include="Facades\EntitySchemeFacade.cs" />
+    <Compile Include="Exceptions\InValidFieldValueException.cs" />
+    <Compile Include="Exceptions\MisingLocalizedNameException.cs" />
+    <Compile Include="Facades\FieldDefenitionFacade.cs" />
+    <Compile Include="Helpers\CategoryMapHeleper.cs" />
+    <Compile Include="Helpers\CategoryQueryHelper.cs" />
+    <Compile Include="Helpers\EntityMapHelper.cs" />
+    <Compile Include="Helpers\EntityQueryHelper.cs" />
+    <Compile Include="Helpers\EntitySchemeHelper.cs" />
+    <Compile Include="Helpers\FieldDefenitionHelper.cs" />
+    <Compile Include="Helpers\FieldMapHelper.cs" />
+    <Compile Include="Helpers\FileDataMapHelper.cs" />
+    <Compile Include="Helpers\FileDataQueryHelper.cs" />
+    <Compile Include="Helpers\FormMapHelper.cs" />
+    <Compile Include="Helpers\FormQueryHelper.cs" />
+    <Compile Include="Helpers\FormSchemeMapHelper.cs" />
+    <Compile Include="Helpers\MenuMapHelper.cs" />
+    <Compile Include="Helpers\MetaMapHelper.cs" />
+    <Compile Include="Helpers\PageHelper.cs" />
+    <Compile Include="Helpers\TagHelper.cs" />
+    <Compile Include="Helpers\UserMapHelper.cs" />
+    <Compile Include="Helpers\UserQueryHelper.cs" />
+    <Compile Include="Helpers\WidgetMapHelper.cs" />
+    <Compile Include="MetaData\LiquidAdapters\ImageMetaLiquidAdapter.cs" />
+    <Compile Include="MetaData\MenuItemMetaDataHandler.cs" />
+    <Compile Include="MetaData\SimpleMetaDataLiquidAdapterFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\JsonCustomFieldFactoryProvider.cs" />
+    <Compile Include="Security\InvalidPrincipalArgumentException.cs" />
+    <Compile Include="Security\ItemAccessManager.cs" />
+    <Compile Include="Security\SecurityLogger.cs" />
+    <Compile Include="Security\UserFilterStrategies\FilterSupervisorAndAdminstratorUserStrategy.cs" />
+    <Compile Include="Security\UserFilterStrategies\FilterSupervisorUserStrategy.cs" />
+    <Compile Include="Security\UserFilterStrategies\NoUserFilterStrategy.cs" />
+    <Compile Include="Security\UserFilterStrategies\UserFilterStrategyFactory.cs" />
+    <Compile Include="DataSeeds\UserManagerSeedDataBaseContext.cs" />
+    <Compile Include="ServiceObservers\FileDataImageCropperObserver.cs" />
+    <Compile Include="Services\Category\CategoryFiledDefenitionHelper.cs" />
+    <Compile Include="Services\Category\CategoryService.cs" />
+    <Compile Include="Services\Entitiy\EntityService.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeService.cs" />
+    <Compile Include="Services\FileData\FileService.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeService.cs" />
+    <Compile Include="Services\Form\FormService.cs" />
+    <Compile Include="Services\Menu\MenuService.cs" />
+    <Compile Include="Services\Page\PageService.cs" />
+    <Compile Include="Services\UserManagement\UserManagementService.cs" />
+    <Compile Include="Services\WidgetContainerService.cs" />
+    <Compile Include="Templating\Strategies\NotFound404TemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\CategoryTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Exceptions\InvalidITempatedItemException.cs" />
+    <Compile Include="Templating\Strategies\EntityTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\HomePageTemplateFactory.cs" />
+    <Compile Include="Templating\Strategies\PageTemlateFinderStratogy.cs" />
+    <Compile Include="Templating\Strategies\EntityTagTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\Strategies\UserProfileTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\TemplateFinderFactory.cs" />
+    <Compile Include="Templating\Strategies\WidgetTemplateFinderStrategy.cs" />
+    <Compile Include="Templating\CacheTemplateProvider.cs" />
+    <Compile Include="WebClientServiceObservers\EntityVisitNumberObserver.cs" />
+    <Compile Include="Web\UrlBuilding\CategoryUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\CmsUrlBuilderFactory.cs" />
+    <Compile Include="Web\UrlBuilding\EntityUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\PageUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\EntityTagUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\TagUrlBuilder.cs" />
+    <Compile Include="Web\UrlBuilding\UserProfileUrlBuilder.cs" />
+    <Compile Include="Widgets\BaseWidget.cs" />
+    <Compile Include="Widgets\BaseWidgetWithMetaData.cs" />
+    <Compile Include="Widgets\CalendarWidget.cs" />
+    <Compile Include="Widgets\Category\CategoryWidget.cs" />
+    <Compile Include="Widgets\Category\CategoryWidgetLiquidData.cs" />
+    <Compile Include="Widgets\Category\CategoryWidgetMetaData.cs" />
+    <Compile Include="Widgets\Products\ProductWidget.cs" />
+    <Compile Include="Widgets\Products\ProductWidgetLiquidData.cs" />
+    <Compile Include="Widgets\Products\ProductWidgetMetaData.cs" />
+    <Compile Include="Widgets\WidgetExtention.cs" />
+    <Compile Include="Widgets\Entity\EntityWidgetLiquidData.cs" />
+    <Compile Include="Widgets\Entity\EntityWidgetMetaData.cs" />
+    <Compile Include="Widgets\Entity\EntityWidget.cs" />
+    <Compile Include="Widgets\GoogleAnalyticsWidget.cs" />
+    <Compile Include="Widgets\Menu\CategoryMenuitemDataDecorator.cs" />
+    <Compile Include="Widgets\Menu\MenuMetaData.cs" />
+    <Compile Include="Widgets\Menu\MenuWidget.cs" />
+    <Compile Include="Widgets\Menu\MenuWidgetLiquidData.cs" />
+    <Compile Include="Widgets\Page\PageMetaData.cs" />
+    <Compile Include="Widgets\Page\PageWidget.cs" />
+    <Compile Include="Widgets\Page\PageWidgetLiquidData.cs" />
+    <Compile Include="Widgets\ProductCategory\ProductCategoryWidget.cs" />
+    <Compile Include="Widgets\ProductCategory\ProductCategoryWidgetLiquidData.cs" />
+    <Compile Include="Widgets\ProductCategory\ProductCategoryWidgetMetaData.cs" />
+    <Compile Include="Widgets\ProductWidget.cs" />
+    <Compile Include="Widgets\SocialLink\SocialLinkWidget.cs" />
+    <Compile Include="Widgets\StaticHtml\StaticHtml.cs" />
+    <Compile Include="Widgets\StaticHtml\StaticHtmlWidget.cs" />
+    <Compile Include="Widgets\UserProfile\UserProfileMetaData.cs" />
+    <Compile Include="Widgets\UserProfile\UserProfileWidget.cs" />
+    <Compile Include="Widgets\UserProfile\UserProfileWidgetLiquidData.cs" />
+    <Compile Include="Widgets\WidgetFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VarinaCmsV2.Common\VarinaCmsV2.Common.csproj">
+      <Project>{60d537fd-fc3c-4637-8122-a65a4f0abeba}</Project>
+      <Name>VarinaCmsV2.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Configuration\VarinaCmsV2.Configuration.csproj">
+      <Project>{27785D7A-894A-4ECC-82BD-CB9C691874A6}</Project>
+      <Name>VarinaCmsV2.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Core\VarinaCmsV2.Core.csproj">
+      <Project>{701C81AB-DC0B-489A-92EC-32923BE2AC7E}</Project>
+      <Name>VarinaCmsV2.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Data\VarinaCmsV2.Data.csproj">
+      <Project>{CD83DD28-C9D7-47D2-99F7-06A1A40EBD8E}</Project>
+      <Name>VarinaCmsV2.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.DomainClasses\VarinaCmsV2.DomainClasses.csproj">
+      <Project>{5B6A1CD7-F23A-4924-B45C-ACEF658DAC42}</Project>
+      <Name>VarinaCmsV2.DomainClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.FileManager\VarinaCmsV2.FileManager.csproj">
+      <Project>{6A80EBFF-1D17-44C9-8F8F-994D6F553039}</Project>
+      <Name>VarinaCmsV2.FileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Security\VarinaCmsV2.Security.csproj">
+      <Project>{AD6B0CD5-132F-4A07-85B8-2E774E960238}</Project>
+      <Name>VarinaCmsV2.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Services\VarinaCmsV2.Services.csproj">
+      <Project>{592E34B7-D423-4D8F-8B1E-1E448F09F7D2}</Project>
+      <Name>VarinaCmsV2.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.ViewModel\VarinaCmsV2.ViewModel.csproj">
+      <Project>{52E43EF2-57D5-444C-8380-4200EFB35370}</Project>
+      <Name>VarinaCmsV2.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Adapters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NetTelebot.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B6A1CD7-F23A-4924-B45C-ACEF658DAC42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VarinaCmsV2.DomainClasses</RootNamespace>
+    <AssemblyName>VarinaCmsV2.DomainClasses</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotLiquid, Version=2.0.254.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.0.254\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IAccessRestrictedItem.cs" />
+    <Compile Include="Contracts\IBaseEntity.cs" />
+    <Compile Include="Contracts\ICategory.cs" />
+    <Compile Include="Contracts\ICommentibleItem.cs" />
+    <Compile Include="Contracts\IEntity.cs" />
+    <Compile Include="Contracts\IGlobalizedItem.cs" />
+    <Compile Include="Contracts\IHaveMetaData.cs" />
+    <Compile Include="Contracts\IHaveOneToOneRelation.cs" />
+    <Compile Include="Contracts\IHaveRelatedCategoryItem.cs" />
+    <Compile Include="Contracts\IMetaDataLiquidAdapter.cs" />
+    <Compile Include="Contracts\IMetaDataLiquidAdapterFactory.cs" />
+    <Compile Include="Contracts\IOptionalTrackibleItem.cs" />
+    <Compile Include="Contracts\IParentChildUrlChainedItem.cs" />
+    <Compile Include="Contracts\IScheduledItem.cs" />
+    <Compile Include="Contracts\IScheme.cs" />
+    <Compile Include="Contracts\ISiteMapItem.cs" />
+    <Compile Include="Contracts\ISoftDeletibleItem.cs" />
+    <Compile Include="Contracts\ITaggedItem.cs" />
+    <Compile Include="Contracts\ITemplatedItem.cs" />
+    <Compile Include="Contracts\ITrackibleItem.cs" />
+    <Compile Include="Contracts\IUrlable.cs" />
+    <Compile Include="Contracts\IUrlableViewModel.cs" />
+    <Compile Include="Contracts\IVisibliltyControlled.cs" />
+    <Compile Include="Contracts\LiquidAdapter.cs" />
+    <Compile Include="Contracts\LiquidList.cs" />
+    <Compile Include="Contracts\PaginatedUrlableLiquidAdapter.cs" />
+    <Compile Include="Contracts\UrlableLiquidAdapter.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\EShop\Discounts\CouponCode.cs" />
+    <Compile Include="Entities\EShop\Discounts\CouponCodeType.cs" />
+    <Compile Include="Entities\EShop\Orders\OrderLog.cs" />
+    <Compile Include="Entities\FieldDefenitionGroup.cs" />
+    <Compile Include="Entities\Portal.cs" />
+    <Compile Include="Entities\UserAttribute.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Enums\CommentTargetType.cs" />
+    <Compile Include="Entities\Enums\DownLoadActivationType.cs" />
+    <Compile Include="Entities\Enums\MenuItemTargetType.cs" />
+    <Compile Include="Entities\Enums\ProductType.cs" />
+    <Compile Include="Entities\EShop\Discounts\DiscountLimitationType.cs" />
+    <Compile Include="Entities\EShop\Discounts\DiscountType.cs" />
+    <Compile Include="Entities\EShop\Discounts\DiscountUsageHistory.cs" />
+    <Compile Include="Entities\EShop\Orders\Order.cs" />
+    <Compile Include="Entities\EShop\Orders\OrderItem.cs" />
+    <Compile Include="Entities\EShop\Orders\OrderStatus.cs" />
+    <Compile Include="Entities\EShop\Orders\PaymentStatus.cs" />
+    <Compile Include="Entities\EShop\Shipping\Shipment.cs" />
+    <Compile Include="Entities\EShop\Shipping\ShippingMethod.cs" />
+    <Compile Include="Entities\EShop\Shipping\ShippingStatus.cs" />
+    <Compile Include="Entities\EShop\ShoppingCartItem.cs" />
+    <Compile Include="Entities\EShop\RelatedProductLoadType.cs" />
+    <Compile Include="Entities\EShop\Shipping\DeliveryDate.cs" />
+    <Compile Include="Entities\EShop\Discounts\Discount.cs" />
+    <Compile Include="Entities\EShop\Inventory.cs" />
+    <Compile Include="Entities\EShop\InventoryTrackMethod.cs" />
+    <Compile Include="Entities\EShop\MinStockQuntityAction.cs" />
+    <Compile Include="Entities\EShop\Product.cs" />
+    <Compile Include="Entities\EShop\ProductCategory.cs" />
+    <Compile Include="Entities\EShop\ProductPicture.cs" />
+    <Compile Include="Entities\EShop\ProductReview.cs" />
+    <Compile Include="Entities\EShop\ProductReviewHelpfulness.cs" />
+    <Compile Include="Entities\EShop\ProductShipment.cs" />
+    <Compile Include="Entities\FileData.cs" />
+    <Compile Include="Entities\Form.cs" />
+    <Compile Include="Entities\FormScheme.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\MessageServiceAccount.cs" />
+    <Compile Include="Entities\Meta.cs" />
+    <Compile Include="Entities\SchemeType.cs" />
+    <Compile Include="Entities\Setting.cs" />
+    <Compile Include="EntityConfigs\CategoryConfig.cs" />
+    <Compile Include="EntityConfigs\CommentConfig.cs" />
+    <Compile Include="EntityConfigs\EntityConfig.cs" />
+    <Compile Include="EntityConfigs\EntityShcemeConfig.cs" />
+    <Compile Include="EntityConfigs\Eshop\CouponCodeConfig.cs" />
+    <Compile Include="EntityConfigs\Eshop\DiscountConfig.cs" />
+    <Compile Include="EntityConfigs\Eshop\OrderConfig.cs" />
+    <Compile Include="EntityConfigs\Eshop\ProductCategoryConfig.cs" />
+    <Compile Include="EntityConfigs\Eshop\ProductConfig.cs" />
+    <Compile Include="EntityConfigs\FieldConfig.cs" />
+    <Compile Include="EntityConfigs\FieldDefenitionConfig.cs" />
+    <Compile Include="EntityConfigs\FieldDefenitionGroupConfig.cs" />
+    <Compile Include="EntityConfigs\FileDataConfig.cs" />
+    <Compile Include="EntityConfigs\FormConfig.cs" />
+    <Compile Include="EntityConfigs\FormSchemeConfig.cs" />
+    <Compile Include="EntityConfigs\LanguageConfig.cs" />
+    <Compile Include="EntityConfigs\MenuConfig.cs" />
+    <Compile Include="EntityConfigs\MenuItemConfig.cs" />
+    <Compile Include="EntityConfigs\MetaConfig.cs" />
+    <Compile Include="EntityConfigs\PageConfig.cs" />
+    <Compile Include="Entities\EntityScheme.cs" />
+    <Compile Include="Entities\Enums\CategoryType.cs" />
+    <Compile Include="Entities\Field.cs" />
+    <Compile Include="Entities\FieldDefenition.cs" />
+    <Compile Include="Entities\Language.cs" />
+    <Compile Include="Entities\Page.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\Widgets\Widget.cs" />
+    <Compile Include="Entities\Widgets\WidgetContainer.cs" />
+    <Compile Include="EntityConfigs\RoleConfig.cs" />
+    <Compile Include="EntityConfigs\TagConfig.cs" />
+    <Compile Include="EntityConfigs\UserConfig.cs" />
+    <Compile Include="EntityConfigs\WidgetConfig.cs" />
+    <Compile Include="Helpers\AccessRestrictedItemHelper.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Address.cs" />
+    <Compile Include="Users\Premission.cs" />
+    <Compile Include="Users\Role.cs" />
+    <Compile Include="Users\StateProvince.cs" />
+    <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserClaim.cs" />
+    <Compile Include="Users\UserLogin.cs" />
+    <Compile Include="Users\UserRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\VarinaCmsV2.Common\VarinaCmsV2.Common.csproj">
+      <Project>{60D537FD-FC3C-4637-8122-A65A4F0ABEBA}</Project>
+      <Name>VarinaCmsV2.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

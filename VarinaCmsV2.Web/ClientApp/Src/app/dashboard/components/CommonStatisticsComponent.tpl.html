@@ -1,0 +1,60 @@
+<div layout-gt-sm="row" flex>
+    <md-card flex md-colors="{background: 'teal'}">
+        <md-card-content layout="row">
+            <md-icon class="tool-bar-icon" md-svg-icon="order"></md-icon>
+            <span flex></span>
+            <div layout="column">
+                <div class="md-title">تعداد سفارشات </div>
+                <div class="md-summary">{{vm.data.allOrdersCount}}</div>
+            </div>
+
+        </md-card-content>
+        <div flex class="dashboard-box-action">
+            <a ui-sref="orders({lang:$root.currentLang,pageNumber:1})">مشاهده لیست</a>
+        </div>
+    </md-card>
+
+
+    <md-card flex md-colors="{background: 'green'}">
+        <md-card-content layout="row">
+            <md-icon class="tool-bar-icon" md-svg-icon="users"></md-icon>
+            <span flex></span>
+            <div layout="column">
+                <div class="md-title">کاربران وب سایت</div>
+                <div class="">{{vm.data.allRegisterdUsersCount}}</div>
+            </div>
+        </md-card-content>
+        <div flex class="dashboard-box-action">
+            <a ui-sref="userManagement({lang:$root.currentLang,pageNumber:1})">مشاهده لیست</a>
+        </div>
+    </md-card>
+
+    <md-card flex md-colors="{background: 'red'}">
+        <md-card-content layout="row">
+            <md-icon class="tool-bar-icon" md-svg-icon="box"></md-icon>
+            <span flex></span>
+            <div layout="column">
+                <div >محصولات رو به پایان</div>
+                <div >{{vm.data.productsInMinStockQuantityCount}}</div>
+            </div>
+
+        </md-card-content>
+        <div flex class="dashboard-box-action">
+                <a href="/panel/{{$root.currentLang}}/eshop/1?lowStocks">مشاهده لیست</a>
+        </div>
+    </md-card>
+
+    <md-card flex md-colors="{background: 'indigo'}">
+        <md-card-content layout="row">
+            <md-icon class="tool-bar-icon" md-svg-icon="unseen"></md-icon>
+            <span flex></span>
+            <div layout="column">
+                <div >سفارشات مشاهده نشده</div>
+                <div>{{vm.data.notTrackedOrders}}</div>
+            </div>
+
+        </md-card-content>
+        <div flex class="dashboard-box-action"><a href="/panel/{{$root.currentLang}}/eshop/orders/1?notSeen">مشاهده لیست</a></div>
+    </md-card>
+
+</div>

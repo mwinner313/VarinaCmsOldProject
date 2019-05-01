@@ -1,0 +1,23 @@
+<div>
+    <md-button ng-class="{'md-raised':vm.mode==mode}" class="md-primary" ng-click="vm.mode=mode" ng-repeat="mode in vm.modes">{{mode}}</md-button>
+</div>
+<md-table-container>
+    <table md-table>
+        <thead md-head >
+            <tr md-row>
+                <th md-column md-numeric>#</th>
+                <th md-column md-numeric>محصول</th>
+                <th md-column md-numeric>تعداد</th>
+                <th md-column md-numeric>مبلغ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr md-row ng-repeat="product in vm.data[vm.mode]">
+                <td md-cell ng-bind="$index"></td>
+                <td md-cell ng-bind="product.title"></td>
+                <td md-cell ng-bind="product.count"></td>
+                <td md-cell ng-bind="product.totalPrice|currency:'':0"></td>
+            </tr>
+        </tbody>
+    </table>
+</md-table-container>

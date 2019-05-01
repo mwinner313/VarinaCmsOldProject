@@ -1,0 +1,17 @@
+<md-dialog aria-label="جستجو"  >
+    <md-dialog-content >
+        <md-input-container class="md-block">
+            <input type="text" placeholder="عبارت خود را وارد کنید" ng-enter="vm.ok()" id="search-dialog-input" name="search" ng-model="vm.searchText">
+        </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button class="md-primary" ng-click="vm.cancel()">
+            انصراف
+        </md-button>
+        <md-button class="md-primary" ng-click="vm.ok()">
+            جستجو کن
+        </md-button>
+
+
+    </md-dialog-actions>
+</md-dialog>

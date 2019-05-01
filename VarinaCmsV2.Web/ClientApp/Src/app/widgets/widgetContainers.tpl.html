@@ -1,0 +1,104 @@
+<section layout="column" flex layout-gt-sm-padding>
+    <div flex-gt-md="70">
+
+        <div>
+            <div class="md-subheader _md" role="heading" aria-level="2" >
+                <div class="md-subheader-inner">
+                    <div class="md-subheader-content">موقعیت ها</div>
+                </div>
+            </div>
+
+            <div layout-padding>
+
+                <md-expansion-panel-group md-component-id="panelGroup">
+                    <md-expansion-panel ng-keydown="($event.ctrlKey && $event.which==83 &&vm['cnt_form_'+$index].$valid &&($event.preventDefault() || (!!cnt.id && vm.saveNewOrder()) || (!cnt.id&&vm.saveNewCnt())))"
+                        md-component-id="cnt{{cnt.index || cnt.id}}" ng-repeat="cnt in vm.widgets.widgetContainers">
+                        <md-expansion-panel-collapsed ng-click="vm.changeSelectedCnt(cnt)" style="cursor:pointer;">
+                            <span class="md-title">{{cnt.title}}</span>
+                            <span flex></span>
+                            <md-icon md-svg-src="md-toggle-arrow" aria-label="label" style="transform: rotate(180deg);"></md-icon>
+                        </md-expansion-panel-collapsed>
+                        <md-expansion-panel-expanded>
+                            <md-expansion-panel-header md-no-sticky>
+                                <span class="md-title">{{cnt.title}}</span>
+                                <span flex></span>
+                                <md-icon md-svg-src="md-toggle-arrow" aria-label="label"></md-icon>
+                            </md-expansion-panel-header>
+                            <md-expansion-panel-content>
+                                <ng-form name="vm.cnt_form_{{$index}}" novalidate layout="row">
+                                    <md-input-container flex class="md-block" md-is-error="vm['cnt_form_'+$index].title.$invalid &&vm['cnt_form_'+$index].title.$dirty">
+                                        <label for="cnt-title-{{cnt.id}}">عنوان موقعیت</label>
+                                        <input autocomplete="off" type="text" name="title" required id="cnt-title-{{cnt.id}}" ng-model="cnt.title">
+                                        <div ng-messages="vm['cnt_form_'+$index].title.$error">
+                                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container flex class="md-block" md-is-error="vm['cnt_form_'+$index].handle.$invalid &&vm['cnt_form_'+$index].handle.$dirty">
+                                        <label for="cnt-title-{{cnt.id}}">دستگیره</label>
+                                        <input autocomplete="off" type="text" name="handle" ng-pattern="/^[a-zA-Z0-9_-]+$/" required id="cnt-title-{{cnt.id}}" ng-model="cnt.handle">
+                                        <div ng-messages="vm['cnt_form_'+$index].handle.$error">
+                                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                            <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                                        </div>
+                                    </md-input-container>
+                                </ng-form>
+
+
+                                <ul dnd-list="cnt.widgets" ng-show="!!cnt.id" dnd-drop="vm.ShowWidgetForm(event,item,index)">
+                                    <li ng-if="!cnt.widgets.length">
+                                        ابزارکی استفاده نشده
+                                    </li>
+                                    <li class="widget-item" dnd-draggable="widget" ng-repeat="widget in cnt.widgets" dnd-moved="cnt.widgets.splice($index, 1)"
+                                        layout="row">
+                                        <div class="widget-anchor">
+                                            <md-icon md-menu-origin md-svg-icon="anchor"></md-icon>
+                                        </div>
+                                        <p class="widget-title">{{widget.title}}
+                                            <span ng-if="isInRole('developer')" clipboard supported="supported"
+                                                text=" 'widget-' + widget.handle +'.liquid'" dnd-nodrag> -- {{widget.handle}}
+                                                <md-tooltip md-direction="top" class="md-title">کلیک کن handle تو کلیپ برد کپی شه</md-tooltip>
+                                            </span>
+                                        </p>
+                                        <span flex></span>
+
+                                        <md-button aria-label="ویرایش" ng-click="vm.showEditWidgetDialog(widget)" class="md-icon-button">
+                                            <md-icon md-menu-origin md-svg-icon="edit"></md-icon>
+                                            <md-tooltip md-direction="bottom">
+                                                ویرایش
+                                            </md-tooltip>
+                                        </md-button>
+                                        <md-button ng-if="isInRole('developer')" aria-label="حذف" ng-click="vm.showRemoveWidgetDialog(widget)" class="md-icon-button">
+                                            <md-icon md-menu-origin md-svg-icon="delete"></md-icon>
+                                            <md-tooltip md-direction="bottom">
+                                                حذف
+                                            </md-tooltip>
+                                        </md-button>
+                                    </li>
+                                </ul>
+
+
+                            </md-expansion-panel-content>
+
+
+                            <md-expansion-panel-footer md-no-sticky>
+                                <md-button ng-show="(!!cnt.id )" ng-disabled="vm['cnt_form_'+$index].$invalid" ng-click="vm.saveNewOrder()" class="md-warn"
+                                    aria-label="ذخیره تغییرات">
+                                    ذخیره تغییرات
+                                </md-button>
+                                <md-button ng-show="!cnt.id" ng-disabled="vm['cnt_form_'+$index].$invalid" ng-click="vm.saveNewCnt()" class="md-warn" aria-label="افزدن موقعیت">
+                                    افزدن موقعیت
+                                </md-button>
+                                |
+                                <md-button ng-show="!!cnt.id" ng-click="vm.removeContainer(cnt)" class="md-warn" aria-label="ذخیره تغییرات">
+                                    حذف موقعیت
+                                </md-button>
+                            </md-expansion-panel-footer>
+
+
+                        </md-expansion-panel-expanded>
+                    </md-expansion-panel>
+                </md-expansion-panel-group>
+            </div>
+        </div>
+    </div>
+</section>

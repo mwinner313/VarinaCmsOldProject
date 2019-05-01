@@ -1,0 +1,89 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <h1>
+        <md-icon md-svg-icon="edit"></md-icon>
+        ویرایش صفحه ثابت</h1>
+      <span flex></span>
+      <md-button class="md-fab" ng-click="vm.updatePage()">
+        <md-icon md-svg-icon="check-white"></md-icon>
+      </md-button>
+    
+    </div>
+  </md-toolbar>
+<md-content ng-keydown="($event.ctrlKey && $event.which==83) && ($event.preventDefault() ||vm.updatePage())" ng-scrollbars ng-scrollbars-config="scrollConfig" >
+   
+  <md-card  class="md-padding">
+   
+    <md-card-content>
+      <form name="vm.pageForm" novalidate layout-padding>
+
+        <input type="hidden" ng-model="vm.HasDifrentUrl">
+
+        <md-input-container class="md-block"  flex-gt-sm md-no-float md-is-error="(vm.pageForm.title.$invalid && (vm.pageForm.title.$dirty||vm.pageForm.$submitted))">
+          <p ng-class="{'has-error':(vm.pageForm.title.$invalid && (vm.pageForm.title.$dirty||vm.pageForm.$submitted))}">عنوان صفحه *</p>
+          <input autocomplete="off" ng-remote-data="{id:vm.page.id}" ng-remote-validate="/api/pagevalidator/existstitle"  ng-remote-throttle="800" type="text" ng-model="vm.page.title" name="title" ng-required="true" />
+          <p class="pull-left" ng-hide="vm.HasDifrentUrl || vm.pageForm.title.$invalid"> {{vm.page.title | permalink}} : مسیر <i class="fa fa-link"></i></p>
+          <md-button ng-click="vm.HasDifrentUrl=!vm.HasDifrentUrl" focus-on-click="urlSegment" ng-hide="vm.HasDifrentUrl || vm.pageForm.title.$invalid">
+            <i class="fa fa-edit"></i> ویرایش مسیر
+          </md-button>
+          <div ng-messages="vm.pageForm.title.$error" ng-show="vm.pageForm.title.$dirty">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+            <p ng-message="ngRemoteValidate">این عنوان در سیستم ثبت گردیده است</p>
+          </div>
+        </md-input-container>
+
+        <md-input-container ng-if="vm.HasDifrentUrl" class="md-block" flex-gt-sm md-no-float="true" md-is-error="(vm.pageForm.urlSegment.$invalid && (vm.pageForm.urlSegment.$dirty||vm.pageForm.$submitted))">
+          <p ng-class="{'has-error':(vm.pageForm.urlSegment.$invalid && (vm.pageForm.urlSegment.$dirty||vm.pageForm.$submitted))}">مسیر *</p>
+          <input type="text" ng-model="vm.page.urlSegment" name="urlSegment" ng-required="vm.HasDifrentUrl" />
+          <p class="pull-left" ng-hide="!vm.HasDifrentUrl || vm.pageForm.urlSegment.$invalid"> {{vm.page.urlSegment | permalink}} : مسیر <i class="fa fa-link"></i></p>
+          <md-button ng-click="vm.HasDifrentUrl=!vm.HasDifrentUrl;vm.page.urlSegment='';" focus-on-click="title" ng-hide="!vm.HasDifrentUrl">
+            <i class="fa fa-edit"></i> انصراف از ویرایش
+          </md-button>
+          <div ng-messages="vm.pageForm.urlSegment.$error" ng-show="vm.pageForm.title.$dirty">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm md-is-error="(vm.pageForm.publishDateTime.$invalid && (vm.pageForm.publishDateTime.$dirty||vm.pageForm.$submitted))">
+          <p ng-class="{'has-error':(vm.pageForm.publishDateTime.$invalid && (vm.pageForm.publishDateTime.$dirty||vm.pageForm.$submitted))}">تاریخ انتشار *</p>
+          <input persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.page.publishDateTime" name="publishDateTime"
+            ng-required="true" />
+          <div ng-messages="vm.pageForm.publishDateTime.$error">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+            <p ng-message="pattern" class="text-danger"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+
+          </div>
+        </md-input-container>
+
+
+
+        <md-input-container ng-if="vm.isInRole('developer')" class="md-block" flex-gt-sm md-is-error="(vm.pageForm.handle.$invalid && (vm.pageForm.handle.$dirty||vm.pageForm.$submitted))">
+          <p ng-class="{'has-error':(vm.pageForm.handle.$invalid && (vm.pageForm.handle.$dirty||vm.pageForm.$submitted))}">دستگیره *</p>
+          <input type="text" ng-model="vm.page.handle" name="handle" ng-required="true" />
+          <div ng-messages="vm.pageForm.handle.$error">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <p>توضیح مختصر :</p>
+          <textarea class="form-control" rows="5" ng-model="vm.page.description" name="description"></textarea>
+          <div ng-messages="vm.pageForm.description.$error" ng-show="vm.pageForm.description.$dirty">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <p>محتوای صفحه :</p>
+          <textarea class="form-control" ui-tinymce="vm.tinyMceOptions" ng-model="vm.page.htmlContent" name="htmlContent"></textarea>
+        </md-input-container>
+
+        <parent-selector model="vm.page" name="parent" input-placeholder="نام صفحه پدر را وارد کنید" data-service="pageDataService"
+          input-title="صفحه پدر">
+        </parent-selector>
+        <tag-input model="vm.page.tags"></tag-input>
+      </form>
+    </md-card-content>
+    </md-card-content>
+  </md-card>
+
+</md-content>

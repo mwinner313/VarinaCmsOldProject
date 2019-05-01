@@ -1,0 +1,180 @@
+﻿<error errorId="623a17cf-d1d0-46ee-9e53-04f89efcb46f" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="System.NullReferenceException" message="Object reference not set to an instance of an object." source="System.Data" detail="AutoMapper.AutoMapperMappingException: Error mapping types.&#xD;&#xA;&#xD;&#xA;Mapping types:&#xD;&#xA;User -&gt; UserLiquidViewModel&#xD;&#xA;VarinaCmsV2.DomainClasses.Users.User -&gt; VarinaCmsV2.ViewModel.User.Account.UserLiquidViewModel&#xD;&#xA;&#xD;&#xA;Type Map configuration:&#xD;&#xA;User -&gt; UserLiquidViewModel&#xD;&#xA;VarinaCmsV2.DomainClasses.Users.User -&gt; VarinaCmsV2.ViewModel.User.Account.UserLiquidViewModel&#xD;&#xA;&#xD;&#xA;Property:&#xD;&#xA;ShoppingCartItems ---&gt; AutoMapper.AutoMapperMappingException: Error mapping types.&#xD;&#xA;&#xD;&#xA;Mapping types:&#xD;&#xA;ShoppingCartItem -&gt; ShoppingCartItemLiquidViewModel&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Orders.ShoppingCartItem -&gt; VarinaCmsV2.ViewModel.User.ShoppingCartItemLiquidViewModel&#xD;&#xA;&#xD;&#xA;Type Map configuration:&#xD;&#xA;ShoppingCartItem -&gt; ShoppingCartItemLiquidViewModel&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Orders.ShoppingCartItem -&gt; VarinaCmsV2.ViewModel.User.ShoppingCartItemLiquidViewModel&#xD;&#xA;&#xD;&#xA;Property:&#xD;&#xA;Product ---&gt; AutoMapper.AutoMapperMappingException: Error mapping types.&#xD;&#xA;&#xD;&#xA;Mapping types:&#xD;&#xA;Product -&gt; ProductLiquidAdapter&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Product -&gt; VarinaCmsV2.ViewModel.Eshop.ProductLiquidAdapter&#xD;&#xA;&#xD;&#xA;Type Map configuration:&#xD;&#xA;Product -&gt; ProductLiquidAdapter&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Product -&gt; VarinaCmsV2.ViewModel.Eshop.ProductLiquidAdapter&#xD;&#xA;&#xD;&#xA;Property:&#xD;&#xA;RequiredProducts ---&gt; AutoMapper.AutoMapperMappingException: Error mapping types.&#xD;&#xA;&#xD;&#xA;Mapping types:&#xD;&#xA;Product -&gt; ProductLiquidAdapter&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Product -&gt; VarinaCmsV2.ViewModel.Eshop.ProductLiquidAdapter&#xD;&#xA;&#xD;&#xA;Type Map configuration:&#xD;&#xA;Product -&gt; ProductLiquidAdapter&#xD;&#xA;VarinaCmsV2.DomainClasses.Entities.EShop.Product -&gt; VarinaCmsV2.ViewModel.Eshop.ProductLiquidAdapter&#xD;&#xA;&#xD;&#xA;Property:&#xD;&#xA;ToUrl ---&gt; System.NullReferenceException: Object reference not set to an instance of an object.&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.Open()&#xD;&#xA;   at Glimpse.Ado.AlternateType.GlimpseDbConnection.Open()&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.&lt;Open&gt;b__36(DbConnection t, DbConnectionInterceptionContext c)&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)&#xD;&#xA;   at System.Data.Entity.Core.EntityClient.EntityConnection.&lt;Open&gt;b__2()&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.&lt;&gt;c__DisplayClass1.&lt;Execute&gt;b__0()&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)&#xD;&#xA;   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__5()&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()&#xD;&#xA;   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()&#xD;&#xA;   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.&lt;GetElementFunction&gt;b__3[TResult](IEnumerable`1 sequence)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)&#xD;&#xA;   at VarinaCmsV2.Web.RouteConstraints.ProductRouteConstraint.Match(HttpContextBase httpContext, Route route, String parameterName, RouteValueDictionary values, RouteDirection routeDirection) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\RouteConstraints\ProductRouteConstraint.cs:line 23&#xD;&#xA;   at System.Web.Routing.Route.ProcessConstraint(HttpContextBase httpContext, Object constraint, String parameterName, RouteValueDictionary values, RouteDirection routeDirection)&#xD;&#xA;   at Castle.Proxies.RouteProxy.ProcessConstraint_callback(HttpContextBase httpContext, Object constraint, String parameterName, RouteValueDictionary values, RouteDirection routeDirection)&#xD;&#xA;   at Castle.Proxies.Invocations.Route_ProcessConstraint.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.RouteProxy.ProcessConstraint(HttpContextBase httpContext, Object constraint, String parameterName, RouteValueDictionary values, RouteDirection routeDirection)&#xD;&#xA;   at System.Web.Routing.Route.ProcessConstraints(HttpContextBase httpContext, RouteValueDictionary values, RouteDirection routeDirection)&#xD;&#xA;   at System.Web.Routing.Route.GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)&#xD;&#xA;   at Castle.Proxies.RouteProxy.GetVirtualPath_callback(RequestContext requestContext, RouteValueDictionary values)&#xD;&#xA;   at Castle.Proxies.Invocations.Route_GetVirtualPath.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.RouteProxy.GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)&#xD;&#xA;   at System.Web.Routing.RouteCollection.GetVirtualPath(RequestContext requestContext, String name, RouteValueDictionary values)&#xD;&#xA;   at System.Web.Mvc.RouteCollectionExtensions.GetVirtualPathForArea(RouteCollection routes, RequestContext requestContext, String name, RouteValueDictionary values, Boolean&amp; usingAreas)&#xD;&#xA;   at System.Web.Mvc.UrlHelper.GenerateUrl(String routeName, String actionName, String controllerName, RouteValueDictionary routeValues, RouteCollection routeCollection, RequestContext requestContext, Boolean includeImplicitMvcValues)&#xD;&#xA;   at System.Web.Mvc.UrlHelper.GenerateUrl(String routeName, String actionName, String controllerName, String protocol, String hostName, String fragment, RouteValueDictionary routeValues, RouteCollection routeCollection, RequestContext requestContext, Boolean includeImplicitMvcValues)&#xD;&#xA;   at System.Web.Mvc.UrlHelper.RouteUrl(String routeName, Object routeValues, String protocol)&#xD;&#xA;   at System.Web.Mvc.UrlHelper.RouteUrl(String routeName, Object routeValues)&#xD;&#xA;   at VarinaCmsV2.Core.Logic.Web.UrlBuilding.ProductUrlBuilder.GenerateDefault(Product product) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core.Logic\Web\UrlBuilding\ProductUrlBuilder.cs:line 42&#xD;&#xA;   at VarinaCmsV2.Core.Logic.Web.UrlBuilding.ProductUrlBuilder.Generate(IUrlable item) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core.Logic\Web\UrlBuilding\ProductUrlBuilder.cs:line 29&#xD;&#xA;   at VarinaCmsV2.AutoMapperProfiles.Reslovers.CmsUrlBuilderResolver.Resolve(IUrlable source, IUrlableViewModel destination, String destMember, ResolutionContext context) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.AutoMapperProfiles\Reslovers\CmsUrlBuilderResolver.cs:line 18&#xD;&#xA;   at lambda_method(Closure , Product , ProductLiquidAdapter , ResolutionContext )&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at lambda_method(Closure , Product , ProductLiquidAdapter , ResolutionContext )&#xD;&#xA;   at AutoMapper.ResolutionContext.Map[TSource,TDestination](TSource source, TDestination destination)&#xD;&#xA;   at lambda_method(Closure , Object , Object , ResolutionContext )&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at lambda_method(Closure , Object , Object , ResolutionContext )&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at lambda_method(Closure , Object , Object , ResolutionContext )&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at lambda_method(Closure , Object , Object , ResolutionContext )&#xD;&#xA;   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)&#xD;&#xA;   at AutoMapper.Mapper.Map[TDestination](Object source)&#xD;&#xA;   at VarinaCmsV2.Core.Logic.Helpers.UserMapHelper.AsLiquidAdapted(User user) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core.Logic\Helpers\UserMapHelper.cs:line 37&#xD;&#xA;   at VarinaCmsV2.Web.Controllers.CartController.&lt;Index&gt;d__2.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\Controllers\CartController.cs:line 29&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass37.&lt;BeginInvokeAsynchronousActionMethod&gt;b__36(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="m.ghanbari01375@gmail.com" time="2017-12-18T07:38:18.3537676Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=4dWSkW3eY8XWxEgR5bxyiSsrQycSH_U7NuqzzNG8kC5WwMuQxIM9UG1J419n8jIQWSu1LozBVQlohvaxuwKRjWgTi1zNlWLbXZh8DetRECghi7iam87-UxVJzbk21XOW-Z1eGgIkOp5Dzl7CsUijLh3a9HiSHMRmGgXFYSKVN9cwiOb8yX61hifSf8kDK8EAxSHklRXH-K4ILxYsDpVvwnOLOmja5DMcXEAw14Ka8ezEScnXF4zSezLjuJd-Ed1Oy0bE2hHbOEK17hCsYP2Gko2FapT-b3aFQhgp6kxr0pg_H4L8oqjQcavX7TaMFNPSVHzi_bt-Vb3UkLdlvBbV6GlklkxNJu7DEE54j57abmv1aiV6caaqQHmUAi9VegOTpxZFx4a8zgO6TrMfSxXyh25GRK3VtWD8_9ozzuleSv9Yg3I6CoOtauZz2JhKKWuNNDFVd2ITVr9uapemIyf2P1xOlPJttSCTc0PiyaIB1J5GOulainAgYbHjXisoCQVGrstuHz9rsrfdF4XHSeNc-QsTDHN4Y_EFkqgpHdD_EYOQMx7kbiR2MgqjEC_4tEb360RCXHcvqKthRDjk3VMnwJZKudJ8blZrjzFN-mdBPj2Vcijly6DLJAsOCtWcs8nE3jzUGEbA0IVsnjZ7dXXE6IC5PTdhZPvYEGU8B41ha2tFyLfVc_CYKHNHbmgthiRpeJhwKCk5vtVPn4T25KTbqzievJEI4n8LCscawEvimEk&#xD;&#xA;HTTP_HOST:localhost:21217&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=4dWSkW3eY8XWxEgR5bxyiSsrQycSH_U7NuqzzNG8kC5WwMuQxIM9UG1J419n8jIQWSu1LozBVQlohvaxuwKRjWgTi1zNlWLbXZh8DetRECghi7iam87-UxVJzbk21XOW-Z1eGgIkOp5Dzl7CsUijLh3a9HiSHMRmGgXFYSKVN9cwiOb8yX61hifSf8kDK8EAxSHklRXH-K4ILxYsDpVvwnOLOmja5DMcXEAw14Ka8ezEScnXF4zSezLjuJd-Ed1Oy0bE2hHbOEK17hCsYP2Gko2FapT-b3aFQhgp6kxr0pg_H4L8oqjQcavX7TaMFNPSVHzi_bt-Vb3UkLdlvBbV6GlklkxNJu7DEE54j57abmv1aiV6caaqQHmUAi9VegOTpxZFx4a8zgO6TrMfSxXyh25GRK3VtWD8_9ozzuleSv9Yg3I6CoOtauZz2JhKKWuNNDFVd2ITVr9uapemIyf2P1xOlPJttSCTc0PiyaIB1J5GOulainAgYbHjXisoCQVGrstuHz9rsrfdF4XHSeNc-QsTDHN4Y_EFkqgpHdD_EYOQMx7kbiR2MgqjEC_4tEb360RCXHcvqKthRDjk3VMnwJZKudJ8blZrjzFN-mdBPj2Vcijly6DLJAsOCtWcs8nE3jzUGEbA0IVsnjZ7dXXE6IC5PTdhZPvYEGU8B41ha2tFyLfVc_CYKHNHbmgthiRpeJhwKCk5vtVPn4T25KTbqzievJEI4n8LCscawEvimEk&#xD;&#xA;Host: localhost:21217&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/cart" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\cart" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="2439" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/cart" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/cart" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=4dWSkW3eY8XWxEgR5bxyiSsrQycSH_U7NuqzzNG8kC5WwMuQxIM9UG1J419n8jIQWSu1LozBVQlohvaxuwKRjWgTi1zNlWLbXZh8DetRECghi7iam87-UxVJzbk21XOW-Z1eGgIkOp5Dzl7CsUijLh3a9HiSHMRmGgXFYSKVN9cwiOb8yX61hifSf8kDK8EAxSHklRXH-K4ILxYsDpVvwnOLOmja5DMcXEAw14Ka8ezEScnXF4zSezLjuJd-Ed1Oy0bE2hHbOEK17hCsYP2Gko2FapT-b3aFQhgp6kxr0pg_H4L8oqjQcavX7TaMFNPSVHzi_bt-Vb3UkLdlvBbV6GlklkxNJu7DEE54j57abmv1aiV6caaqQHmUAi9VegOTpxZFx4a8zgO6TrMfSxXyh25GRK3VtWD8_9ozzuleSv9Yg3I6CoOtauZz2JhKKWuNNDFVd2ITVr9uapemIyf2P1xOlPJttSCTc0PiyaIB1J5GOulainAgYbHjXisoCQVGrstuHz9rsrfdF4XHSeNc-QsTDHN4Y_EFkqgpHdD_EYOQMx7kbiR2MgqjEC_4tEb360RCXHcvqKthRDjk3VMnwJZKudJ8blZrjzFN-mdBPj2Vcijly6DLJAsOCtWcs8nE3jzUGEbA0IVsnjZ7dXXE6IC5PTdhZPvYEGU8B41ha2tFyLfVc_CYKHNHbmgthiRpeJhwKCk5vtVPn4T25KTbqzievJEI4n8LCscawEvimEk" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:21217" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="4dWSkW3eY8XWxEgR5bxyiSsrQycSH_U7NuqzzNG8kC5WwMuQxIM9UG1J419n8jIQWSu1LozBVQlohvaxuwKRjWgTi1zNlWLbXZh8DetRECghi7iam87-UxVJzbk21XOW-Z1eGgIkOp5Dzl7CsUijLh3a9HiSHMRmGgXFYSKVN9cwiOb8yX61hifSf8kDK8EAxSHklRXH-K4ILxYsDpVvwnOLOmja5DMcXEAw14Ka8ezEScnXF4zSezLjuJd-Ed1Oy0bE2hHbOEK17hCsYP2Gko2FapT-b3aFQhgp6kxr0pg_H4L8oqjQcavX7TaMFNPSVHzi_bt-Vb3UkLdlvBbV6GlklkxNJu7DEE54j57abmv1aiV6caaqQHmUAi9VegOTpxZFx4a8zgO6TrMfSxXyh25GRK3VtWD8_9ozzuleSv9Yg3I6CoOtauZz2JhKKWuNNDFVd2ITVr9uapemIyf2P1xOlPJttSCTc0PiyaIB1J5GOulainAgYbHjXisoCQVGrstuHz9rsrfdF4XHSeNc-QsTDHN4Y_EFkqgpHdD_EYOQMx7kbiR2MgqjEC_4tEb360RCXHcvqKthRDjk3VMnwJZKudJ8blZrjzFN-mdBPj2Vcijly6DLJAsOCtWcs8nE3jzUGEbA0IVsnjZ7dXXE6IC5PTdhZPvYEGU8B41ha2tFyLfVc_CYKHNHbmgthiRpeJhwKCk5vtVPn4T25KTbqzievJEI4n8LCscawEvimEk" />
+    </item>
+  </cookies>
+</error>

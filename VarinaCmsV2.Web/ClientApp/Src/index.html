@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head ng-cloak>
+  <base href="/panel/" />
+  <!-- need to end with => /-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Styles -->
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title ng-bind-template="{{title||'پنل مدیریت'}}">پنل مدیریت</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/persian-datepicker/dist/css/persian-datepicker-0.4.5.min.css" />
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../bower_components/mobile-drag-drop/release/default.css" />
+  <link rel="stylesheet" href="../bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+  <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+  <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog.css" />
+  <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-icons/angular-material-icons.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-data-table/dist/md-data-table.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-sidemenu/dest/angular-material-sidemenu.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-sidenav/angular-material-sidenav.css" />
+  <link rel="stylesheet" href="../bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
+  <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-accordion/dist/angular-material-accordion.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material-expansion-panel/dist/md-expansion-panel.css" />
+  <link rel="stylesheet" href="../bower_components/codemirror/lib/codemirror.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/Src/style.css">
+  <link rel="stylesheet" href="/Src/Html/material.css">
+  <link rel="stylesheet" href="/Src/Html/show-hint.css">
+  <!-- endinject -->
+
+
+</head>
+
+<body ng-cloak layout="column">
+  <md-content layout="row" flex>
+    <ng-include replace src="'/Src/app/partials/sideNav.html'"></ng-include>
+    <md-content layout="column" flex id="page-content" style=" position: relative;">
+      <ng-include replace src="'/Src/app/partials/main-toolbar.html'"></ng-include>
+        <ui-view loading-bar>
+        </ui-view>
+    </md-content>
+  </md-content>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl-EDTJ5_uU3zBIX7-wNTu-qSZr1DO5Dw" async
+  defer></script>
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/persian-date/dist/0.1.8/persian-date-0.1.8.min.js"></script>
+  <script src="../bower_components/persian-datepicker/dist/js/persian-datepicker-0.4.5.min.js"></script>
+  <script src="../bower_components/mobile-drag-drop/release/index.js"></script>
+  <script src="../bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="../bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/tinymce/tinymce.min.js"></script>
+  <script src="../bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../bower_components/ngstorage/ngStorage.js"></script>
+  <script src="../bower_components/angular-messages/angular-messages.js"></script>
+  <script src="../bower_components/ng-dialog/js/ngDialog.js"></script>
+  <script src="../bower_components/angular-aria/angular-aria.js"></script>
+  <script src="../bower_components/angular-material/angular-material.js"></script>
+  <script src="../bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+  <script src="../bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+  <script src="../bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+  <script src="../bower_components/angular-translate/angular-translate.js"></script>
+  <script src="../bower_components/ng-lodash/build/ng-lodash.js"></script>
+  <script src="../bower_components/angular-material-sidemenu/dest/angular-material-sidemenu.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="../bower_components/angular-resource/angular-resource.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular-material-sidenav/angular-material-sidenav.js"></script>
+  <script src="../bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+  <script src="../bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+  <script src="../bower_components/angular-material-accordion/dist/angular-material-accordion.js"></script>
+  <script src="../bower_components/angular-material-expansion-panel/dist/md-expansion-panel.js"></script>
+  <script src="../bower_components/angular-filesize-filter/angular-filesize-filter.js"></script>
+  <script src="../bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="../bower_components/angular-nicescroll/angular-nicescroll.js"></script>
+  <script src="../bower_components/angular-clipboard/angular-clipboard.js"></script>
+  <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+  <script src="../bower_components/codemirror/lib/codemirror.js"></script>
+  <script src="../bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+  <script src="../bower_components/ng-remote-validate/release/ngRemoteValidate.js"></script>
+  <script src="../bower_components/chart.js/dist/Chart.js"></script>
+  <script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
+  <script src="../bower_components/angular-fixed-table-header/src/fixed-table-header.js"></script>
+  <!-- endbower -->
+
+  <!-- inject:js -->
+  <script src="/Src/app/app.js"></script>
+  <script src="/Src/app/components/notifications/components/notSeenFormsComponent.js"></script>
+  <script src="/Src/app.core/app.core.js"></script>
+  <script src="/Src/app.core/directives/SearchDialog/dialogController.js"></script>
+  <script src="/Src/app.core/directives/loading/loadingBarDirective.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/userProfileWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/social_linkWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/productWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/productCategoryWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/pageWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/menuWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/htmlWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/entityWidgetCtrl.js"></script>
+  <script src="/Src/app/widgets/availibleWidgets/categoryWidgetCrtl.js"></script>
+  <script src="/Src/app/fileManager/plugins/resizedImagesComponnet.js"></script>
+  <script src="/Src/app/eshop/products/productUiHelper.js"></script>
+  <script src="/Src/app/eshop/products/productsListCtrl.js"></script>
+  <script src="/Src/app/eshop/products/productPickerCtrl.js"></script>
+  <script src="/Src/app/eshop/products/productEditCtrl.js"></script>
+  <script src="/Src/app/eshop/products/productAddCtrl.js"></script>
+  <script src="/Src/app/eshop/productCategory/productCategoryUpdateCtrl.js"></script>
+  <script src="/Src/app/eshop/productCategory/productCategoryAddCtrl.js"></script>
+  <script src="/Src/app/eshop/productCategory/productCategoriesCtrl.js"></script>
+  <script src="/Src/app/eshop/orders/OrderListCtrl.js"></script>
+  <script src="/Src/app/eshop/orders/OrderItemDetailCtrl.js"></script>
+  <script src="/Src/app/eshop/orders/OrderDetailCtrl.js"></script>
+  <script src="/Src/app/eshop/discounts/DiscountListCtrl.js"></script>
+  <script src="/Src/app/eshop/discounts/DiscountDetailsCtrl.js"></script>
+  <script src="/Src/app/eshop/discounts/DiscountAddCtrl.js"></script>
+  <script src="/Src/app/directives/inputs/tagsInputDirective.js"></script>
+  <script src="/Src/app/directives/inputs/primaryCategorySelector.js"></script>
+  <script src="/Src/app/directives/inputs/parentSelectorDirective.js"></script>
+  <script src="/Src/app/directives/inputs/listSelector.js"></script>
+  <script src="/Src/app/directives/fields/textFieldComponent.js"></script>
+  <script src="/Src/app/directives/fields/numberFieldComponent.js"></script>
+  <script src="/Src/app/directives/fields/imageFieldComponent.js"></script>
+  <script src="/Src/app/directives/fields/htmlContentComponent.js"></script>
+  <script src="/Src/app/directives/fields/dropDownComponent.js"></script>
+  <script src="/Src/app/directives/fields/datetimeFieldComponent.js"></script>
+  <script src="/Src/app/directives/fieldConfiguration/dropDownFieldConfiguraion.js"></script>
+  <script src="/Src/app/dashboard/components/WebSiteUserRegisterChart.js"></script>
+  <script src="/Src/app/dashboard/components/OrderTotalTableCompenent.js"></script>
+  <script src="/Src/app/dashboard/components/OrdersChart.js"></script>
+  <script src="/Src/app/dashboard/components/CommonStatisticsComponent.js"></script>
+  <script src="/Src/app/dashboard/components/BestSellingsComponent.js"></script>
+  <script src="/Src/app/components/notifications/notificationsDialogCtrl.js"></script>
+  <script src="/Src/app/components/notifications/notificationCenter.js"></script>
+  <script src="/Src/app.core/services/guid.js"></script>
+  <script src="/Src/app.core/services/arrayFlatter.js"></script>
+  <script src="/Src/app.core/moduleOptions/tinyMceOptions.js"></script>
+  <script src="/Src/app.core/moduleOptions/fileManagerOptions.js"></script>
+  <script src="/Src/app.core/moduleOptions/codemirrorOptions.js"></script>
+  <script src="/Src/app.core/filters/strlimit.js"></script>
+  <script src="/Src/app.core/filters/persianDateFilter.js"></script>
+  <script src="/Src/app.core/filters/permalink.js"></script>
+  <script src="/Src/app.core/filters/highlight.js"></script>
+  <script src="/Src/app.core/filters/dashremove.js"></script>
+  <script src="/Src/app.core/directives/setFocusDirective.js"></script>
+  <script src="/Src/app.core/directives/rightClick.js"></script>
+  <script src="/Src/app.core/directives/persianDatePickerDirective.js"></script>
+  <script src="/Src/app.core/directives/niceScrollDirective.js"></script>
+  <script src="/Src/app.core/directives/NgEnterDirective.js"></script>
+  <script src="/Src/app.core/directives/mobileDbClick.js"></script>
+  <script src="/Src/app.core/directives/include-replaceDirective.js"></script>
+  <script src="/Src/app.core/directives/dragover.js"></script>
+  <script src="/Src/app.core/directives/compare.js"></script>
+  <script src="/Src/app.core/consts/timeRange.js"></script>
+  <script src="/Src/app.core/consts/orderOption.js"></script>
+  <script src="/Src/app/widgets/widgetCtrl.js"></script>
+  <script src="/Src/app/userProfile/userProfileCtrl.js"></script>
+  <script src="/Src/app/userManagement/userManagementCtrl.js"></script>
+  <script src="/Src/app/userManagement/userEditCtrl.js"></script>
+  <script src="/Src/app/userManagement/userAddCtrl.js"></script>
+  <script src="/Src/app/setting/WebSiteProductEditorSettingCtrl.js"></script>
+  <script src="/Src/app/setting/WebSitePoliciesCtrl.js"></script>
+  <script src="/Src/app/setting/WebSiteBasicInformationCtrl.js"></script>
+  <script src="/Src/app/setting/ShaprakGateWaySettingCtrl.js"></script>
+  <script src="/Src/app/setting/SettingCtrl.js"></script>
+  <script src="/Src/app/plugins/imagePlugin.js"></script>
+  <script src="/Src/app/partials/SideNavCtrl.js"></script>
+  <script src="/Src/app/partials/MainToolbarCtrl.js"></script>
+  <script src="/Src/app/partials/bottomSheetCtrl.js"></script>
+  <script src="/Src/app/pages/pagesCtrl.js"></script>
+  <script src="/Src/app/pages/page.updateCtrl.js"></script>
+  <script src="/Src/app/pages/page.addCtrl.js"></script>
+  <script src="/Src/app/menu/MenusCtrl.js"></script>
+  <script src="/Src/app/menu/menuItemPluginComponents.js"></script>
+  <script src="/Src/app/formSchemes/formShemeAddCtrl.js"></script>
+  <script src="/Src/app/formSchemes/formSchemeUpdateCtrl.js"></script>
+  <script src="/Src/app/formSchemes/formSchemeCtrl.js"></script>
+  <script src="/Src/app/forms/formsCtrl.js"></script>
+  <script src="/Src/app/forms/FormDetailsCtrl.js"></script>
+  <script src="/Src/app/filters/targetTypeFilter.js"></script>
+  <script src="/Src/app/filters/orderStatuses..js"></script>
+  <script src="/Src/app/filters/fileType.js"></script>
+  <script src="/Src/app/filters/fieldPreviewFilter.js"></script>
+  <script src="/Src/app/filters/discountTypes.js"></script>
+  <script src="/Src/app/fieldOrganizer/fieldsOrganizer.js"></script>
+  <script src="/Src/app/fileManager/fileUploadCtrl.js"></script>
+  <script src="/Src/app/fileManager/FileManagerCtrl.js"></script>
+  <script src="/Src/app/fileManager/FileEditCtrl.js"></script>
+  <script src="/Src/app/fieldDefenition/fieldDefenitionComponet.js"></script>
+  <script src="/Src/app/fieldDefenition/fdUpdateCtrl.js"></script>
+  <script src="/Src/app/entitySchemes/schemesCtrl.js"></script>
+  <script src="/Src/app/entitySchemes/scheme.update.ctrl.js"></script>
+  <script src="/Src/app/entitySchemes/scheme.addCtrl.js"></script>
+  <script src="/Src/app/entityCategories/entityCategoryUpdateCtrl.js"></script>
+  <script src="/Src/app/entityCategories/entityCategoryAddCtrl.js"></script>
+  <script src="/Src/app/entityCategories/entityCategories.js"></script>
+  <script src="/Src/app/entities/entity.updateCtrl.js"></script>
+  <script src="/Src/app/entities/entity.addCtrl.js"></script>
+  <script src="/Src/app/entities/entitiesCtrl.js"></script>
+  <script src="/Src/app/directives/fieldFactoryDirective.js"></script>
+  <script src="/Src/app/directives/fieldConfigurationFactory.js"></script>
+  <script src="/Src/app/dataServices/widgetDataSrv.js"></script>
+  <script src="/Src/app/dataServices/widgetContainerDataSrv.js"></script>
+  <script src="/Src/app/dataServices/userDataSrv.js"></script>
+  <script src="/Src/app/dataServices/tagDataService.js"></script>
+  <script src="/Src/app/dataServices/settingSrv.js"></script>
+  <script src="/Src/app/dataServices/schemeDataService.js"></script>
+  <script src="/Src/app/dataServices/roleSrv.js"></script>
+  <script src="/Src/app/dataServices/productSrv.js"></script>
+  <script src="/Src/app/dataServices/ProductCategorySrv.js"></script>
+  <script src="/Src/app/dataServices/pageDataService.js"></script>
+  <script src="/Src/app/dataServices/orderSrv.js"></script>
+  <script src="/Src/app/dataServices/menuDataSrv.js"></script>
+  <script src="/Src/app/dataServices/languageDataService.js"></script>
+  <script src="/Src/app/dataServices/formSchemeDataSrv.js"></script>
+  <script src="/Src/app/dataServices/formDataSrv.js"></script>
+  <script src="/Src/app/dataServices/fileDataSrv.js"></script>
+  <script src="/Src/app/dataServices/fdDataService.js"></script>
+  <script src="/Src/app/dataServices/entityDataService.js"></script>
+  <script src="/Src/app/dataServices/discountSrv.js"></script>
+  <script src="/Src/app/dataServices/dashBoardWidgetSrv.js"></script>
+  <script src="/Src/app/dataServices/commentDataService.js"></script>
+  <script src="/Src/app/dataServices/categoryDataService.js"></script>
+  <script src="/Src/app/dashboard/DashboardCtrl.js"></script>
+  <script src="/Src/app/comments/CommentsCtrl.js"></script>
+  <script src="/Src/app/comments/commentDetail,.js"></script>
+  <script src="/Src/Html/xml.js"></script>
+  <script src="/Src/Html/show-hint.js"></script>
+  <script src="/Src/Html/javascript.js"></script>
+  <script src="/Src/Html/javascript-hint.js"></script>
+  <script src="/Src/app.core/app.core.config.js"></script>
+  <script src="/Src/app/unAuthorizeInterceptor.js"></script>
+  <script src="/Src/app/requestLangageInterceptor.js"></script>
+  <script src="/Src/app/app.values.js"></script>
+  <script src="/Src/app/app.start.js"></script>
+  <script src="/Src/app/app.schemeTypes.js"></script>
+  <script src="/Src/app/app.routes.js"></script>
+  <script src="/Src/app/app.identityManager.js"></script>
+  <script src="/Src/app/app.fieldTypes.js"></script>
+  <script src="/Src/app/app.consts.js"></script>
+  <script src="/Src/app/app.config.js"></script>
+  <script src="/Src/app/app.bottomSheetOptions.js"></script>
+  <script src="/Src/app/app.api.consts.js"></script>
+  <script src="/Src/index.js"></script>
+  <script src="/Src/html-hint.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

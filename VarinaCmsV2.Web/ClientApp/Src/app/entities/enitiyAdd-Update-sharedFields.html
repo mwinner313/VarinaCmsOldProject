@@ -1,0 +1,58 @@
+<md-whiteframe style="background-color: rgba(224, 226, 229, 0.14);" class="md-whiteframe-4dp" flex layout="row" layout-padding>
+    <div flex>
+        <md-input-container class="md-block" flex-gt-sm md-no-float>
+           <label for=""> عنوان</label>
+            <input ng-remote-validate="/api/EntityValidator/ExistsTitle"
+            ng-remote-throttle="800"
+            ng-remote-data="{id:vm.entity.id,schemeId:vm.entity.schemeId}"
+            autocomplete="off" type="text" ng-model="vm.entity.title" name="title" ng-required="true" />
+            <p class="pull-left" ng-hide="vm.HasDifrentUrl || vm.entityForm.title.$invalid"> {{(vm.entity.url || vm.entity.title) | permalink}} : مسیر
+                <i class="fa fa-link"></i>
+            </p>
+            <md-button ng-click="vm.HasDifrentUrl=!vm.HasDifrentUrl" focus-on-click="url" ng-hide="vm.HasDifrentUrl || vm.entityForm.title.$invalid">
+                <i class="fa fa-edit"></i> ویرایش مسیر
+            </md-button>
+            <div ng-messages="vm.entityForm.title.$error" ng-show="vm.entityForm.title.$dirty">
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                <p ng-message="ngRemoteValidate">این عنوان در سیستم ثبت گردیده است</p>
+            </div>
+        </md-input-container>
+        <md-input-container ng-show="vm.HasDifrentUrl" class="md-block" flex-gt-sm md-no-float="true" md-is-error="(vm.entityForm.url.$invalid && (vm.entityForm.url.$dirty||vm.entityForm.$submitted))">
+            <p ng-class="{'has-error':(vm.entityForm.url.$invalid && (vm.entityForm.url.$dirty||vm.entityForm.$submitted))}">مسیر </p>
+            <input type="text" ng-model="vm.entity.url" name="url" ng-required="vm.HasDifrentUrl" />
+            <p class="pull-left" ng-hide="!vm.HasDifrentUrl || vm.entityForm.url.$invalid"> {{vm.entity.url | permalink}} : مسیر
+                <i class="fa fa-link"></i>
+            </p>
+            <md-button ng-click="vm.HasDifrentUrl=!vm.HasDifrentUrl;vm.entity.url='';" focus-on-click="title" ng-hide="!vm.HasDifrentUrl">
+                <i class="fa fa-edit"></i> انصراف از ویرایش
+            </md-button>
+            <div ng-messages="vm.entityForm.url.$error" ng-show="vm.entityForm.title.$dirty">
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+            </div>
+        </md-input-container>
+
+        <md-checkbox ng-model='vm.entity.isVisible' aria-label="Checkbox 1">
+            نمایش داده شود
+        </md-checkbox>
+
+        <tag-input scheme="vm.scheme" model="vm.entity.tags" flex></tag-input>
+
+        <list-selector service="categoryDataService" prop="displayName" flex req-params="vm.secondaryCatParams" model="vm.entity.relatedCategories"></list-selector>
+
+    </div>
+
+    <div flex flex-gt-md="40" layout-padding>
+        <md-input-container class="md-block" flex>
+            <md-icon md-svg-icon="date" ></md-icon>
+            <label for="">تاریخ انتشار</label>
+            <input autocomplete="off" type="text" ng-pattern="::vm.datetimeRegex" persian-date ng-model="vm.entity.publishDateTime" name="publishDateTime"
+                required/>
+            <div ng-messages="vm.entityForm.publishDateTime.$error">
+                <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+            </div>
+        </md-input-container>
+        <primary-category-selector service='categoryDataService' before-select="vm.confirmCategoryChange()" on-select="vm.refreshPcatFdsForEntity()" flex model="vm.entity"
+            name="primaryCategory" form="vm.entityForm" input-placeholder="دسته بندی اصلی را انتخاب کنید" scheme="vm.scheme"></primary-category-selector>
+    </div>
+</md-whiteframe>

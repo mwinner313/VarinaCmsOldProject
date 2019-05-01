@@ -1,0 +1,57 @@
+<md-card layout-padding layout="row" layout-align="center center">
+        
+                        <div layout="column">
+                            <span class="md-title" style="margin-bottom: 15px;">
+                                ترتیب بارگذاری
+                            </span>
+                            <md-radio-group class="grouped-opts" ng-model="vm.widget.metaData.orderOption">
+                                <md-radio-button ng-value="vm.orderOption.random">
+                                    تصادفی
+                                </md-radio-button>
+                                <md-radio-button ng-value="vm.orderOption.byDateDecending">
+                                    بر حسب تاریخ انتشار
+                                </md-radio-button>
+                                <md-radio-button ng-value="vm.orderOption.visitNumber">
+                                    بر حسب تعداد مشاهده
+                                </md-radio-button>
+                                <md-radio-button ng-value="vm.orderOption.likesCount">
+                                    بر حسب محبوبیت
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <span flex="20"></span>
+                        <div>
+                            <span class="md-title" style="margin-bottom: 15px;">
+                                بازه زمانی
+                            </span>
+                            <md-radio-group  ng-model="vm.widget.metaData.timeRange">
+                                <div layout="row" class="grouped-opts" layout-padding>
+                                    <div layout="column">
+                                        <md-radio-button ng-value="vm.timeRange.oneMonth">
+                                            یکماه
+                                        </md-radio-button>
+                                        <md-radio-button ng-value="vm.timeRange.twoMonth">
+                                            دو ماه
+                                        </md-radio-button>
+                                        <md-radio-button ng-value="vm.timeRange.threeMonth">
+                                            سه ماه
+                                        </md-radio-button>
+                                    </div>
+                                    <div layout="column">
+                                        <md-radio-button ng-value="vm.timeRange.oneWeek">
+                                            یک هفته
+                                        </md-radio-button>
+                                        <md-radio-button ng-value="vm.timeRange.twoWeek">
+                                            دو هفته
+                                        </md-radio-button>
+                                        <md-radio-button ng-value="vm.timeRange.threeWeek">
+                                            سه هفته
+                                        </md-radio-button>
+                                        <md-radio-button ng-value="vm.timeRange.unlimited">
+                                          بازه زمانی اعمال نشود
+                                        </md-radio-button>
+                                    </div>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                    </md-card>

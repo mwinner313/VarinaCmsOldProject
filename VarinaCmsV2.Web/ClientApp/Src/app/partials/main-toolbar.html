@@ -1,0 +1,29 @@
+<md-toolbar class="md-hue-2 fixed-header" ng-controller="MailTollbarCtrl as vm">
+  <div class="md-toolbar-tools" laoyut="column" layout-xs="row">
+    <md-button  ng-click="$mdSidenav('right').toggle()" hide-gt-sm class="md-icon-button">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <md-icon class="tool-bar-icon" md-svg-icon="{{icon}}"></md-icon>
+  {{title}}
+    <span flex></span>
+    <input hide-xs hide-sm type="text"  flex placeholder="جستجو" class="main-toolbar-search">
+    <p class="badge">{{currentLang}}</p>
+    <md-menu>
+      <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+        <md-icon md-menu-origin md-svg-src="/Src/Html/svg/planet-earth.svg"></md-icon>
+        <md-tooltip style="font-size:17px" md-direction="bottom">
+          زبان
+        </md-tooltip>
+      </md-button>
+      <md-menu-content width="4" dir="rtl">
+        <md-menu-item ng-repeat="lang in languages">
+          <md-button ng-click="changeCurrentLang(lang)">
+            {{lang.name}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+    
+    <notification-center></notification-center>
+  </div>
+</md-toolbar>

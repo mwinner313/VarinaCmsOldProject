@@ -1,0 +1,87 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <span>حساب من</span>
+        <span flex></span>
+
+    </div>
+</md-toolbar>
+<div ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <md-tabs dir="rtl" md-dynamic-height md-border-bottom>
+        <md-tab label="اطلاعات کلی">
+            <md-card layout-padding>
+                <form novalidate name="vm.userInfoForm" layout="column">
+                    <md-input-container>
+                        <label for="name">نام من در سایت</label>
+                        <input flex-gt-md="40" type="text" name="name" required ng-model="vm.userInfo.name">
+                        <div ng-messages='vm.userInfoForm.name.$error'>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+    
+                    <md-input-container>
+                        <label for='descrition'>درباره من</label>
+                        <textarea rows="4" name='descrition' ng-model='vm.userInfo.description'></textarea>
+                        <div ng-messages='vm.userInfoForm.description.$error'>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+    
+                </form>
+    
+                <md-card-actions dir="ltr">
+                    <md-button ng-click="vm.changeInfo()" class="md-fab down-edge">
+                        <md-icon md-svg-icon="check-white"></md-icon>
+                        <md-tooltip>ویرایش</md-tooltip>
+                    </md-button>
+                </md-card-actions>
+    
+            </md-card>
+        </md-tab>
+    
+        <md-tab label="تغییر رمز عبور">
+            <md-card layout-padding>
+                <form novalidate name="vm.changePasswordForm" layout="column">
+                    <md-input-container>
+                        <label for='currentPassword'>رمز عبور فعلی</label>
+                        <input type='text' name='currentPassword' required ng-model='vm.changePasswordModel.currentPassword'>
+                        <div ng-messages='vm.changePasswordForm.currentPassword.$error'>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+    
+                    <md-input-container>
+                        <label for='newPassword'>رمز عبور جدید</label>
+                        <input type='text' name='newPassword' required ng-model='vm.changePasswordModel.NewPassword'>
+                        <div ng-messages='vm.changePasswordForm.newPassword.$error'>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+    
+                    <md-input-container>
+                        <label for='confirmPassword'>تکرار رمز عبور جدید</label>
+                        <input type='text' name='confirmPassword' compare="vm.changePasswordModel.NewPassword" required ng-model='vm.changePasswordModel.confirmPassword'>
+                        <div ng-messages='vm.changePasswordForm.confirmPassword.$error'>
+                            <p ng-message="match">تکرار رمز عبور صحیح نمیباشد</p>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+                </form>
+    
+                <md-card-actions dir="ltr">
+                    <md-button ng-click="vm.changePassword()" class="md-fab down-edge">
+                        <md-icon md-svg-icon="check-white"></md-icon>
+                        <md-tooltip>ویرایش</md-tooltip>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </md-tab>
+        <md-tab label="عکس پروفایل">
+                <md-button class="md-raised" ng-click="vm.triggerFilePickerClick()">تغییر</md-button>
+                <input type="file" accept="image/*" id="filepicker" nv-file-select uploader="vm.userAvatarUploader" class="ng-hide">
+          
+            <md-card style="width: 400px;height:500px;">
+                <img style="width: 400px;height:500px;" class="md-card-image" alt="{{vm.userInfo.avatarPath}}" src="http://localhost:21217{{vm.userInfo.avatarPath}}">
+            </md-card>
+        </md-tab>
+    </md-tabs>
+</div>

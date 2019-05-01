@@ -1,0 +1,122 @@
+<section ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <div style="height: 20px"></div>
+    <div style="margin: 5px">
+
+        <md-expansion-panel class="dashboard-widget-box" dir="rtl" md-component-id="statistics">
+            <md-expansion-panel-collapsed>
+                <md-icon style="margin:10px 0px 0px 10px" md-svg-icon="statistics"></md-icon>
+                <div class="md-title">آمار کلی</div>
+                <span flex></span>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-collapsed>
+            <md-expansion-panel-expanded>
+                <md-expansion-panel-header ng-click="$panel.collapse()">
+                    <md-icon style="margin:0px 0px 0px 10px" md-svg-icon="statistics"></md-icon>
+                    <div class="md-title">آمار کلی</div>
+                    <span flex></span>
+                    <md-expansion-panel-icon></md-expansion-panel-icon>
+                </md-expansion-panel-header>
+                <md-expansion-panel-content layout="row">
+                    <common-statistics flex widget-datas="vm.widgetsData" />
+                </md-expansion-panel-content>
+            </md-expansion-panel-expanded>
+        </md-expansion-panel>
+
+        <div layout="row">
+            <div flex>
+
+                <md-expansion-panel class="dashboard-widget-box" dir="rtl" md-component-id="chart">
+                    <md-expansion-panel-collapsed>
+                        <md-icon style="margin:10px 0px 0px 10px" md-svg-icon="growth"></md-icon>
+                        <div class="md-title">نمودار سفارشات</div>
+                        <span flex></span>
+                        <md-expansion-panel-icon></md-expansion-panel-icon>
+                    </md-expansion-panel-collapsed>
+                    <md-expansion-panel-expanded>
+                        <md-expansion-panel-header ng-click="$panel.collapse()">
+                            <md-icon style="margin:0px 0px 0px 10px" md-svg-icon="growth"></md-icon>
+                            <div class="md-title">نمودار سفارشات</div>
+                            <span flex></span>
+                            <md-expansion-panel-icon></md-expansion-panel-icon>
+                        </md-expansion-panel-header>
+                        <md-expansion-panel-content>
+                            <orders-chart widget-datas="vm.widgetsData"></orders-chart>
+                        </md-expansion-panel-content>
+                    </md-expansion-panel-expanded>
+                </md-expansion-panel>
+            </div>
+            <div flex>
+                <md-expansion-panel class="dashboard-widget-box" dir="rtl" md-component-id="usersChart">
+                    <md-expansion-panel-collapsed>
+                        <md-icon style="margin:10px 0px 0px 10px" md-svg-icon="stats"></md-icon>
+                        <div class="md-title">نمودار ثبت نام کاربران</div>
+                        <span flex></span>
+                        <md-expansion-panel-icon></md-expansion-panel-icon>
+                    </md-expansion-panel-collapsed>
+                    <md-expansion-panel-expanded>
+                        <md-expansion-panel-header ng-click="$panel.collapse()">
+                            <md-icon style="margin:0px 0px 0px 10px" md-svg-icon="stats"></md-icon>
+                            <div class="md-title">نمودار ثبت نام کاربران</div>
+                            <span flex></span>
+                            <md-expansion-panel-icon></md-expansion-panel-icon>
+                        </md-expansion-panel-header>
+                        <md-expansion-panel-content>
+                            <web-site-user-register-chart widget-datas="vm.widgetsData"></web-site-user-register-chart>
+                        </md-expansion-panel-content>
+                    </md-expansion-panel-expanded>
+                </md-expansion-panel>
+            </div>
+        </div>
+        <div layout="row">
+            <div flex>
+                <md-expansion-panel class="dashboard-widget-box" dir="rtl" md-component-id="orderTotalTable">
+                    <md-expansion-panel-collapsed>
+                        <md-icon style="margin:10px 0px 0px 10px" md-svg-icon="barchart"></md-icon>
+                        <div class="md-title">وضعیت سفارشات</div>
+                        <span flex></span>
+                        <md-expansion-panel-icon></md-expansion-panel-icon>
+                    </md-expansion-panel-collapsed>
+                    <md-expansion-panel-expanded>
+                        <md-expansion-panel-header ng-click="$panel.collapse()">
+                            <md-icon style="margin:0px 0px 0px 10px" md-svg-icon="barchart"></md-icon>
+                            <div class="md-title">وضعیت سفارشات</div>
+                            <span flex></span>
+                            <md-expansion-panel-icon></md-expansion-panel-icon>
+                        </md-expansion-panel-header>
+                        <md-expansion-panel-content>
+                            <order-total-table widget-datas="vm.widgetsData"></order-total-table>
+                        </md-expansion-panel-content>
+                    </md-expansion-panel-expanded>
+                </md-expansion-panel>
+            </div>
+            <div flex>
+
+                <md-expansion-panel class="dashboard-widget-box" dir="rtl" md-component-id="bestSlling">
+                    <md-expansion-panel-collapsed>
+                        <md-icon style="margin:10px 0px 0px 10px" md-svg-icon="best-slling"></md-icon>
+                        <div class="md-title">پر فروش ها</div>
+                        <span flex></span>
+                        <md-expansion-panel-icon></md-expansion-panel-icon>
+                    </md-expansion-panel-collapsed>
+                    <md-expansion-panel-expanded>
+                        <md-expansion-panel-header ng-click="$panel.collapse()">
+                            <md-icon style="margin:0px 0px 0px 10px" md-svg-icon="best-slling"></md-icon>
+                            <div class="md-title">پر فروش ها</div>
+                            <span flex></span>
+                            <md-expansion-panel-icon></md-expansion-panel-icon>
+                        </md-expansion-panel-header>
+                        <md-expansion-panel-content>
+                            <best-sellings widget-datas="vm.widgetsData"></best-sellings>
+                        </md-expansion-panel-content>
+                    </md-expansion-panel-expanded>
+                </md-expansion-panel>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</section>

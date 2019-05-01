@@ -1,0 +1,203 @@
+﻿<error errorId="04922866-60ab-4a22-a3d9-1a493f02928a" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="System.OperationCanceledException" message="The operation was canceled." source="mscorlib" detail="System.OperationCanceledException: The operation was canceled.&#xD;&#xA;   at System.Threading.CancellationToken.ThrowOperationCanceledException()&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;ExecuteActionFilterAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.AuthorizationFilterAttribute.&lt;ExecuteAuthorizationFilterAsyncCore&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.AuthorizationFilterAttribute.&lt;ExecuteAuthorizationFilterAsyncCore&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="m.ghanbari01375@gmail.com" time="2017-12-23T12:20:57.3962373Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:close&#xD;&#xA;HTTP_CONTENT_LENGTH:41881&#xD;&#xA;HTTP_CONTENT_TYPE:application/json&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=9mBirY2hMxMfJ6AVvgAgwYq1D_xcF2te0hi-5YF4g3AAVnDsJAcF23yMd5jy29eSnnNciC1-YB0M19st7S2gxy_6o22QO3DPBq_y27p8SAgVG6R7toD5Lxw2z__tp3UHxDKTjQ3mym9akdHIM-wPnTiqEQzySmQyrmmBAqZreQrAhLEOvPdLOphMZS1VE7SdsiRK3Z7YERdjxgezeX1E1NUFTwjKrP6snRiAWJxivGstrs_VIbK5zGzzW-WZHn48cJEh_xmdBXkz9PBWM4DAxZEERJ9HxnwQVr3wO6yvLj2OMdapYP0fc2q7bQ5ae89nMhPw0AtJdX1nEBxo4VwqfNyCXwVYDEDMU4lo3jT3rRA_qegXYHOsmxOL40yNi7L9IbZsqaLbmjyDVwuJStR3Ag_Lbvi1X7EaYM5k7V9xqto9Yme-gYkCcoJB8OSt2yAeFtsCowwRS2D1ivfG3uwAhrsGEyUdgm-mX-lk2Urx2y3ed9e0ROcNZb99fKCLY-PpWmXgk2VCX7IBrRZn2eAbuhBvlOyuVvWB6TYs5dpz7ElaBVe2uhmEzq4yBSnQL5DjL9cG2WngcMvPIahPuA3I1o10ESLGEp2n3WhhC0w6UPZFqFbK4NhHuj9K4NpG5sbNMbc4RGyus_u7Fbj0VJQUyDIjMX_1iS_XuBMdUg84Ft7yl_DI_TRJiXCcuOoVxem1oRB7I4tHE7dspyK6wlWDL2Agu-HwlrDRr_CsXKtTYg0; io=GhP8G9NFFm5m19KMAAAx&#xD;&#xA;HTTP_HOST:localhost:3000&#xD;&#xA;HTTP_REFERER:http://localhost:3000/panel/fa-IR/eshop/order-details/91f8b61b-76e5-e711-9baf-b8ee65d632f4&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;HTTP_ORIGIN:http://localhost:3000&#xD;&#xA;HTTP_X_PANEL_REQUEST:true&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: close&#xD;&#xA;Content-Length: 41881&#xD;&#xA;Content-Type: application/json&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=9mBirY2hMxMfJ6AVvgAgwYq1D_xcF2te0hi-5YF4g3AAVnDsJAcF23yMd5jy29eSnnNciC1-YB0M19st7S2gxy_6o22QO3DPBq_y27p8SAgVG6R7toD5Lxw2z__tp3UHxDKTjQ3mym9akdHIM-wPnTiqEQzySmQyrmmBAqZreQrAhLEOvPdLOphMZS1VE7SdsiRK3Z7YERdjxgezeX1E1NUFTwjKrP6snRiAWJxivGstrs_VIbK5zGzzW-WZHn48cJEh_xmdBXkz9PBWM4DAxZEERJ9HxnwQVr3wO6yvLj2OMdapYP0fc2q7bQ5ae89nMhPw0AtJdX1nEBxo4VwqfNyCXwVYDEDMU4lo3jT3rRA_qegXYHOsmxOL40yNi7L9IbZsqaLbmjyDVwuJStR3Ag_Lbvi1X7EaYM5k7V9xqto9Yme-gYkCcoJB8OSt2yAeFtsCowwRS2D1ivfG3uwAhrsGEyUdgm-mX-lk2Urx2y3ed9e0ROcNZb99fKCLY-PpWmXgk2VCX7IBrRZn2eAbuhBvlOyuVvWB6TYs5dpz7ElaBVe2uhmEzq4yBSnQL5DjL9cG2WngcMvPIahPuA3I1o10ESLGEp2n3WhhC0w6UPZFqFbK4NhHuj9K4NpG5sbNMbc4RGyus_u7Fbj0VJQUyDIjMX_1iS_XuBMdUg84Ft7yl_DI_TRJiXCcuOoVxem1oRB7I4tHE7dspyK6wlWDL2Agu-HwlrDRr_CsXKtTYg0; io=GhP8G9NFFm5m19KMAAAx&#xD;&#xA;Host: localhost:3000&#xD;&#xA;Referer: http://localhost:3000/panel/fa-IR/eshop/order-details/91f8b61b-76e5-e711-9baf-b8ee65d632f4&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;dnt: 1&#xD;&#xA;x-requested-with: XMLHttpRequest&#xD;&#xA;origin: http://localhost:3000&#xD;&#xA;X-Panel-Request: true&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="41881" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/order/undefined" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\api\order\undefined" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="languageName=fa-IR" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="9763" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="PUT" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/order/undefined" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/order/undefined" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="close" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="41881" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; .AspNet.ApplicationCookie=9mBirY2hMxMfJ6AVvgAgwYq1D_xcF2te0hi-5YF4g3AAVnDsJAcF23yMd5jy29eSnnNciC1-YB0M19st7S2gxy_6o22QO3DPBq_y27p8SAgVG6R7toD5Lxw2z__tp3UHxDKTjQ3mym9akdHIM-wPnTiqEQzySmQyrmmBAqZreQrAhLEOvPdLOphMZS1VE7SdsiRK3Z7YERdjxgezeX1E1NUFTwjKrP6snRiAWJxivGstrs_VIbK5zGzzW-WZHn48cJEh_xmdBXkz9PBWM4DAxZEERJ9HxnwQVr3wO6yvLj2OMdapYP0fc2q7bQ5ae89nMhPw0AtJdX1nEBxo4VwqfNyCXwVYDEDMU4lo3jT3rRA_qegXYHOsmxOL40yNi7L9IbZsqaLbmjyDVwuJStR3Ag_Lbvi1X7EaYM5k7V9xqto9Yme-gYkCcoJB8OSt2yAeFtsCowwRS2D1ivfG3uwAhrsGEyUdgm-mX-lk2Urx2y3ed9e0ROcNZb99fKCLY-PpWmXgk2VCX7IBrRZn2eAbuhBvlOyuVvWB6TYs5dpz7ElaBVe2uhmEzq4yBSnQL5DjL9cG2WngcMvPIahPuA3I1o10ESLGEp2n3WhhC0w6UPZFqFbK4NhHuj9K4NpG5sbNMbc4RGyus_u7Fbj0VJQUyDIjMX_1iS_XuBMdUg84Ft7yl_DI_TRJiXCcuOoVxem1oRB7I4tHE7dspyK6wlWDL2Agu-HwlrDRr_CsXKtTYg0; io=GhP8G9NFFm5m19KMAAAx" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:3000" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:3000/panel/fa-IR/eshop/order-details/91f8b61b-76e5-e711-9baf-b8ee65d632f4" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:3000" />
+    </item>
+    <item name="HTTP_X_PANEL_REQUEST">
+      <value string="true" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="languageName">
+      <value string="fa-IR" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="9mBirY2hMxMfJ6AVvgAgwYq1D_xcF2te0hi-5YF4g3AAVnDsJAcF23yMd5jy29eSnnNciC1-YB0M19st7S2gxy_6o22QO3DPBq_y27p8SAgVG6R7toD5Lxw2z__tp3UHxDKTjQ3mym9akdHIM-wPnTiqEQzySmQyrmmBAqZreQrAhLEOvPdLOphMZS1VE7SdsiRK3Z7YERdjxgezeX1E1NUFTwjKrP6snRiAWJxivGstrs_VIbK5zGzzW-WZHn48cJEh_xmdBXkz9PBWM4DAxZEERJ9HxnwQVr3wO6yvLj2OMdapYP0fc2q7bQ5ae89nMhPw0AtJdX1nEBxo4VwqfNyCXwVYDEDMU4lo3jT3rRA_qegXYHOsmxOL40yNi7L9IbZsqaLbmjyDVwuJStR3Ag_Lbvi1X7EaYM5k7V9xqto9Yme-gYkCcoJB8OSt2yAeFtsCowwRS2D1ivfG3uwAhrsGEyUdgm-mX-lk2Urx2y3ed9e0ROcNZb99fKCLY-PpWmXgk2VCX7IBrRZn2eAbuhBvlOyuVvWB6TYs5dpz7ElaBVe2uhmEzq4yBSnQL5DjL9cG2WngcMvPIahPuA3I1o10ESLGEp2n3WhhC0w6UPZFqFbK4NhHuj9K4NpG5sbNMbc4RGyus_u7Fbj0VJQUyDIjMX_1iS_XuBMdUg84Ft7yl_DI_TRJiXCcuOoVxem1oRB7I4tHE7dspyK6wlWDL2Agu-HwlrDRr_CsXKtTYg0" />
+    </item>
+    <item name="io">
+      <value string="GhP8G9NFFm5m19KMAAAx" />
+    </item>
+  </cookies>
+</error>

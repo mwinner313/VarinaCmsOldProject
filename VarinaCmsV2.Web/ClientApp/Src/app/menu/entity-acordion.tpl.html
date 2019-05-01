@@ -1,0 +1,56 @@
+<md-accordion-group>
+        <md-divider style="margin: 0px 0px;"></md-divider>
+    <md-accordion-content md-heading="پست ها" md-arrow="true">
+        <div >
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="پست های اخیر ">
+                    <md-content>
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="vm.selectedEntities">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="entity" md-select-id="id" ng-repeat="entity in vm.entities">
+                                        <td md-cell ng-bind-template="{{entity.schemeTitle}} | {{entity.title}}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                    </md-content>
+                </md-tab>
+                <md-tab label="جستجو">
+                    <md-content flex layout-padding>
+                        <md-input-container flex class="md-block">
+                            <label for="entity-search">عنوان جستو جو</label>
+                            <input type="text" id="entity-search" ng-model="vm.entitySearchText">
+                        </md-input-container>
+
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="vm.selectedEntities">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="entity" md-select-id="id" ng-repeat="entity in vm.searchedEntities">
+                                        <td md-cell ng-bind-template="{{entity.schemeTitle}} | {{entity.title}}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+
+                        <md-button class="simple md-primary" ng-click="vm.searchForEntities(vm.entitySearchText)">
+                            جستجو
+                        </md-button>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+            <md-button class="simple md-primary md-raised" ng-click="vm.addSelectedEntitiesToMenu()" aria-label="افزودن به لیست"> افزودن به لیست </md-button>
+        </div>
+    </md-accordion-content>
+</md-accordion-group>

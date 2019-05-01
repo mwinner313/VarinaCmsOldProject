@@ -1,0 +1,11 @@
+<md-chips ng-model="vm.model" md-autocomplete-snap md-transform-chip="vm.tagTransform($chip)">
+    <md-autocomplete md-selected-item="vm.selectedItem" md-search-text="vm.searchText" md-items="item in vm.refreshTags(vm.searchText)"
+        md-item-text="item.title" md-delay="1000" placeholder="تگ ها">
+        <span md-highlight-text="vm.searchText">{{item.title}}</span>
+    </md-autocomplete>
+    <md-chip-template>
+        <span>
+            <strong>{{$chip.title}}</strong>
+        </span>
+    </md-chip-template>
+</md-chips>

@@ -1,0 +1,37 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h1>افزودن قالب فرم</h1>
+        <span flex></span>
+        <md-button class="md-fab down-wdge" 
+        ng-disabled="vm.form.$invalid || !vm.formScheme.fieldDefenitions.length" 
+        ng-click="vm.save()">
+            <md-icon md-svg-src="check-white" aria-label="label" class="snumber"></md-icon>
+            <md-tooltip md-direction="bottom">ثبت</md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content layout="column" flex layout-wrap layout-padding >
+    <div layout="column" layout-gt-md="row">
+        <div flex-gt-md="20" flex >
+            <md-card >
+                <md-card-content dnd-list="vm.fieldTypes" class="widget-content">
+                    <h1>فیلد ها</h1>
+                    <ul style="padding:0px;margin:0px;"  dnd-effect-allowed="link">
+                        <li class="widget-item" ng-repeat="fd in vm.fieldTypes" 
+                        dnd-draggable="fd" 
+                        dnd-moved="vm.resetAvailibleFds()"
+                        layout="row">
+                            <div class="widget-anchor">
+                                <md-icon md-menu-origin md-svg-icon="anchor"></md-icon>
+                            </div>
+                            <p class="widget-title">{{fd.typeTitle}}</p>
+                        </li>
+                    </ul>
+                </md-card-content>
+            </md-card>
+        </div>
+
+       <div flex ng-include="'/Src/app/formSchemes/AddedFieldDefenitions.tpl.html'" ng-scrollbars ng-scrollbars-config="scrollConfig"></div>
+
+    </div>
+</md-content>

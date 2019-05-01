@@ -1,0 +1,22 @@
+<form novalidate  name="vm.dropDownConfigForm">
+    <div ng-repeat="option in vm.fd.metaData.avalibleOptions" >
+        <md-input-container >
+            <label for='{{"optionTitle"+$index}}'>نام</label>
+            <input flex type='text' name='{{"optionTitle"+$index}}' required ng-model='option.name'>
+            <div ng-messages="vm.dropDownConfigForm['optionTitle'+$index].$error">
+                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+            </div>
+        </md-input-container>
+        <md-input-container >
+            <label for='{{"optionValue"+$index}}'>مقدار</label>
+            <input flex type='text' name='{{"optionValue"+$index}}' required ng-model='option.value'>
+            <div ng-messages="vm.dropDownConfigForm['optionValue'+$index].$error">
+                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+            </div>
+        </md-input-container>
+        <md-button class="md-icon-button" ng-click="vm.fd.metaData.avalibleOptions.splice(vm.fd.metaData.avalibleOptions.indexOf(option,1))">
+            <md-icon md-svg-icon="delete"></md-icon>
+        </md-button>
+    </div>
+    <md-button class="md-primary md-raised" ng-click="vm.fd.metaData.avalibleOptions.push({})">+</md-button>
+</form>

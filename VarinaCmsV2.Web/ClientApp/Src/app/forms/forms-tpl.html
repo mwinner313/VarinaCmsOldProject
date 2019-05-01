@@ -1,0 +1,37 @@
+<md-toolbar md-scroll-shrink="true" class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h1> لیست فرم های ثبت شده {{vm.formScheme.title}}</h1>
+        <span flex></span>
+        <md-button ng-click="vm.openSearchDialog($event)" class="md-fab edge-down">
+            <md-tooltip md-direction="bottom">
+                جستجو
+            </md-tooltip>
+            <md-icon md-svg-icon="search"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content>
+    <md-card ng-nicescroll nice-option="{cursorcolor: '#e2edff'}">
+        <md-table-container>
+            <table md-table ng-model="vm.forms.items" md-progress="vm.tableProgressPromise">
+                <thead fix-head md-head>
+                    <tr md-row>
+                        <th md-column md-numeric ng-repeat="fd in vm.formScheme.fieldDefenitions |orderBy:'order'|filter:{showInTable:true} " ng-bind="fd.title"></th>
+                        <th md-column md-numeric>تاریخ ثبت</th>
+                        <th md-column md-numeric>نویسنده</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-class="{'not-seen':!form.isSeen}" ng-click="vm.showDetails($event,form)" md-select="form" md-select-id="id"
+                        ng-repeat="form in vm.forms.items">
+                        <td md-cell ng-repeat="f in form.fields |orderBy: 'fd.order'|filter:{fd:{showInTable:true}} " ng-bind-html="::f | fieldPreview"></td>
+                        <td md-cell ng-bind="form.createDateTime"></td>
+                        <td md-cell ng-bind="form.creatorUserName ||'کاربر ناشناس'"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15]" md-page="vm.query.pageNumber" md-total="{{vm.forms.count}}"
+            md-on-paginate="vm.getItems" md-page-select></md-table-pagination>
+    </md-card>
+</md-content>

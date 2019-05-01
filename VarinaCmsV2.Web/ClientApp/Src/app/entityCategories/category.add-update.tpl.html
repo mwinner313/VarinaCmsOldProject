@@ -1,0 +1,107 @@
+<md-dialog class="form-dialog-large">
+    <md-toolbar class="md-hue-2">
+        <md-progress-linear md-mode="indeterminate" ng-show="vm.isSendingData" class="md-warn"></md-progress-linear>
+
+        <div class="md-toolbar-tools">
+            <p> {{vm.title}}</p>
+            <span flex></span>
+            <md-button class="md-fab down-edge" ng-disabled="vm.isSendingData ||vm.categoryForm.$invalid" ng-click="vm.ok()">
+                <md-icon md-svg-icon="check-white"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content   dir="rtl"  >
+
+        <md-tabs md-dynamic-height md-border-bottom md-swipe-content >
+            <md-tab>
+                <md-tab-label>
+                    اطلاعات کلی
+                </md-tab-label>
+                <md-tab-body>
+                    <md-card >
+                        <md-card-content>
+                                <form novalidate name="vm.categoryForm">
+
+                                        <div layout-gt-sm="row" flex>
+                                            <div flex-gt-sm="70">
+                                                <md-input-container flex class="md-block" md-is-error="(vm.categoryForm.title.$invalid && (vm.categoryForm.title.$dirty||vm.categoryForm.$submitted))">
+                                                    <label for="">عنوان</label>
+                                                    <input autocomplete="off" type="text" ng-model="vm.category.title" name="title" ng-required="true" />
+            
+                                                    <div ng-messages="vm.categoryForm.title.$error">
+                                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                                    </div>
+                                                </md-input-container>
+                                                <md-input-container flex class="md-block">
+                                                        <label for="">توضیحات</label>
+                                                        <textarea rows="3" autocomplete="off" type="text" ng-model="vm.category.description" name="description" ></textarea>
+                                                    </md-input-container>
+                                                <md-input-container flex class="md-block" md-is-error="(vm.categoryForm.urlSegment.$invalid && (vm.categoryForm.urlSegment.$dirty||vm.categoryForm.$submitted))">
+                                                    <label for="">مسیر</label>
+                                                    <input autocomplete="off" type="text" ng-model="vm.category.urlSegment" name="urlSegment" ng-required="true" />
+                                                    <p class="pull-left" ng-hide="vm.categoryForm.urlSegment.$invalid"> {{vm.category.urlSegment | permalink}} : مسیر
+                                                        <i class="fa fa-link"></i>
+                                                    </p>
+                                                    <div ng-messages="vm.categoryForm.urlSegment.$error">
+                                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                                    </div>
+                                                </md-input-container>
+                                                <md-input-container flex class="md-block" ng-if="vm.isInRole('Developer')" md-is-error="(vm.categoryForm.handle.$invalid && (vm.categoryForm.handle.$dirty||vm.categoryForm.$submitted))">
+                                                    <label for="">دستگیره</label>
+                                                    <input type="text" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="vm.category.handle" name="handle"  />
+                                                    <div ng-messages="vm.categoryForm.handle.$error">
+                                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                                        <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                                                    </div>
+                                                </md-input-container>
+                                                <parent-selector model="vm.category" name="parent" 
+                                                input-placeholder="نام دسته بندی والد را وارد کنید" data-service="categoryDataService"
+                                                params="{scheme:vm.category.schemeHandle}"
+                                                input-title="والد">
+                                              </parent-selector>
+                                               
+                                           
+                                                <image-plugin item="vm.category"></image-plugin>
+                                            </div>
+                                            <span flex-gt-sm="10"></span>
+                                            <div flex-gt-sm="20">
+                                                <md-input-container class="grouped-opts">
+                                                    <p>نوع دسته بندی</p>
+                                                    <md-radio-group ng-model="vm.category.categoryType">
+                                                        <md-radio-button ng-value="vm.categoryType.main">
+                                                            اصلی
+                                                        </md-radio-button>
+                                                        <md-radio-button ng-value="vm.categoryType.secondary">
+                                                            فرعی
+                                                        </md-radio-button>
+                                                        <md-radio-button ng-value="vm.categoryType.mixed">
+                                                            هر دو حالت
+                                                        </md-radio-button>
+                                                    </md-radio-group>
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                    </form>
+                        </md-card-content>
+                       
+                    </md-card >
+                </md-tab-body>
+            </md-tab>
+            <md-tab ng-if="vm.isInRole('developer')">
+                <md-tab-label>
+                    فیلد ها
+                </md-tab-label>
+                <md-tab-body>
+                        <field-defenitions parent-id-property-name="categoryId" scheme="vm.category"></field-defenitions>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.close()" class="md-primary">
+            بستن
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

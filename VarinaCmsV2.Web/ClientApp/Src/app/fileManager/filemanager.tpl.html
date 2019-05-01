@@ -1,0 +1,29 @@
+<md-dialog aria-label="file-manager" class="form-dialog-large">
+    <md-toolbar class="md-hue-2">
+            <md-progress-linear ng-show="vm.isActionInProgres" md-mode="indeterminate" class="md-warn">
+                </md-progress-linear>
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-src="close" ng-click="vm.close()" class="close" aria-label="label"></md-icon>
+            <span>فایلها : </span>
+            <input type="text" flex placeholder="جستجو" ng-enter="vm.search()" ng-model="vm.searchText" class="main-toolbar-search" />
+            <md-button style="margin-right: 16px;padding-bottom: 60px;padding-right: 0px;" ng-click="vm.showFileUploadDialog()" aria-label="افزودن فایل +"
+                class="md-icon-button">
+                <md-icon md-svg-icon="upload" style="width: 40px;height: 40px;" aria-label="label" class="upload"></md-icon>
+                <md-tooltip>
+                    افزودن فایل +
+                </md-tooltip>
+            </md-button>
+          
+        </div>
+    </md-toolbar>
+
+    <md-content layout-gt-sm="row">
+        <div dragover="vm.say()" layout="column" flex flex-gt-sm="70" ng-include="'/Src/app/fileManager/fileList.tpl.html'">
+
+        </div>
+
+
+        <div layout-padding layout="column" md-whiteframe="4" id="selected-file-details" ng-include="'/Src/app/fileManager/fileDetail.tpl.html'"
+            flex class="file-detail"></div>
+    </md-content>
+</md-dialog>

@@ -1,0 +1,209 @@
+﻿<error errorId="75e0b098-ea18-4c4d-966d-7cb3016ab0f9" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="System.InvalidOperationException" message="A referential integrity constraint violation occurred: The property value(s) of 'ProductCategory.Id' on one end of a relationship do not match the property value(s) of 'FieldDefenition.ProductCategoryId' on the other end." source="EntityFramework" detail="System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'ProductCategory.Id' on one end of a relationship do not match the property value(s) of 'FieldDefenition.ProductCategoryId' on the other end.&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)&#xD;&#xA;   at System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.&lt;&gt;c__DisplayClassa.&lt;Attach&gt;b__9()&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)&#xD;&#xA;   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)&#xD;&#xA;   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)&#xD;&#xA;   at VarinaCmsV2.Data.DbContexts.AppDbContext.Update[T](T entity) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Data\DbContexts\AppDbContext.cs:line 53&#xD;&#xA;   at VarinaCmsV2.Core.Infrastructure.Logics.ParentChildUrlChainLogic.&lt;FixUrlByParent&gt;d__5`1.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core\Infrastructure\Logics\ParentChildUrlChainLogic.cs:line 70&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at VarinaCmsV2.Core.Infrastructure.Logics.ParentChildUrlChainLogic.&lt;FixItemAndChildUrls&gt;d__4`1.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core\Infrastructure\Logics\ParentChildUrlChainLogic.cs:line 46&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at VarinaCmsV2.Core.Infrastructure.Logics.ParentChildUrlChainLogic.&lt;ApplyLogicAsync&gt;d__6`1.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core\Infrastructure\Logics\ParentChildUrlChainLogic.cs:line 79&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at VarinaCmsV2.Common.AsyncHelper.&lt;ForEachAsync&gt;d__4`1.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Common\AsyncHelper.cs:line 54&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at VarinaCmsV2.Core.Services.BaseService`3.&lt;BaseBeforeAddAsync&gt;d__13.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core\Services\BaseService.cs:line 79&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at VarinaCmsV2.Core.Logic.Services.ProductCategories.ProductCategoryService.&lt;Add&gt;d__6.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Core.Logic\Services\ProductCategories\ProductCategoryService.cs:line 64&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;&#xA;   at VarinaCmsV2.Web.Areas.Admin.Controllers.Api.ProductCategoryController.&lt;Post&gt;d__3.MoveNext() in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\Areas\Admin\Controllers\Api\ProductCategoryController.cs:line 54&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Threading.Tasks.TaskHelpersExtensions.&lt;CastToObject&gt;d__3`1.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;ExecuteActionFilterAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;ExecuteActionFilterAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;ExecuteActionFilterAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.AuthorizationFilterAttribute.&lt;ExecuteAuthorizationFilterAsyncCore&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="m.ghanbari01375@gmail.com" time="2017-12-16T07:21:11.3189770Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:close&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_CONTENT_LENGTH:408&#xD;&#xA;HTTP_CONTENT_TYPE:application/json&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=CYj1inwnnjw2olB7AAAE; .AspNet.ApplicationCookie=hBi4UbShblIypj1OLRWBHmpdSe_CD4vGDzvgggrpdZgnVc3KSiuA4APZvPAhcw_4eiGkBCMObu1O8OU1sNx-Feia2OzqtR6RfvdZiHilTh-JnYzb-k78YVf3TrVaTsnSwfOAnAtHpW2bBpnEC83LLVM4ohxNuM5lloeyyGs8uLZ-iNRUoAySOemyCWE5BGw0uxWWHQGVy7YwFrw1Z2HaEYcYKli8Z1IaEbjCjW-PoJSNht7_Lc3ZadaoJTSjXw--6GyxiJili8uQl6XaTUJyqyCIBFSRt3TIKIxHSmnAroqRhkk9ImEi7hIHTw3evsMUBNKAG0wNcYiLPrKerNYQ2UmGz-EoLmeVSXeyOpuAQmks0jq_JnqstvsBsfqwH_lhLWjUZ5A8HE0QCU4X4Qjo9aJeM-y8gn5dN40wtgrk-rXCCmnoVehJ_M-Lf9g2cqMDHAp-7Lee59aqkXuAq3RGTTWtXfSR4mVKn2Ftyrv9uPPZZ00FK9IaLAxAgQ6LRcC3C9LWgWi9agGnThnQAqbNz6gXJOy04SWX-x1MZ1X_h55LbNAHSsI7IM84huyKnOOZVSvOzswfYqqRxGVif-bmN7TrbP_epwHKjHFh6J-MTzbCFo41Xe5jB0OmMABX_Ey4VDYNdaHHwptMnXwLna_axz7MYVw11jCkC81OjhaGyNjqncFKRb71HFNSjZAmfd-gpf5hyYLU66VvRnzxKeKIbsrObe1HeH-dnprGuLeW0l0&#xD;&#xA;HTTP_HOST:localhost:3000&#xD;&#xA;HTTP_REFERER:http://localhost:3000/panel/fa-IR/eshop/productCategories&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;HTTP_ORIGIN:http://localhost:3000&#xD;&#xA;HTTP_X_PANEL_REQUEST:true&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: close&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Content-Length: 408&#xD;&#xA;Content-Type: application/json&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=CYj1inwnnjw2olB7AAAE; .AspNet.ApplicationCookie=hBi4UbShblIypj1OLRWBHmpdSe_CD4vGDzvgggrpdZgnVc3KSiuA4APZvPAhcw_4eiGkBCMObu1O8OU1sNx-Feia2OzqtR6RfvdZiHilTh-JnYzb-k78YVf3TrVaTsnSwfOAnAtHpW2bBpnEC83LLVM4ohxNuM5lloeyyGs8uLZ-iNRUoAySOemyCWE5BGw0uxWWHQGVy7YwFrw1Z2HaEYcYKli8Z1IaEbjCjW-PoJSNht7_Lc3ZadaoJTSjXw--6GyxiJili8uQl6XaTUJyqyCIBFSRt3TIKIxHSmnAroqRhkk9ImEi7hIHTw3evsMUBNKAG0wNcYiLPrKerNYQ2UmGz-EoLmeVSXeyOpuAQmks0jq_JnqstvsBsfqwH_lhLWjUZ5A8HE0QCU4X4Qjo9aJeM-y8gn5dN40wtgrk-rXCCmnoVehJ_M-Lf9g2cqMDHAp-7Lee59aqkXuAq3RGTTWtXfSR4mVKn2Ftyrv9uPPZZ00FK9IaLAxAgQ6LRcC3C9LWgWi9agGnThnQAqbNz6gXJOy04SWX-x1MZ1X_h55LbNAHSsI7IM84huyKnOOZVSvOzswfYqqRxGVif-bmN7TrbP_epwHKjHFh6J-MTzbCFo41Xe5jB0OmMABX_Ey4VDYNdaHHwptMnXwLna_axz7MYVw11jCkC81OjhaGyNjqncFKRb71HFNSjZAmfd-gpf5hyYLU66VvRnzxKeKIbsrObe1HeH-dnprGuLeW0l0&#xD;&#xA;Host: localhost:3000&#xD;&#xA;Referer: http://localhost:3000/panel/fa-IR/eshop/productCategories&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;dnt: 1&#xD;&#xA;x-requested-with: XMLHttpRequest&#xD;&#xA;origin: http://localhost:3000&#xD;&#xA;X-Panel-Request: true&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="408" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\api\productCategory" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="languageName=fa-IR" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="9011" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="close" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="408" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=CYj1inwnnjw2olB7AAAE; .AspNet.ApplicationCookie=hBi4UbShblIypj1OLRWBHmpdSe_CD4vGDzvgggrpdZgnVc3KSiuA4APZvPAhcw_4eiGkBCMObu1O8OU1sNx-Feia2OzqtR6RfvdZiHilTh-JnYzb-k78YVf3TrVaTsnSwfOAnAtHpW2bBpnEC83LLVM4ohxNuM5lloeyyGs8uLZ-iNRUoAySOemyCWE5BGw0uxWWHQGVy7YwFrw1Z2HaEYcYKli8Z1IaEbjCjW-PoJSNht7_Lc3ZadaoJTSjXw--6GyxiJili8uQl6XaTUJyqyCIBFSRt3TIKIxHSmnAroqRhkk9ImEi7hIHTw3evsMUBNKAG0wNcYiLPrKerNYQ2UmGz-EoLmeVSXeyOpuAQmks0jq_JnqstvsBsfqwH_lhLWjUZ5A8HE0QCU4X4Qjo9aJeM-y8gn5dN40wtgrk-rXCCmnoVehJ_M-Lf9g2cqMDHAp-7Lee59aqkXuAq3RGTTWtXfSR4mVKn2Ftyrv9uPPZZ00FK9IaLAxAgQ6LRcC3C9LWgWi9agGnThnQAqbNz6gXJOy04SWX-x1MZ1X_h55LbNAHSsI7IM84huyKnOOZVSvOzswfYqqRxGVif-bmN7TrbP_epwHKjHFh6J-MTzbCFo41Xe5jB0OmMABX_Ey4VDYNdaHHwptMnXwLna_axz7MYVw11jCkC81OjhaGyNjqncFKRb71HFNSjZAmfd-gpf5hyYLU66VvRnzxKeKIbsrObe1HeH-dnprGuLeW0l0" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:3000" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:3000/panel/fa-IR/eshop/productCategories" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:3000" />
+    </item>
+    <item name="HTTP_X_PANEL_REQUEST">
+      <value string="true" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="languageName">
+      <value string="fa-IR" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name="io">
+      <value string="CYj1inwnnjw2olB7AAAE" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="hBi4UbShblIypj1OLRWBHmpdSe_CD4vGDzvgggrpdZgnVc3KSiuA4APZvPAhcw_4eiGkBCMObu1O8OU1sNx-Feia2OzqtR6RfvdZiHilTh-JnYzb-k78YVf3TrVaTsnSwfOAnAtHpW2bBpnEC83LLVM4ohxNuM5lloeyyGs8uLZ-iNRUoAySOemyCWE5BGw0uxWWHQGVy7YwFrw1Z2HaEYcYKli8Z1IaEbjCjW-PoJSNht7_Lc3ZadaoJTSjXw--6GyxiJili8uQl6XaTUJyqyCIBFSRt3TIKIxHSmnAroqRhkk9ImEi7hIHTw3evsMUBNKAG0wNcYiLPrKerNYQ2UmGz-EoLmeVSXeyOpuAQmks0jq_JnqstvsBsfqwH_lhLWjUZ5A8HE0QCU4X4Qjo9aJeM-y8gn5dN40wtgrk-rXCCmnoVehJ_M-Lf9g2cqMDHAp-7Lee59aqkXuAq3RGTTWtXfSR4mVKn2Ftyrv9uPPZZ00FK9IaLAxAgQ6LRcC3C9LWgWi9agGnThnQAqbNz6gXJOy04SWX-x1MZ1X_h55LbNAHSsI7IM84huyKnOOZVSvOzswfYqqRxGVif-bmN7TrbP_epwHKjHFh6J-MTzbCFo41Xe5jB0OmMABX_Ey4VDYNdaHHwptMnXwLna_axz7MYVw11jCkC81OjhaGyNjqncFKRb71HFNSjZAmfd-gpf5hyYLU66VvRnzxKeKIbsrObe1HeH-dnprGuLeW0l0" />
+    </item>
+  </cookies>
+</error>

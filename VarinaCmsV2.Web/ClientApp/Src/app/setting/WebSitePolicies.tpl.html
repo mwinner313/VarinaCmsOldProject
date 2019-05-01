@@ -1,0 +1,79 @@
+<md-dialog dir="rtl" class="form-dialog-large">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon class="tool-bar-icon" md-svg-icon="{{vm.setting.icon}}"></md-icon>
+            {{::vm.setting.displayName}}
+            <span flex></span>
+            <md-button ng-click="vm.ok()" class="md-fab down-edge">
+                <md-icon md-svg-icon="check-white"></md-icon>
+                <md-tooltip>
+                    ویرایش
+                </md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <form novalidate name="vm.settingForm">
+            <md-card layout-padding>
+                <h2>نظرات کاربران</h2>
+                <md-divider></md-divider>
+                <md-radio-group ng-model="vm.setting.data.commentPolicy">
+                    <md-radio-button value="5" class="md-primary">تمامی کاربران میتوانند نظر بگذارند</md-radio-button>
+                    <md-radio-button value="10">تنها کاربران ثبت نام کرده میتوانند نظر بگذارند </md-radio-button>
+                    <md-radio-button value="15">تنها کاربرانی با نقش مشخص میتوانند نظر بگذارند</md-radio-button>
+                </md-radio-group>
+                <md-chips ng-show="vm.setting.data.commentPolicy==15" ng-model="vm.setting.data.commentPolicyUserInRolesIds" class="md-block"
+                    md-autocomplete-snap>
+                    <md-autocomplete ng-model="vm.setting.data.commentPolicyUserInRolesIds" md-search-text="vm.searchText" md-no-cache="true"
+                        md-items="item in vm.roles" md-item-text="item.name" md-min-length="0" placeholder="نقش ها">
+                        <span md-highlight-text="vm.searchText">{{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.name}}</strong>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </md-card>
+            <md-card layout-padding>
+                <h2>نظرات کاربران در بخش محصولات</h2>
+                <md-divider></md-divider>
+                <md-radio-group ng-model="vm.setting.data.eShopReviewPolicy">
+                    <md-radio-button value="5" class="md-primary">تمامی کاربران میتوانند نظر بگذارند</md-radio-button>
+                    <md-radio-button value="10">تنها کاربران ثبت نام کرده میتوانند نظر بگذارند </md-radio-button>
+                    <md-radio-button value="15">تنها کاربرانی با نقش مشخص میتوانند نظر بگذارند</md-radio-button>
+                    <md-radio-button value="20">تنها کاربرانی که محصول را خریده اند میتوانند نظر بگذارند</md-radio-button>
+                    <md-radio-button value="25">تنها کاربرانی با نقش مشخص که محصول را خریده اند میتوانند نظر بگذارند</md-radio-button>
+                </md-radio-group>
+                <md-chips ng-show="vm.setting.data.eShopReviewPolicy==15 ||vm.setting.data.eShopReviewPolicy==25" ng-model="vm.setting.data.eShopReviewPolicyUserInRolesIds"
+                    class="md-block" md-autocomplete-snap>
+                    <md-autocomplete ng-model="vm.setting.data.eShopReviewPolicyUserInRolesIds" md-search-text="vm.searchText" md-no-cache="true"
+                        md-items="item in vm.roles" md-item-text="item.name" md-min-length="0" placeholder="نقش ها">
+                        <span md-highlight-text="vm.searchText">{{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.name}}</strong>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </md-card>
+            <md-card layout-padding>
+                <h2>نقش های پیش فرض برای کاربرانی که ثبت نام میکنند</h2>
+                <md-divider></md-divider>
+                <md-chips ng-model="vm.setting.data.defaultNewUserRegisterRoleIds"
+                class="md-block" md-autocomplete-snap>
+                <md-autocomplete ng-model="vm.setting.data.defaultNewUserRegisterRoleIds" md-search-text="vm.searchText" md-no-cache="true"
+                    md-items="item in vm.roles" md-item-text="item.name" md-min-length="0" placeholder="نقش ها">
+                    <span md-highlight-text="vm.searchText">{{item.name}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>
+                        <strong>{{$chip.name}}</strong>
+                    </span>
+                </md-chip-template>
+            </md-chips>
+            </md-card>
+        </form>
+    </md-dialog-content>
+</md-dialog>

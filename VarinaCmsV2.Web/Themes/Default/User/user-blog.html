@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> {{vm.model.name}} | پرو فایل کاربر</title>
+  <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <h1>page for allusers</h1>
+  <div class="container" style="padding:10px;">
+    <div class="alert alert-danger">
+      <h3>
+        <span> url : </span> {{vm.model.to_url}}
+      </h3>
+    </div>
+    <div class="alert alert-success">
+      <h3>
+        <span> نام کاربر در سایت : </span> {{vm.model.name}}
+      </h3>
+    </div>
+    <div class="alert alert-success">
+      <h3>
+        <span> عنوان کاربر : </span> {{vm.model.title}}
+      </h3>
+    </div>
+    <div class="alert alert-success">
+      <h3>
+        <span> user name : </span> {{vm.model.user_name}}
+      </h3>
+    </div>
+    <div class="alert alert-success">
+      <h3>
+        <span> email : </span> {{vm.model.email}}
+      </h3>
+    </div>
+    <div class="alert alert-success">
+      <h3>
+        <span> phone : </span> {{vm.model.phone_number}}
+      </h3>
+    </div>
+    <div>
+      <img src="{{vm.model.avatar_path}}" alt="{{vm.model.name}}">
+    </div>
+    <div class="row">
+    {% for item in vm.model.entities %}
+    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+        <img class="card-img-top" src="{{item.image.resizeds.small}}" alt="Card image cap">
+        <a href="{{item.to_url}}">
+        
+      <div class="card-header">{{item.title}}</div></a>
+      <div class="card-body">
+        <a href="{{item.primary_category.to_url}}">
+        <h4 class="card-title">{{item.primary_category.title}}</h4></a>
+        <p class="card-text">{{item.content | strip_html | truncate: 50}}</p>
+      </div>
+    </div>
+    {% endfor %}
+    {% paginate_link vm.model 2 %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {%- assign previews_page = vm.model.current_page | minus:1 -%}
+            {% if previews_page != 0%}
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          {%endif%}
+          {% for i in (1..vm.model.all_pages_count) %}
+          <li class="page-item"><a class="page-link" href="{% paginate_link vm.model i %}">{{i}}</a></li>
+          {% endfor %}
+          {% assign next_page = vm.model.current_page | plus : 1  %}
+          {% if next_page <= vm.model.all_pages_count%}
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          {%endif%}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>

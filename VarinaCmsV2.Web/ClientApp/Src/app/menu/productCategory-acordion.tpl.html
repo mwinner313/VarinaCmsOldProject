@@ -1,0 +1,53 @@
+<md-accordion-group>
+    <md-accordion-content md-heading="دسته بندی محصولات" md-arrow="true">
+        <div>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="دسته بندی اخیر محصولات ">
+                    <md-content>
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="vm.selectedProductCategories">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="productCategory" md-select-id="id" ng-repeat="productCategory in vm.productCategories">
+                                        <td md-cell ng-bind="productCategory.displayName"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                    </md-content>
+                </md-tab>
+                <md-tab label="جستجو">
+                        <md-input-container flex class="md-block">
+                                <label for="productCategory-search">عنوان جستو جو</label>
+                                <input type="text" id="productCategory-search" ng-model="vm.productCategorySearchText">
+                            </md-input-container>
+                    <md-content flex layout-padding>
+                        <md-table-container>
+                            <table md-table right-align md-row-select multiple ng-model="vm.selectedProductCategories">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="productCategory" md-select-id="id" ng-repeat="productCategory in vm.searchedProductCategories">
+                                        <td md-cell ng-bind="productCategory.title"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+
+                        <md-button class="simple md-primary" ng-click="vm.searchForProductCategories(vm.pageSearchText)">
+                            جستجو
+                        </md-button>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+            <md-button class="simple md-primary md-raised" ng-click="vm.addSelectedProductCategoriesToMenu()" aria-label="افزودن به لیست"> افزودن به لیست </md-button>
+        </div>
+    </md-accordion-content>
+</md-accordion-group>

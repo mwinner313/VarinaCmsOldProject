@@ -1,0 +1,26 @@
+<md-bottom-sheet layout="column" ng-enter="vm.edit()" ng-keydown="$event.key==='Delete'&&vm.remove()">
+    <div layout="row">
+        <md-button ng-click="vm.edit()">
+            <md-icon md-svg-icon="edit"></md-icon>
+            ویرایش
+        </md-button>
+    </div>
+    <div layout="row">
+        <md-button ng-click="vm.remove()">
+            <md-icon md-svg-icon="delete"></md-icon>
+            حذف
+        </md-button>
+    </div>
+    <div layout="row">
+        <md-button ng-href="{{vm.showUrl}}" target="_blank" ng-if="!!vm.showUrl">
+            <md-icon md-svg-icon="eye"></md-icon>
+            نمایش
+        </md-button>
+    </div>
+    <div layout="row">
+        <md-button ng-click="vm.show()" target="_blank" ng-if="vm.showOption">
+            <md-icon md-svg-icon="eye"></md-icon>
+            نمایش
+        </md-button>
+    </div>
+</md-bottom-sheet>

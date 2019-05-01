@@ -1,0 +1,16 @@
+ <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 sidebar-sticky">
+    <aside class="sidebar">
+        <h4 class="title-aside">{{vm.model.title}}</h4>
+        <ul class="aside-list">
+           {%for entity in vm.model.category.entities%}
+          
+            <li>
+                <a href="{{entity.to_url}}" title="{{entity.title}}">{{entity.title}}</a>
+                <a href="{{entity.to_url}}" title="{{entity.title}}" class="none">
+                  <img src="{{entity.image.resizeds.thumb}}"/>
+                </a>
+            </li>
+            {%endfor%}
+        </ul>
+    </aside>
+</div>

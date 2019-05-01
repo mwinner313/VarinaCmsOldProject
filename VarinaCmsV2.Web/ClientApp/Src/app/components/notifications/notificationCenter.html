@@ -1,0 +1,15 @@
+
+<md-menu>
+    <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+        <md-icon md-menu-origin md-svg-icon="bell2"></md-icon>
+        <span ng-show="!!vm.getNotifCount()" class="notif">{{vm.getNotifCount()}}</span>
+      </md-button>
+      
+    <md-menu-content ng-show="!!vm.getNotifCount()" width="4" ng-mouseleave="$mdMenu.close()">
+      <md-menu-item ng-repeat="notif in vm.notifications">
+        <md-button href="{{notif.url}}" >
+          {{notif.title}}  <span class="notif" ng-if="!!notif.count" >{{notif.count}}</span>
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>

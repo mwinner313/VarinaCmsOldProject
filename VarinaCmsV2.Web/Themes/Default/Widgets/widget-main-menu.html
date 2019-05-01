@@ -1,0 +1,75 @@
+﻿<nav role="navigation" class="navbar nav-menu yamm">
+   
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav hidden-sm">
+            <li class="hidden-xs">
+                <a href="/">
+                    <img src="/Content/HomeImages/logo.png" alt="پازل" class="img-responsive">
+                </a>
+            </li>
+            {% for item in vm.model.menu.menu_items %}  
+            <!-- target_type => Category ,UserProfile, CustomLink,Product, Page,Entity -->
+            {% if item.childs.size != 0 and item.target_type == 'Category' %}
+            <li class="dropdown yamm-fullwidth">
+                <a href="/" data-toggle="dropdown" class="dropdown-toggle">
+                    {{item.title}}
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="grid-demo">
+                        <div class="col-md-3 col-lg-3">
+                            <ul class="list-dropdown">
+                                {% for ch in item.childs %}
+                                <li>
+                                    <a href="{{ch.url}}" title="">{{ ch.title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-md-9 col-lg-9">
+                            <section class="menu-yamm">
+
+                            {% for entity in item.target_category.entities %}
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                                    <a href="{{entity.to_url}}">
+                                        <article class="articles small list">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" class="hidden-xs hidden-md">
+                                                <line x1="-330" y1="0" x2="100%" y2="0" class="top"></line>
+                                                <line x1="0" y1="780" x2="0" y2="0" class="left"></line>
+                                                <line x1="570" y1="260" x2="-550" y2="260" class="bottom"></line>
+                                                <line x1="100%" y1="0" x2="100%" y2="-260" class="right"></line>
+                                            </svg>
+                                            <div style="background-image:url('{{entity.image.resizeds.small}}')" class="img"></div>
+                                            <h3 class="title">{{entity.title}}</h3>
+                                        </article>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                                <div class="clearfix"></div>
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            {% elseif item.childs.size != 0 %}
+            <li class="dropdown">
+                <a href="#">{{item.title}}</a>
+                <ul role="menu" aria-labelledby="dropdownMenu" class="dropdown-menu dropdown-puz" style="display: none;">
+                  {% for ch in item.childs %}
+                     <li>
+                     تصویر برای menu item
+                     <img src="{{ch.image.path}}" />
+                        <a tabindex="-1" href="{{ch.url}}"> {{ch.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{item.url}}">{{item.title}}</a>
+            </li>
+            {% endif %} 
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

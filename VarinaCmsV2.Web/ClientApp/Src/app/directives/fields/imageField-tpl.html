@@ -1,0 +1,25 @@
+<md-card class="image-field" >
+    <md-card-title dir="rtl">
+       
+        <md-card-title-media>
+            <div class="md-media-md card-media">
+                <img style="height: 117px;" ng-src="{{ vm.model.rawValue.path || '/Src/Html/HomeImages/nopic.png' }}" alt="{{vm.model.rawValue.path}}">
+            </div>
+
+        </md-card-title-media>
+        <md-card-title-text>
+                <span class="md-headline">{{::vm.fd.title}}</span>
+        </md-card-title-text>
+        <span flex> </span>
+        <div>
+            <md-button class="md-primary md-raised" aria-label="انتخاب تصویر" ng-click="vm.showImagePicker()"> انتخاب تصویر </md-button>
+        </div>
+
+    </md-card-title>
+    <md-input-container style="margin: 0px 9px;" ng-show="vm.field.$invalid">
+        <input type="text" name="{{::vm.fd.handle}}" ng-model="vm.model.rawValue.path" ng-required="{{vm.isFieldRequired()}}" class="ng-hide">
+        <div ng-messages="vm.field.$error">
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+        </div>
+    </md-input-container>
+</md-card>

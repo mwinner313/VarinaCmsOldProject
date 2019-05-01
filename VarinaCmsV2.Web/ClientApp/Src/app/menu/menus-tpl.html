@@ -1,0 +1,79 @@
+<div layout-fill>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-icon="group"></md-icon>&nbsp; مدیریت فهرست ها
+            <span flex></span>
+            <md-button class="md-fab down-edge" ng-disabled="vm.unSavedNewMenuExists" ng-click="vm.addMenu()">
+                <md-tooltip md-direction="top"> افزودن</md-tooltip>
+                <md-icon md-svg-icon="add"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content layout="column" flex ng-scrollbars ng-scrollbars-config="scrollConfig">
+        <div layout="column" layout-gt-md="row">
+            <!-- right side -->
+            <div flex-gt-md="40" flex>
+                <md-card>
+                    <md-subheader>گزینه های موجود</md-subheader>
+                    <md-divider md-inset></md-divider>
+                    <md-accordion>
+                        <div replace ng-include="'/Src/app/menu/pages-acordion.tpl.html'"></div>
+                        <div replace ng-include="'/Src/app/menu/entity-acordion.tpl.html'"></div>
+                        <div replace ng-include="'/Src/app/menu/category-acordion.tpl.html'"></div>
+                        <div replace ng-include="'/Src/app/menu/userProfile-acordion.tpl.html'"></div>
+                        <div replace ng-include="'/Src/app/menu/customLink-acordion.tpl.html'"></div>
+                        <div replace ng-include="'/Src/app/menu/productCategory-acordion.tpl.html'"></div>
+                        <md-divider  style="margin:0px"></md-divider>
+                        <md-button class="md-accordion-toggle" ng-click="vm.chooseFromProductPicker()">محصول</md-button>
+                    </md-accordion>
+                </md-card>
+            </div>
+            <!-- left side -->
+            <div flex>
+                <div layout="column" style="padding:10px" flex>
+                    <md-expansion-panel-group md-component-id="panelGroup">
+                        <md-expansion-panel md-component-id="menu{{menu.index || menu.id}}" ng-repeat="menu in vm.menus" ng-keydown="($event.ctrlKey && $event.which==83 && (!vm['menu_form_'+$index].$invalid || vm.savingNewMenu) &&($event.preventDefault() ||vm.saveMenu()||vm.saveNewMenu()))">
+                            <md-expansion-panel-collapsed ng-click="vm.changeSelectedMenu(menu)" style="cursor:pointer;">
+                                <span class="md-title">{{menu.title}}</span>
+                                <span flex></span>
+                                <md-icon md-svg-src="md-toggle-arrow" aria-label="label" style="transform: rotate(180deg);"></md-icon>
+                            </md-expansion-panel-collapsed>
+                            <md-expansion-panel-expanded>
+                                <md-expansion-panel-header ng-click="$panel.collapse()" md-no-sticky>
+                                    <span class="md-title">{{menu.title}}</span>
+                                    <span flex></span>
+                                    <md-icon md-svg-src="md-toggle-arrow" aria-label="label"></md-icon>
+                                </md-expansion-panel-header>
+                                <md-expansion-panel-content>
+                                    <ng-form name="vm.menu_form_{{$index}}" novalidate>
+                                        <md-input-container flex class="md-block">
+                                            <label for="menu-title-{{menu.id}}">عنوان فهرست</label>
+                                            <input type="text" name="title" required id="menu-title-{{menu.id}}" ng-model="menu.title">
+                                        </md-input-container>
+                                        <div ng-show="!!menu.id" ui-tree="vm.uiTreeOptions" ui-tree-nodes="" ng-model="menu.menuItems" id="tree-root">
+                                            <div ng-repeat="child in menu.menuItems" ui-tree-node ng-include="'/Src/app/menu/menuitem-template.html'"></div>
+                                        </div>
+                                    </ng-form>
+                                </md-expansion-panel-content>
+                                <md-expansion-panel-footer md-no-sticky>
+                                    <md-button ng-show="!!menu.id" ng-disabled="vm['menu_form_'+$index].$invalid" ng-click="vm.saveMenu()" class="md-warn" aria-label="ذخیره تغییرات">
+                                        ذخیره تغییرات
+                                    </md-button>
+                                    <md-button ng-show="!menu.id" ng-disabled="vm['menu_form_'+$index].$invalid || vm.savingNewMenu" ng-click="vm.saveNewMenu()"
+                                        class="md-warn" aria-label="افزدن منو">
+                                        افزدن منو
+                                    </md-button>
+                                    {{(!!menu.id)?'|':''}}
+                                    <md-button ng-show="!!menu.id" ng-click="vm.removeMenu(menu)" class="md-warn" aria-label="حذف منو">
+                                        حذف منو
+                                    </md-button>
+                                </md-expansion-panel-footer>
+                            </md-expansion-panel-expanded>
+                        </md-expansion-panel>
+                    </md-expansion-panel-group>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

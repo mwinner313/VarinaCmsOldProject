@@ -1,0 +1,61 @@
+
+
+
+
+{% assign first = vm.model.category.entities | first %}
+<section id="header" data-parallax="scroll" data-image-src="{{first.image.path}}" class="slide parallax-window">
+    <div class="item">
+        <div class="caption">
+            <div class="content">
+                <a href="{{first.primary_category.to_url}}" title="{{first.primary_category.title}}">
+                    <h2 class="category">{{first.primary_category.title}}</h2>
+                </a>
+                <h1>
+                    <a href="{{first.to_url}}" title="{{first.title}}" class="title-slider">
+                    {{first.title}}</a>
+                </h1>
+                <a href="{{first.to_url}}" title="بیشتر بخوانید ..." class="read-more">بیشتر بخوانید ...</a>
+            </div>
+            <a href="">
+                <div class="box-author hidden-xs">
+                <a href="{{first.creator.to_url}}">
+                    <img src="{%if first.creator.avatar_path!= '' and first.creator.avatar_path != empty %}{{first.creator.avatar_path}}{%endif%}" class="img-responsive">
+                    <div class="box-title">
+                        <h4 class="title">{{first.creator.name}}</h4>
+                        <p class="post"> {{first.creator.title}}</p>
+                    </div>
+                </a>
+                </div>
+            </a>
+            <div class="box-date hidden-xs">
+                <span>{{first.publish_date_time.day}}</span>
+                <span class="month">{{first.publish_date_time.month_name}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<div class="row no-m color-row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-p">
+        <ul class="list-slider">
+        {%for entity in vm.model.category.entities%}
+            {% if forloop.first == true %}
+                {%else%}
+                    <li class="col-xs-6 col-sm-4 col-md-2 col-lg-2 no-p">
+                        <a href="{{entity.to_url}}" style="background-image:url('{{entity.image.resizeds.small}}')" class="slider-box">
+                            <div class="content">
+                                <h3 class="category">{{entity.primary_category.title}}</h3>
+                                <h2 class="title-slider">{{entity.title}}</h2>
+                            </div>
+                        </a>
+                    </li>
+                {%endif%}
+            {%endfor%}
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+ 
+
+

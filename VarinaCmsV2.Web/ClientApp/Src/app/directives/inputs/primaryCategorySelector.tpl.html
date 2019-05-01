@@ -1,0 +1,33 @@
+<p>دسته بندی اصلی</p>
+<md-autocomplete required
+    md-search-text="vm.categorySearchText" 
+    md-autoselect="!!vm.model.primaryCategoryId" 
+    md-selected-item="vm.selectedCat"
+    md-selected-item-change="vm.setCategory()" 
+    md-no-cache="true" 
+    md-clear-button="true" 
+    md-search-text-change="vm.removePcatIfTextIsEmpty(vm.categorySearchText)"
+    md-delay="1000" 
+    md-min-length="0"
+    md-dropdown-position="top" 
+    md-input-name="{{vm.name}}" 
+    md-items="item in vm.getItems(vm.categorySearchText)"
+    md-item-text="item.displayName" placeholder="{{vm.inputPlaceholder}}">
+    <md-item-template>
+        <span md-highlight-text="vm.categorySearchText" md-highlight-flags="^i">
+            {{item.displayName}}</span>
+    </md-item-template>
+    <md-not-found>
+        موردی یافت نشد
+    </md-not-found>
+    <div ng-messages="vm.form[vm.name].$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-autocomplete>
+
+<md-input-container class="md-block" md-is-error="(vm.form[vm.name].$invalid && vm.form.$submitted)">
+    <input type="text" ng-hide="true" ng-model="vm.model.primaryCategoryId" name="type" ng-required="true" />
+    <div ng-messages="vm.form[vm.name].$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>

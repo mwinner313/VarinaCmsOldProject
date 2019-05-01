@@ -1,0 +1,212 @@
+﻿<error errorId="f5899011-116a-482b-a6ac-41a99b38f469" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="System.OperationCanceledException" message="The operation was canceled." source="mscorlib" detail="System.OperationCanceledException: The operation was canceled.&#xD;&#xA;   at System.Threading.CancellationToken.ThrowOperationCanceledException()&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;CallOnActionExecutedAsync&gt;d__5.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.ActionFilterAttribute.&lt;ExecuteActionFilterAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Filters.AuthorizationFilterAttribute.&lt;ExecuteAuthorizationFilterAsyncCore&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="m.ghanbari01375@gmail.com" time="2017-12-11T08:59:27.9741450Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:close&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_CONTENT_TYPE:application/json&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=BLZbk5ACPp5qp4mGAABU; .AspNet.ApplicationCookie=fS3r4aWTiaLyAeAxxKdSfHcw1KLrtbRpesXccfZmkSB3YSl-byUHqr4In44UIfItf5Njo__UZcKd1X3CCy36fNAaDbZP8IAmDJ7C61Pkr4iZ57_aW-AD0f2eNbperUDcyRlUNMfGnnvUBgWzYIKxTy_yqr1-KQop5xDMaFIPRSkgri4Es86OVM58KjwjkXuA7Ih5z5fajWLT6MdoFwBmfx0YK-kgs-I2T-y6YpZG29xpLI0xSw9BJS-IZnjxde4LZhM2FsahKc-msmgCEEeOubbtVEv43gp0KYWK7ZzHLO2PYwED1umuceI6L1gHJk9PtUmirdROWaONJAQEtcTcXXIYrtZngn2dvqISrJSPH7qbckFOUGnNIL0bwhqP9FPYB6DPiSr230RvU1bFe71GbBELYmebhqwP34e5iYFkKPD-nub3ezPGh2CjMweDE_CLcyEYjVgmT0QQYyHc4__N4Thpv9QsmmyVRlRRj0DsMilzp_QSfzSyMjiNN94Fc_GEzjeKOiOBtGHtceB6UHRDRbvV5sCuDL1py0ktVbLYIUR9-i-rN_DDpohMKpZfEMCzDiJ9SCjTzeyuHHFTc3iGHzxk02Vxsxz4JAo4KiUBMETyJVwmyg3f4EQHb7CibsIOhgaZjY6QFvOz-u-ZPQMEIiRGK2NVVDPVULm6-GYElv4pRFFjE1ICc7r3ijiU14nrebmWSMXGbvz-Ys2yz3C6Rxyhs1EMc_50ihJpRDpqiMs&#xD;&#xA;HTTP_HOST:localhost:3000&#xD;&#xA;HTTP_REFERER:http://localhost:3000/panel/fa-IR/eshop/add-product&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;HTTP_X_PANEL_REQUEST:true&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: close&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Content-Type: application/json&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=BLZbk5ACPp5qp4mGAABU; .AspNet.ApplicationCookie=fS3r4aWTiaLyAeAxxKdSfHcw1KLrtbRpesXccfZmkSB3YSl-byUHqr4In44UIfItf5Njo__UZcKd1X3CCy36fNAaDbZP8IAmDJ7C61Pkr4iZ57_aW-AD0f2eNbperUDcyRlUNMfGnnvUBgWzYIKxTy_yqr1-KQop5xDMaFIPRSkgri4Es86OVM58KjwjkXuA7Ih5z5fajWLT6MdoFwBmfx0YK-kgs-I2T-y6YpZG29xpLI0xSw9BJS-IZnjxde4LZhM2FsahKc-msmgCEEeOubbtVEv43gp0KYWK7ZzHLO2PYwED1umuceI6L1gHJk9PtUmirdROWaONJAQEtcTcXXIYrtZngn2dvqISrJSPH7qbckFOUGnNIL0bwhqP9FPYB6DPiSr230RvU1bFe71GbBELYmebhqwP34e5iYFkKPD-nub3ezPGh2CjMweDE_CLcyEYjVgmT0QQYyHc4__N4Thpv9QsmmyVRlRRj0DsMilzp_QSfzSyMjiNN94Fc_GEzjeKOiOBtGHtceB6UHRDRbvV5sCuDL1py0ktVbLYIUR9-i-rN_DDpohMKpZfEMCzDiJ9SCjTzeyuHHFTc3iGHzxk02Vxsxz4JAo4KiUBMETyJVwmyg3f4EQHb7CibsIOhgaZjY6QFvOz-u-ZPQMEIiRGK2NVVDPVULm6-GYElv4pRFFjE1ICc7r3ijiU14nrebmWSMXGbvz-Ys2yz3C6Rxyhs1EMc_50ihJpRDpqiMs&#xD;&#xA;Host: localhost:3000&#xD;&#xA;Referer: http://localhost:3000/panel/fa-IR/eshop/add-product&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36&#xD;&#xA;dnt: 1&#xD;&#xA;x-requested-with: XMLHttpRequest&#xD;&#xA;X-Panel-Request: true&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\api\productCategory" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="categoryType=2&amp;checkByType=true&amp;languageName=fa-IR&amp;searchText=" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="8822" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/productCategory" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="close" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/json" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; io=BLZbk5ACPp5qp4mGAABU; .AspNet.ApplicationCookie=fS3r4aWTiaLyAeAxxKdSfHcw1KLrtbRpesXccfZmkSB3YSl-byUHqr4In44UIfItf5Njo__UZcKd1X3CCy36fNAaDbZP8IAmDJ7C61Pkr4iZ57_aW-AD0f2eNbperUDcyRlUNMfGnnvUBgWzYIKxTy_yqr1-KQop5xDMaFIPRSkgri4Es86OVM58KjwjkXuA7Ih5z5fajWLT6MdoFwBmfx0YK-kgs-I2T-y6YpZG29xpLI0xSw9BJS-IZnjxde4LZhM2FsahKc-msmgCEEeOubbtVEv43gp0KYWK7ZzHLO2PYwED1umuceI6L1gHJk9PtUmirdROWaONJAQEtcTcXXIYrtZngn2dvqISrJSPH7qbckFOUGnNIL0bwhqP9FPYB6DPiSr230RvU1bFe71GbBELYmebhqwP34e5iYFkKPD-nub3ezPGh2CjMweDE_CLcyEYjVgmT0QQYyHc4__N4Thpv9QsmmyVRlRRj0DsMilzp_QSfzSyMjiNN94Fc_GEzjeKOiOBtGHtceB6UHRDRbvV5sCuDL1py0ktVbLYIUR9-i-rN_DDpohMKpZfEMCzDiJ9SCjTzeyuHHFTc3iGHzxk02Vxsxz4JAo4KiUBMETyJVwmyg3f4EQHb7CibsIOhgaZjY6QFvOz-u-ZPQMEIiRGK2NVVDPVULm6-GYElv4pRFFjE1ICc7r3ijiU14nrebmWSMXGbvz-Ys2yz3C6Rxyhs1EMc_50ihJpRDpqiMs" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:3000" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:3000/panel/fa-IR/eshop/add-product" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+    <item name="HTTP_X_PANEL_REQUEST">
+      <value string="true" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="categoryType">
+      <value string="2" />
+    </item>
+    <item name="checkByType">
+      <value string="true" />
+    </item>
+    <item name="languageName">
+      <value string="fa-IR" />
+    </item>
+    <item name="searchText">
+      <value string="" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name="io">
+      <value string="BLZbk5ACPp5qp4mGAABU" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="fS3r4aWTiaLyAeAxxKdSfHcw1KLrtbRpesXccfZmkSB3YSl-byUHqr4In44UIfItf5Njo__UZcKd1X3CCy36fNAaDbZP8IAmDJ7C61Pkr4iZ57_aW-AD0f2eNbperUDcyRlUNMfGnnvUBgWzYIKxTy_yqr1-KQop5xDMaFIPRSkgri4Es86OVM58KjwjkXuA7Ih5z5fajWLT6MdoFwBmfx0YK-kgs-I2T-y6YpZG29xpLI0xSw9BJS-IZnjxde4LZhM2FsahKc-msmgCEEeOubbtVEv43gp0KYWK7ZzHLO2PYwED1umuceI6L1gHJk9PtUmirdROWaONJAQEtcTcXXIYrtZngn2dvqISrJSPH7qbckFOUGnNIL0bwhqP9FPYB6DPiSr230RvU1bFe71GbBELYmebhqwP34e5iYFkKPD-nub3ezPGh2CjMweDE_CLcyEYjVgmT0QQYyHc4__N4Thpv9QsmmyVRlRRj0DsMilzp_QSfzSyMjiNN94Fc_GEzjeKOiOBtGHtceB6UHRDRbvV5sCuDL1py0ktVbLYIUR9-i-rN_DDpohMKpZfEMCzDiJ9SCjTzeyuHHFTc3iGHzxk02Vxsxz4JAo4KiUBMETyJVwmyg3f4EQHb7CibsIOhgaZjY6QFvOz-u-ZPQMEIiRGK2NVVDPVULm6-GYElv4pRFFjE1ICc7r3ijiU14nrebmWSMXGbvz-Ys2yz3C6Rxyhs1EMc_50ihJpRDpqiMs" />
+    </item>
+  </cookies>
+</error>

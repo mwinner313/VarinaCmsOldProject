@@ -1,0 +1,81 @@
+<md-content layout="column" ng-cloak>
+
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <md-icon style="width:45px;height:45px;padding-left: 10px;" md-svg-src="users" aria-label="label"></md-icon>
+      <h3>
+        <span>{{title}}</span>
+      </h3>
+      <span flex></span>
+      <md-button aria-label="" ng-click="vm.showAddDialog($event)" class="md-fab down-edge">
+        <md-icon md-svg-src="add"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-content ng-scrollbars ng-scrollbars-config="scrollConfig" flex>
+    <md-card>
+      <md-card-content layout="column" style="padding:0px;">
+
+        <md-table-container>
+          
+          <div layout-padding >
+            <md-input-container class="md-icon-float md-icon-right md-block">
+              <input type='text' ng-enter="vm.search()" placeholder="جستجو" name='search' ng-model='vm.query.searchText'>
+              <md-icon ng-click="vm.search()" md-svg-src="search"></md-icon>
+            </md-input-container>
+          </div>
+
+          <table md-table md-progress="vm.tableProgressPromise">
+            <thead md-head>
+              <tr md-row>
+                <th md-column md-numeric></th>
+                <th md-column md-numeric>نام کابری</th>
+                <th md-column md-numeric>ایمیل</th>
+                <th md-column md-numeric>شماره تلفن</th>
+                <th md-column md-numeric>وضعیت دسترسی</th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row md-select-id="id" ng-repeat="user in vm.users.items">
+                <td md-cell>
+                  <md-menu md-position-mode="target-right target" style="margin-top: 18px;">
+                    <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+                      <md-icon md-menu-origin md-svg-icon="options"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4" dir="rtl">
+                      <md-menu-item>
+                        <md-button ng-click="vm.showRemoveDialog($event,user)">
+                          <md-icon md-svg-icon="delete"></md-icon>
+                          حذف
+                        </md-button>
+
+                      </md-menu-item>
+                      <md-menu-item>
+                        <md-button ng-click="vm.showEditDialog($event,user)">
+                          <md-icon md-svg-icon="edit"></md-icon>
+                          ویرایش
+                        </md-button>
+                      </md-menu-item>
+                  </md-menu>
+                  <img ng-if="!!user.avatarPath" ng-src="{{user.avatarPath}}" style="padding-left: 10px;" class="md-avatar">
+                  <md-icon ng-if="!user.avatarPath" style="width:45px;height:45px;padding-left: 10px;" md-svg-src="user" aria-label="label"></md-icon>
+                </td>
+                <td md-cell ng-bind="user.userName"></td>
+                <td md-cell>{{user.email}}</td>
+                <td md-cell>{{user.phoneNumber}}</td>
+                <td md-cell>
+                  <md-icon md-svg-src="user-locked" aria-label="label" ng-if="user.isBanned"></md-icon>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+        <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15,20,30]" md-page="vm.query.pageNumber" md-total="{{vm.users.count}}"
+          md-on-paginate="vm.getUsers" md-page-select>
+        </md-table-pagination>
+        </card-content>
+    </md-card>
+  </md-content>
+</md-content>

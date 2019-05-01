@@ -1,0 +1,57 @@
+<md-dialog class="form-dialog-large" ng-keydown="($event.ctrlKey && $event.which==83 &&vm.widgetForm.$valid &&($event.preventDefault() ||vm.ok()))"
+    style="width:400px;">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon class="tool-bar-icon" md-svg-icon="{{vm.setting.icon}}"></md-icon>
+            {{::vm.setting.displayName}}
+            <span flex></span>
+            <md-button ng-click="vm.ok()" class="md-fab down-edge">
+                <md-icon md-svg-icon="check-white"></md-icon>
+                <md-tooltip>
+                    ویرایش
+                </md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-progress-linear class="md-warn" ng-show="vm.isSendingData" md-mode="indeterminate"></md-progress-linear>
+    <md-dialog-content>
+        <form name="vm.settingForm" novalidate>
+            <md-card dir="rtl" layout-padding>
+                <h2>بخش ها</h2>
+                <md-divider></md-divider>
+                <div layout="row">
+
+                    <div flex layout="column">
+                        <md-checkbox ng-model='vm.setting.data.eshantions' aria-label="Checkbox 1">
+                            هدیه ها
+                        </md-checkbox>
+                        <md-checkbox ng-model='vm.setting.data.downLoadFile' aria-label="Checkbox 1">
+                            فایل دانلودی
+                        </md-checkbox>
+                        <md-checkbox ng-model='vm.setting.data.requiredProducts' aria-label="Checkbox 1">
+                            محصولات الزامی
+                        </md-checkbox>
+                    </div>
+                    <div flex layout="column">
+                        <md-checkbox ng-model='vm.setting.data.crossSellings' aria-label="Checkbox 1">
+                            محصولات پیشنهادی که نسبت به سبد خرید نشان داده خواهد شد
+                        </md-checkbox>
+                        <md-checkbox ng-model='vm.setting.data.upSellings' aria-label="Checkbox 1">
+                            محصولات مرتبط
+                        </md-checkbox>
+                        <md-checkbox ng-model='vm.setting.data.shipment' aria-label="Checkbox 1">
+                            حمل ونقل
+                        </md-checkbox>
+                    </div>
+                </div>
+
+            </md-card>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.closeDialog()">
+            بستن
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

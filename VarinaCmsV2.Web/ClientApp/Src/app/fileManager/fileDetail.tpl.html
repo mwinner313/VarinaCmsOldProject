@@ -1,0 +1,73 @@
+<div ng-show="!!vm.selectedFile.id" layout="column" ng-nicescroll nice-option="{cursorcolor: '#e2edff'}">
+        <img ng-src="http://localhost:21217{{vm.selectedFile.path}}" ng-if="['.jpeg','.jpg','.png'].indexOf(vm.selectedFile.extension)!==-1" height="318"
+                alt="">
+        <md-icon class="file-icon-preview" ng-if="['.jpeg','.jpg','.png'].indexOf(vm.selectedFile.extension)===-1" md-svg-src="{{vm.selectedFile.extension}}"
+                aria-label="label" class="snumber"></md-icon>
+
+        <div id="file-detail">
+                <p>
+                        <span>نام فایل</span> :
+                        <br> {{vm.selectedFile.name}}
+                </p>
+
+                <p>
+                        <span>مسیر
+                                <md-button clipboard supported="supported" text="vm.selectedFileFullPath" on-copied="vm.clipBoardCopiedCb()" aria-label="ذخیره در کلیپ برد"
+                                        class="md-icon-button">
+                                        <md-tooltip>
+                                                ذخیره مسیر در کلیپ برد
+                                        </md-tooltip>
+                                        <md-icon md-svg-src="copy"></md-icon>
+                                </md-button>
+                        </span> :
+                        <br>
+
+                        <a target="_blank" style="direction: ltr;" href="{{vm.selectedFile.path}}">{{vm.selectedFile.path}}</a>
+                </p>
+                <p>
+                        <span>سایز</span> :
+                        <br> {{ vm.selectedFile.size |filesize}}
+                </p>
+                <p>
+                        <span>تاریخ ایجاد</span> :
+                        <br> {{ vm.selectedFile.createDateTimeString}} توسط {{vm.selectedFile.creatorName||vm.selectedFile.creatorUserName
+                        ||'ناشناس'}}
+                </p>
+                <p>
+                        <span>تاریخ آخرین ویرایش</span> :
+                        <br> {{ vm.selectedFile.updateDateTimeString}}
+                </p>
+        </div>
+        <div include-replace ng-include="'/Src/app/fileManager/file-detail-plugins.tpl.html'"></div>
+        <div>
+                <p class="md-title">موارد استفاده</p>
+                <md-divider></md-divider>
+                <ol>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                        <li>صفحه ثابت تماس با ما</li>
+                </ol>
+        </div>
+</div>

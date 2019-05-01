@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="fa" xmlns="http://www.w3.org/1999/xhtml" dir="rtl" ng-app="app" class="no-js">
+
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    {% include 'partials/styles'%}
+
+    <script src="/Scripts/plugin/modernizr.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include 'partials/header' %}
+
+        <section id="header" data-parallax="scroll" data-image-src="{{vm.model.image.path}}" class="header-content parallax-window">
+            <div class="container-puz width">
+                <div class="box-content">
+                    <h2 class="category">{{vm.model.primary_category.title}}</h2>
+                    <h1 class="title">{{vm.model.title}}</h1>
+                    <ul>
+                        <li>{{vm.model.visit_count}} بازدید
+                            <i class="fa fa-eye pull-right"></i>
+                        </li>
+                        <li>{{vm.model.publish_date_time.full}}
+                            <i class="fa fa-calendar pull-right"></i>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#author" class="mousse page-scroll">
+                    <div class="down"></div>
+                </a>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        <section id="author" class="author">
+            <div class="container-puz width">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2">
+                        <ul class="list-author">
+                            <li>
+                                <a href="{{vm.model.creator.to_url}}">
+                                    <img src="{{vm.model.creator.avatar_path}}" class="img-responsive">
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="{{vm.model.creator.to_url}}">
+                                    <p>{{vm.model.creator.name}}</p>
+                                </a>
+                            </li>
+                            <li>
+                                <p>{{vm.model.creator.title}}</p>
+                            </li>
+                            <li>
+                                <p>مدت زمان مطالعه {{vm.model.readTime}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                        <ul class="pull-left list-like">
+                            <li>
+                                <p>
+                                    <span id="like-count">{{vm.model.like_count}}</span>
+                                    <i class="fa fa-heart-o pull-right"></i>
+                                </p>
+                            </li>
+                            <li>
+                                <a href="" id="like-btn" entity-id="{{vm.model.id}}" class="like">پسندیدم</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+
+
+        <section class="article-content">
+            <div class="container-puz width">
+                <div class="row">
+                    <div class="ool-xs-12 col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <article class="content">
+
+                            {% if vm.model.primary_category.handle == 'movie' %}
+                            <ul>
+                                <li>
+                                    <p>شناسنامه فیلم</p>
+                                </li>
+                                <li>
+                                    <p>نام فیلم : {{vm.model.movie_name}}</p>
+                                </li>
+                                <li>
+                                    <p>سال ساخت : {{vm.model.release_date}}</p>
+                                </li>
+                                <li>
+                                    <p>ژانر:{{vm.model.genre}}</p>
+                                </li>
+                                <li>
+                                    <p>کارگردان : {{vm.model.director}}</p>
+                                </li>
+                                <li>
+                                    <p>نویسنده : {{vm.model.author}}</p>
+                                </li>
+                                <li>
+                                    <p>بازیگران : {{vm.model.actors}}</p>
+                                </li>
+                            </ul>
+                            {% endif %} {{vm.model.content}}
+                        </article>
+                        <ul class="list-tag m-t-b-10">
+                            <li>
+                                <p>برچسب ها :</p>
+                            </li>
+                            {%for tag in vm.model.tags %}
+                            <li>
+                                <a href="{{tag.to_url}}" title="{{tag.title}}">{{tag.title}} </a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <section class="linked">
+                <div class="container-puz width">
+                    <h4 class="title-linked">مطالب مرتبط</h4>
+                    <div class="row">
+                        {% for entity in vm.model.related_entities_for_article_page %}
+                        <div class="col-xs-12 col-sm-3 col-md-3">
+                            <article class="articles">
+                                <h3>
+                                    <a href="{{entity.to_url}}" title="{{entity.title}}" class="title">
+
+                                        {{entity.title}}</a>
+                                </h3>
+                                <a href="{{entity.to_url}}" title="{{entity.title}} ">
+                                    <div style="background-image:url('{{entity.image.path}}')" class="img"></div>
+
+                                </a>
+                            </article>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+
+            {%include 'partials/comments' with {comments:vm.model.comments} %}
+
+        </section>
+        <div class="clearfix"></div>
+        {% include 'partials/footer' %}
+        <!--include footer-->
+        <a href="#header" class="go-to-top page-scroll"></a>
+    </div>
+    {% include 'partials/scripts'%}
+</body>
+
+</html>

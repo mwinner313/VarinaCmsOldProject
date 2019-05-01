@@ -1,0 +1,58 @@
+<md-dialog ng-keydown="($event.ctrlKey && $event.which==83 &&vm.widgetForm.$valid &&($event.preventDefault() ||vm.ok()))"
+    aria-label="label" class="form-dialog-medium">
+    <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>صفحه ثابت</h3>
+                <span flex></span>
+                <md-button ng-disabled="vm.widgetForm.$invalid" aria-label="" class="md-fab down-edge" ng-click="vm.ok()">
+                    <md-icon md-svg-src="check-white" aria-label="label"></md-icon>
+                    <md-tooltip md-direction="bottom">
+                        افزودن
+                    </md-tooltip>
+                </md-button>
+            </div>
+        </md-toolbar>
+    <md-dialog-content>
+        
+
+        <div>
+            <md-card>
+                <form novalidate layout-padding layout="row" name="vm.widgetForm">
+                    <md-input-container flex class="md-block">
+                        <label>عنوان</label>
+                        <input autocomplete="off" type="text" ng-model="vm.widget.title">
+                    </md-input-container>
+                    <md-input-container flex ng-if="vm.isInRole('Developer')" class="md-block" md-is-error="vm.widgetForm.handle.$invalid && vm.widgetForm.handle.$dirty">
+                        <label>دستگیره</label>
+                        <input type="text" autocomplete="off" ng-pattern="/^[a-zA-Z0-9_-]+$/" name="handle" required ng-model="vm.widget.handle">
+                        <div ng-messages="vm.widgetForm.handle.$error">
+                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                            <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                        </div>
+                    </md-input-container>
+                </form>
+
+            </md-card>
+            <md-card>
+                <md-subheader>صفحه ها</md-subheader>
+                <md-input-container style="padding:10px" md-no-float class="md-block">
+                    <input autocomplete="off" type="text" placeholder="جستجو" ng-model="vm.searchText">
+                </md-input-container>
+                <md-table-container>
+                    <table md-table md-row-select md-progress="vm.tableProgressPromise">
+                        <tbody md-body>
+                            <tr ng-class="{'selected':vm.selectedPage.id===page.id}" ng-click="vm.selectedPage=page" md-row md-select="page" md-select-id="id"
+                                ng-repeat="page in vm.pages | filter :{title:vm.searchText}">
+                                <td md-cell ng-bind="page.title"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+            </md-card>
+        </div>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.closeDialog()" class="md-warn" aria-label="">بستن</md-button>
+    </md-dialog-actions>
+</md-dialog>

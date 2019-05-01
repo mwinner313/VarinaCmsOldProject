@@ -1,0 +1,53 @@
+<md-accordion-group>
+    <md-accordion-content md-heading="صفحات" md-arrow="true">
+        <div>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="صفحات اخیر">
+                    <md-content>
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="vm.selectedPages">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="page" md-select-id="id" ng-repeat="page in vm.pages">
+                                        <td md-cell ng-bind="page.title"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                    </md-content>
+                </md-tab>
+                <md-tab label="جستجو">
+                        <md-input-container flex class="md-block">
+                                <label for="page-search">عنوان جستو جو</label>
+                                <input type="text" id="page-search" ng-model="vm.pageSearchText">
+                            </md-input-container>
+                    <md-content flex layout-padding>
+                        <md-table-container>
+                            <table md-table right-align md-row-select multiple ng-model="vm.selectedPages">
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column md-numeric>همه</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row md-select="page" md-select-id="id" ng-repeat="page in vm.searchedPages">
+                                        <td md-cell ng-bind="page.title"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+
+                        <md-button class="simple md-primary" ng-click="vm.searchForPages(vm.pageSearchText)">
+                            جستجو
+                        </md-button>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+            <md-button class="simple md-primary md-raised" ng-click="vm.addSelectedPagesToMenu()" aria-label="افزودن به لیست"> افزودن به لیست </md-button>
+        </div>
+    </md-accordion-content>
+</md-accordion-group>

@@ -1,0 +1,64 @@
+ <header class="header">
+            <div class="container-puz head">
+               {{vm.widget_containers.header}}
+                <ul class="pull-left list-account">
+               {% include 'partials/search' %}
+               {% if vm.current_user  %}
+                <li>
+                     <a href="/account/signout">
+                                    <i class="zmdi zmdi-calendar-close"></i>
+                     </a>
+                </li>
+               {%else%}
+                      <li>
+                        <div class="cd-section">
+                            <div class="cd-modal-action">
+                                <a href="#2" data-type="modal-trigger">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </a>
+                                <span class="cd-modal-bg"></span>
+                            </div>
+                            <div class="cd-modal">
+                                <div class="cd-modal-content80 login">
+                                    <div class="container">
+                                        <div class="box"></div>
+                                        <div class="container-forms">
+                                            <div class="container-info">
+                                                <div class="info-item">
+                                                    <div class="table">
+                                                        <div class="table-cell">
+                                                            <p>وارد حساب کاربری خود شوید</p>
+                                                            <button class="btn">ورود</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="info-item register">
+                                                    <div class="table">
+                                                        <div class="table-cell">
+                                                            <p>هنوز حساب کاربری ندارید؟</p>
+                                                            <button class="btn">ثبت نام</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-form">
+                                              {% include 'partials/login' %}
+                                              {% include 'partials/register' %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- cd-modal-->
+                            <a href="#2" class="cd-modal-close">Close</a>
+                        </div>
+                    </li>
+                {% endif %}
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            
+        </header>
+                                              {% include 'partials/forgot_password' %}
+        
+       

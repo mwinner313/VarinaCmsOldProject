@@ -1,0 +1,67 @@
+<md-card>
+    <md-card-actions>
+        <md-button class="md-primary " 
+        ng-class="{'md-raised':vm.multiSelectEnabled}"
+        ng-click="vm.clearSelectedFilesAndChangeMultiSelectSatae()" ng-show="vm.canAcceptMultiFile">انتخاب چند گزینه ای{{vm.multiSelectEnabled?"(فعال)":"(غیرفعال)"}}</md-button>
+    <md-button ng-click="vm.sendToDialogOpener()" ng-show="vm.canAcceptMultiFile && vm.multiSelectEnabled && !!vm.selectedFiles.length">
+            <md-icon md-svg-icon="select"></md-icon>انتخاب
+        </md-button>
+        <md-button class="md-accent md-raised" 
+        ng-click="vm.deleteSelectedFiles($event)"
+        ng-show="!!vm.selectedFiles.length">حذف</md-button>
+        <md-divider style="margin-top: 5px; "></md-divider>
+    </md-card-actions>
+
+    <md-card-content  nice-scroll-end="vm.loadMore()" ng-nicescroll nice-option="{cursorcolor: '#e2edff'}">
+        
+        <div ng-repeat="fileGroup in vm.groupedFiles">
+            {{fileGroup.dateTime}}
+            <md-divider flex md-inset style="margin-bottom: 15px;"></md-divider>
+            <md-grid-list md-cols-xs="4" md-cols-sm="6" md-cols-md="6" md-cols-gt-md="8" md-row-height="8:10">
+                <md-grid-tile ng-repeat="file in fileGroup.files" ng-dblclick="vm.sendToDialogOpener(file)" ng-click="vm.selectFile(file)"
+                class="gray" md-colspan="1">
+                    <md-menu md-position-mode="target target">
+                        <md-button ng-class="{'selected-file':vm.isSelectedFile(file)}" class="file" layout="column" ng-click right-click="$mdOpenMenu($event)"
+                            layout-align="center center">
+                            <md-icon md-svg-src="{{file.extension}}" aria-label="label" class="file-icon">
+                            </md-icon>
+                            <span>{{file.name|strlimit:10}}</span>
+                            <md-tooltip md-direction="top" class="file-name">
+                                {{(file.name) + file.extension}}
+                            </md-tooltip>
+                        </md-button>
+
+                        <md-menu-content ng-show="!vm.multiSelectEnabled" width="3">
+                            <md-menu-item>
+                                <md-button ng-click="vm.sendToDialogOpener(file)" aria-label="انتخاب" style="text-align: right">
+                                    <md-icon md-svg-src="select" aria-label="select"></md-icon> انتخاب
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button target="_blank" ng-href="{{file.path}}" aria-label="دانلود" style="text-align: right">
+                                    <md-icon md-svg-src="download" aria-label="download"></md-icon> دانلود
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="vm.showEditDialog(file,fileGroup)" aria-label="ویرایش" style="text-align: right">
+                                    <md-icon md-svg-src="edit" aria-label="edit"></md-icon> ویرایش
+                                </md-button>
+                            </md-menu-item>
+
+                            <md-divider></md-divider>
+                            <md-menu-item>
+                                <md-button ng-click="vm.remove(fileGroup,file,$event)" aria-label="حذف" style="text-align: right">
+                                    <md-icon md-svg-src="delete" aria-label="حذف"></md-icon>حذف
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+
+                    </md-menu>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+        <md-progress-linear ng-show="vm.isLoading" md-mode="indeterminate"></md-progress-linear>
+        <md-button ng-click="vm.loadMore()" class="md-primary md-raised " style="width: 100%;" hide-gt-sm flex aria-label="بیشتر ..."
+            ng-show="(!vm.isLoading) && !vm.dontLoadAnyMore"> بیشتر ... </md-button>
+    </md-card-content>
+</md-card>

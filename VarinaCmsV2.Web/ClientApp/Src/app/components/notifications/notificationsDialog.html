@@ -1,0 +1,27 @@
+<md-dialog class="form-dialog-large" dir="rtl">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon class="tool-bar-icon" md-menu-origin md-svg-icon="bell2"></md-icon>
+            <h4>اعلانات</h4>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <md-tabs md-swipe-content md-dynamic-height md-border-bottom>
+            <md-tab>
+                <md-tab-label>
+                    <span>فرم های ثبت شده</span>
+                    <span  class="tab-badge">{{vm.unSeenSubmittedFormsCount}}</span>
+                </md-tab-label>
+                <md-tab-body>
+                    <not-seen-forms></not-seen-forms>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.close()" class="md-primary">
+            بستن
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

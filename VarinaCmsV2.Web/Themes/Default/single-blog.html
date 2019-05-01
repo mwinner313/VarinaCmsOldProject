@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="fa" xmlns="http://www.w3.org/1999/xhtml" dir="rtl" ng-app="app" class="no-js">
+
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% include "partials/styles" %}
+
+    <script src="/Scripts/plugin/modernizr.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include 'partials/header' %}
+        <section class="article-list">
+            <div class="container-puz width sm">
+                <div class="row color-row">
+                    <!-- Right Side Bar-->
+                    {{vm.widget_containers.blog_single_rightside}}
+                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+
+                        <article class="content puz">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9">
+                                    <h1 class="title">{{vm.model.title}}</h1>
+
+                                </div>
+                                {{ vm.model.content }}
+
+
+                            </div>
+                            {{vm.model.publish_date_time.month}}
+                            <br> {{vm.model.publish_date_time.monthName}}
+                            <br> {{vm.model.publish_date_time.full}}
+
+                            <br> {{vm.model.publish_date_time.day}}
+                            <br> {{vm.model.publish_date_time.year}}
+                            <br> {{vm.model.publish_date_time.weekDayName}}
+                            <br> {{ vm.model.content }} ---------------------------------------------------------------------------------
+                            {{vm.model.image.resizeds.small}} {{vm.model.image.path}}
+                            <img class="img-responsive" src="{{vm.model.image.resizeds.small}}" />
+                            <img class="img-responsive" src="{{vm.model.image.resizeds.medium}}" />
+                            <img class="img-responsive" src="{{vm.model.image.resizeds.large}}" />
+                        </article>
+
+                        <div class="col-xs-12 col-sm-3 col-md-4 col-lg-3">
+                            <ul class="pull-left list-like padding">
+                                <li>
+                                    <p>
+                                        <span id="like-count">
+                                            {{vm.model.like_count}}
+                                        </span>
+
+                                        <i class="fa fa-heart-o pull-right"></i>
+                                    </p>
+                                    <p>{{vm.model.visit_count}}
+                                        <i class="fa fa-eye pull-right"></i>
+                                    </p>
+                                </li>
+
+                                <li>
+                                    <a href="" id="like-btn" entity-id="{{vm.model.id}}" class="like">پسندیدم</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <ul class="list-tag">
+                            <li>
+                                <p>برچسب ها :</p>
+                            </li>
+                            {%for tag in vm.model.tags %}
+                            <li>
+                                <a href="{{tag.to_url}}" title="{{tag.title}}">{{tag.title}} </a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                        {%include 'partials/comments' with {comments:vm.model.comments,target_id:vm.model.id,url:'/Comment/AddEntityComment'} %}
+                    </div>
+                    <!-- Left Side Bar-->
+                    {{vm.widget_containers.blog_single_leftside}}
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <!--include footer-->
+        {% include 'partials/footer' %}
+        <a href="#header" class="go-to-top page-scroll"></a>
+    </div>
+    {% include "partials/scripts"%}
+</body>
+
+</html>

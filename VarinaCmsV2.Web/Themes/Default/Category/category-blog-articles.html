@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{vm.model.title}}</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+{{vm.model.image.path}}
+<ul>
+yoho from cat articls
+    {% for article in vm.model.entities %}
+    <li>
+        <a href="{{article.to_url}}">
+            {{article.title}}
+        </a>
+        <h3 style="color: red;">tags</h3>
+        <ul>
+            {% for tag in article.tags %}
+            <li>
+                <a href="{{tag.to_url}}">{{tag.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h2>افزودن موجودیت</h2>
+        <span flex></span>
+        <md-button class="md-fab down-edge" md-autofocus ng-click="vm.addScheme()">
+            <md-icon md-svg-src="check-white"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content   dir="rtl" ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <md-card>
+            <md-tabs md-dynamic-height>
+                <md-tab ng-keydown="($event.ctrlKey && $event.which==83) &&($event.preventDefault() ||vm.addScheme()) ">
+                    <md-tab-label>
+                        اطلاعات
+                    </md-tab-label>
+                    <md-tab-body >
+                        <div ng-include="'/Src/app/entitySchemes/schemeForm.html'"></div>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>
+                        فیلدها
+                    </md-tab-label>
+                    <md-tab-body>
+                        <div ng-include="'/Src/app/fieldDefenition/fieldsTemplate.html'"></div>
+                    </md-tab-body>
+
+                </md-tab>
+               
+            </md-tabs>
+    </md-card>
+</md-content>

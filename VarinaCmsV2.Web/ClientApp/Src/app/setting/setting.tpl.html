@@ -1,0 +1,35 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h1>
+            <md-icon class="tool-bar-icon" md-svg-icon="setting"></md-icon>
+            تنظیمات</h1>
+        <span flex></span>
+
+
+    </div>
+</md-toolbar>
+
+<div ng-scrollbars ng-scrollbars-config="scrollConfig" layout-padding>
+
+    <md-card>
+        <div class='md-subheader _md' role='heading' aria-level='2'>
+            <div class='md-subheader-inner'>
+                <div class='md-subheader-content'>جستجو</div>
+            </div>
+        </div>
+        <md-input-container layout-padding>
+            <label for='search'></label>
+            <input type='text' name='search' ng-model='vm.searchText'>
+        </md-input-container>
+    </md-card>
+    <md-card ng-click="vm.showSettingDialog(setting)" class="hover" ng-repeat="setting in vm.settings | filter :vm.searchText"
+        layout-padding>
+        <md-card-container layout="row">
+            <md-icon class="tool-bar-icon" md-svg-icon="{{setting.icon}}"></md-icon>
+            <p class="md-title">{{setting.displayName}}</p>
+            <span flex></span>
+            <!-- <md-button class="md-primary md-raised">ویرایش</md-button> -->
+
+        </md-card-container>
+    </md-card>
+</div>

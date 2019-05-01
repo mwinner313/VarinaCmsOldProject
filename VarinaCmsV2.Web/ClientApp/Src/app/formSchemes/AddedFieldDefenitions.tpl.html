@@ -1,0 +1,72 @@
+<md-card>
+    <md-card-content>
+        <ng-form name="vm.form">
+            <md-input-container md-is-error="vm.form.title.$invalid && vm.form.title.$dirty" class="md-block">
+                <label>عنوان</label>
+                <input type="text" required name="title" ng-model="vm.formScheme.title">
+                <div ng-messages="vm.form.title.$error">
+                    <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                </div>
+            </md-input-container>
+            <md-input-container md-is-error="vm.form.title.$invalid && vm.form.title.$dirty" class="md-block">
+                <label>توضیحات</label>
+                <textarea rows="3" ng-model="vm.formScheme.description"></textarea>
+
+            </md-input-container>
+            <md-input-container md-is-error="vm.form.handle.$invalid && vm.form.handle.$dirty" class="md-block">
+                <label>دستگیره</label>
+                <input type="text" required name="handle" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="vm.formScheme.handle">
+                <div ng-messages="vm.form.handle.$error">
+                    <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                    <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                </div>
+            </md-input-container>
+
+            <ul dnd-list="vm.formScheme.fieldDefenitions">
+                <li ng-if="!vm.formScheme.fieldDefenitions.length">
+                    فیلد ها
+                </li>
+                <li class="widget-item" dnd-draggable="fd" ng-repeat="fd in vm.formScheme.fieldDefenitions" dnd-moved="vm.formScheme.fieldDefenitions.splice($index, 1)"
+                    layout="row">
+                    <div class="widget-anchor">
+                        <md-icon md-menu-origin md-svg-icon="anchor"></md-icon>
+                    </div>
+                    <md-icon md-menu-origin md-svg-icon="{{fd.type}}"></md-icon>
+                    <p>{{fd.typeTitle}}</p>
+                    <ng-form name="vm.fieldsForm" dnd-nodrag layout="column" layout-gt-sm="row" flex>
+                        <md-input-container flex md-is-error="vm.fieldsForm['title'+$index].$invalid && vm.fieldsForm['title'+$index].$dirty">
+                            <label>عنوان</label>
+                            <input type="text" required name="title{{$index}}" ng-model="fd.title">
+                            <div ng-messages="vm.fieldsForm['title'+$index].$error">
+                                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container md-is-error="vm.fieldsForm['handle'+$index].$invalid && vm.fieldsForm['handle'+$index].$dirty" flex>
+                            <label>دستگیره</label>
+                            <input type="text" required name="handle{{$index}}" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="fd.handle">
+                            <div ng-messages="vm.fieldsForm['handle'+$index].$error">
+                                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex class="md-block">
+                            <md-checkbox ng-model="fd.showInTable">درون جدول نمایش داده شود</md-checkbox>
+                            <md-checkbox ng-model="fd.isRequired">اجباری بودن مقدار</md-checkbox>
+                        </md-input-container>
+                        
+                    </ng-form>
+                    <md-button aria-label="حذف" ng-click="vm.showRemoveFdDialog(fd,$event)" class="md-icon-button">
+                        <md-icon md-menu-origin md-svg-icon="delete"></md-icon>
+                        <md-tooltip md-direction="bottom">
+                            حذف
+                        </md-tooltip>
+                    </md-button>
+                </li>
+            </ul>
+        </ng-form>
+    </md-card-content>
+    <md-card-actions layout="row">
+
+    </md-card-actions>
+</md-card>

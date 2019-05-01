@@ -1,0 +1,28 @@
+POST http://localhost:21217/Comment/AddEntityComment HTTP/1.1
+X-Requested-With:XMLHttpRequest
+content-type: application/json
+ 
+{
+   "Text" :"09196644336",
+   "TargetId":"52a9538e-98c7-e711-9ba8-b8ee65d632f4"
+}
+
+
+
+//GET http://localhost:21217/api/Comment HTTP/1.1
+//content-type: application/json
+//X-Requested-With:XMLHttpRequest
+//
+//{
+//    "TargetId": "52a9538e-98c7-e711-9ba8-b8ee65d632f4",
+//    "Text": "hellossss"
+//}
+
+//POST http://localhost:21217/api/account/signin HTTP/1.1
+//content-type: application/json
+//X-Requested-With:XMLHttpRequest
+
+//{
+//    "emailOrPhone" :"09196644336",
+//    "password":"123456"
+//}

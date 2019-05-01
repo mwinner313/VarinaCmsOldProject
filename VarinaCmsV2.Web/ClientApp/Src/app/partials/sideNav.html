@@ -1,0 +1,22 @@
+<md-sidenav md-whiteframe="4" md-component-id="right" md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp md-sidenav-right">
+ <a href="" class="logout"></a>
+ 
+
+  <div  ng-nicescroll nice-option="{cursorcolor: '#e2edff',cursoropacitymax:'0'}" layout-align="right" ng-controller="sideNavCtrl as vm" role="navigation">
+    <div class="user-box" >
+     <div class="inner-user-box" layout-align="right" layout="column" style="padding: 10px">
+       <img class="user-image" src="http://localhost:21217{{vm.$storage.currentUser.avatarPath}}">
+       <span class="md-title">{{vm.$storage.currentUser.name}}</span>
+       <span class="md-subhead">{{vm.$storage.currentUser.name}}</span>
+       <md-button ui-sref="userprofile({lang:currentLang})" class="md-icon-button" >
+         <md-icon md-svg-icon="edit"></md-icon>
+         <md-tooltip>
+           ویرایش حساب کاربری
+         </md-tooltip>
+       </md-button> 
+     </div>
+    </div>
+    <md-divider></md-divider>
+    <ss-sidenav menu="vm.menu"></ss-sidenav>
+  </div>
+</md-sidenav>

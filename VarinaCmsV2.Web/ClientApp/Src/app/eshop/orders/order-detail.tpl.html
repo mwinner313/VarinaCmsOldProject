@@ -1,0 +1,290 @@
+<md-content layout-fill ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <form name="vm.orderForm" novalidate>
+
+        <md-tabs dir="rtl" md-dynamic-height>
+            <md-tab>
+                <md-tab-label>
+                    اطلاعات
+                </md-tab-label>
+                <md-tab-body>
+                    <div layout-gt-sm="row">
+                        <md-card flex md-colors="{background:'green'}">
+                            <md-card-header>
+                                <md-icon md-svg-icon="datetime"></md-icon>
+                                <md-card-avatar>
+                                </md-card-avatar>
+                                <md-card-header-text>
+                                    <span class="md-title">تاریخ ثبت | کدسفارش</span>
+                                    <span class="md-subhead">{{vm.order.createDateTime}} | {{vm.order.orderTrackNumber}}</span>
+                                </md-card-header-text>
+                            </md-card-header>
+                        </md-card>
+                        <md-card flex md-colors="{background:'grey'}">
+                            <md-card-header>
+                                <md-card-avatar>
+                                    <img ng-src="{{vm.order.creator.avatarPath || '/Src/Html/HomeImages/nopic.png'}}" class="md-user-avatar" alt="">
+                                </md-card-avatar>
+                                <md-card-header-text>
+                                    <span class="md-title">خریدار</span>
+                                    <span class="md-subhead">{{vm.order.creator.userName}}</span>
+                                </md-card-header-text>
+                            </md-card-header>
+                        </md-card>
+                        <md-card flex md-colors="{background:(vm.order.orderStatus |orderStatusColor)}">
+                            <md-card-header>
+                                <md-card-avatar>
+                                </md-card-avatar>
+                                <md-card-header-text>
+                                    <span class="md-title">وضعیت سفارش</span>
+                                    <span class="md-subhead">{{vm.order.orderStatus | orderStatus}}</span>
+
+                                </md-card-header-text>
+                            </md-card-header>
+                        </md-card>
+
+                    </div>
+                    <div layout-gt-sm="row">
+                        <div flex>
+                            <md-card flex md-colors="{background:(vm.order.shippingStatus |shippingStatusColor)}">
+                                <md-card-header>
+                                    <md-icon md-svg-icon="truck"></md-icon>
+                                    <md-card-avatar>
+                                    </md-card-avatar>
+                                    <md-card-header-text>
+                                        <span class="md-title">وضعیت حمل و نقل</span>
+                                        <span class="md-subhead" ng-show="!vm.shippingStatusEditMode">{{vm.order.shippingStatus |shippingStatus}}
+                                            <md-icon ng-show="vm.order.shippingStatus!==10" ng-click="vm.shippingStatusEditMode=!vm.shippingStatusEditMode" md-svg-icon="edit"></md-icon>
+                                        </span>
+
+                                    </md-card-header-text>
+                                </md-card-header>
+                                <md-card-container style="padding-right: 10px;">
+                                    <md-input-container ng-show="vm.shippingStatusEditMode">
+                                        <md-select flex ng-model="vm.order.shippingStatus">
+                                            <md-option ng-click="vm.updateShippingStatus(20)" ng-value="20">هنوز ارسال نشده</md-option>
+                                            <md-option ng-click="vm.updateShippingStatus(30)" ng-value="30">ارسال شده</md-option>
+                                            <md-option ng-click="vm.updateShippingStatus(40)" ng-value="40">رسیده به دست مشتری</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <p ng-show="!!vm.order.shipment"> نحوه حمل و نقل :
+                                        <em>{{vm.order.shippingMethod}}</em>
+                                    </p>
+                                </md-card-container>
+                            </md-card>
+                        </div>
+
+                        <div flex>
+                            <md-card flex>
+                                <md-card-header>
+                                    <md-icon md-svg-icon="cash"></md-icon>
+                                    <md-card-avatar>
+                                    </md-card-avatar>
+                                    <md-card-header-text>
+                                        <span class="md-title">مبلغ کل</span>
+                                        <span class="md-subhead">{{vm.order.orderTotal| currency:'':0}} تومان</span>
+                                    </md-card-header-text>
+                                </md-card-header>
+                                <md-card-container style="padding-right: 10px;">
+                                    <p> تخفیف کل :
+                                        <em>{{vm.order.orderDiscount| currency:'':0}} تومان</em>
+                                    </p>
+
+                                </md-card-container>
+                            </md-card>
+                        </div>
+                        <div flex>
+                            <md-card flex md-colors="{background:(vm.order.paymentStatus |paymentStatusColor)}">
+                                <md-card-header>
+                                    <md-icon md-svg-icon="payment-status"></md-icon>
+                                    <md-card-avatar>
+                                    </md-card-avatar>
+                                    <md-card-header-text>
+                                        <span class="md-title">وضعیت پرداخت</span>
+                                        <span class="md-subhead" ng-show="!vm.paymentStatusEditMode">{{vm.order.paymentStatus | paymentStatus}}
+                                            <!-- <md-icon ng-click="vm.paymentStatusEditMode=!vm.paymentStatusEditMode" md-svg-icon="edit"></md-icon> -->
+                                        </span>
+                                    </md-card-header-text>
+                                </md-card-header>
+                                <md-card-container style="padding-right: 10px;">
+                                    <md-input-container ng-show="vm.paymentStatusEditMode">
+                                        <md-select flex ng-model="vm.order.paymentStatus">
+                                            <md-option ng-click="vm.updatePaymentStatus(10)" ng-value="10">در انتظار</md-option>
+                                            <md-option ng-click="vm.updatePaymentStatus(20)" ng-value="20">پرداخت شده</md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <p> نحوه پرداخت :
+                                        <em>{{vm.order.paymentMethod}}</em>
+                                    </p>
+                                    <p> کد پیگیری پرداخت : {{vm.order.paymentTrackNumber}}
+                                    </p>
+                                </md-card-container>
+                            </md-card>
+                        </div>
+                    </div>
+                    <md-card flex md-colors="{background:'blue'}">
+                        <md-card-container layout-padding>
+                            <span class="md-title">نظر ادمین</span>
+                            <p class="md-subhead" ng-click="vm.commentEditMode=!vm.commentEditMode" ng-show="!vm.commentEditMode">{{vm.order.comment || 'نظری برای سفارش وارد نشده است'}}
+                                <md-button ng-show="!vm.commentEditMode" class="md-icon-button">
+                                    <md-icon md-svg-icon="edit"></md-icon>
+                                </md-button>
+
+                            </p>
+
+                            <md-input-container ng-show="vm.commentEditMode" layout="column">
+                                <label for="comment">نظر ادمین</label>
+                                <textarea ng-model="vm.order.comment"></textarea>
+                            </md-input-container>
+                            <md-button ng-click="vm.update()" ng-show="vm.commentEditMode" class="md-icon-button">
+                                <md-icon md-svg-icon="check-white" ng-click="vm.commentEditMode=!vm.commentEditMode"></md-icon>
+                            </md-button>
+                        </md-card-container>
+
+                    </md-card>
+                    <!-- <h2>محصولات سفارش داده شده</h2> -->
+                    <md-card ng-show="vm.order.discountUsageHistories.length">
+                        <md-subheader class="md-no-sticky">تخفیف های اعمال شده به این سفارش</md-subheader>
+                        <md-list>
+                            <md-list-item ng-repeat="item in vm.order.discountUsageHistories">
+                                <p>{{::$index+1}} - {{item.discountName}}</p>
+                            </md-list-item>
+                        </md-list>
+                    </md-card>
+
+                    <md-card>
+                        <md-subheader class="md-no-sticky">محصولات خریداری شده</md-subheader>
+                        <md-card-content style="padding:0px;">
+                            <md-button ng-show="vm.productEditorSetting.downLoadFile" md-colors="{background:'grey'}" class="md-raised">محصول دانلودی</md-button>
+                            <md-table-container>
+                                <table md-table>
+                                    <thead md-head>
+                                        <tr md-row>
+                                            <th md-column md-numeric style="text-align: right">تصویر</th>
+                                            <th md-column md-numeric style="text-align: right">محصول</th>
+                                            <th md-column md-numeric>تعداد</th>
+                                            <th md-column md-numeric>قیمت واحد</th>
+                                            <th md-column md-numeric>تخفیف</th>
+                                            <th md-column md-numeric>جمع کل</th>
+                                            <th md-column md-numeric></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody md-body>
+                                        <tr ng-repeat="item in vm.order.orderItems" ng-class="{'round-tr':item.product.isDownLoadFile}">
+                                            <td md-cell style="text-align: right">
+                                                <img class="product-image" ng-if="item.product.primaryImage.path" ng-src="http://localhost:21217{{item.product.primaryImage.path}}" alt="">
+                                            </td>
+                                            <td md-cell style="text-align: right">{{item.product.title|strlimit:30}}</td>
+                                            <td md-cell ng-bind="item.quantity"></td>
+                                            <td md-cell ng-bind-template="{{item.unitPrice| currency:'':0}} تومان"></td>
+                                            <td md-cell ng-bind-template="{{item.discountAmount| currency:'':0}} تومان"></td>
+                                            <td md-cell ng-bind-template="{{item.price | currency:'':0}} تومان"></td>
+                                            <td md-cell>
+                                                <md-button ng-click="vm.showItemDetail(item,$event)" ng-if="item.product.isDownLoadFile" class="md-icon-button">
+                                                    <md-icon md-svg-icon="options"></md-icon>
+                                                </md-button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card-content>
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+            <md-tab ng-if="vm.order.shippingStatus!==10">
+                <md-tab-label>
+                    حمل و نقل
+                </md-tab-label>
+                <md-tab-body>
+                    <md-card layout-padding>
+                        <p>نام تحویل گیرنده : {{vm.order.shippingAddress.reciverName}}</p>
+                        <p>ادرس ایمیل : {{vm.order.shippingAddress.email}}</p>
+                        <p>ادرس : {{vm.order.shippingAddress.path}}</p>
+                        <p>کد پستی : {{vm.order.shippingAddress.path}}</p>
+                        <p>شماره تماس : {{vm.order.shippingAddress.phoneNumber}}</p>
+                        <p>استان : {{vm.order.shippingAddress.stateProvince.name}}</p>
+                        <p>وزن مرسوله : {{vm.order.shipment.totalWeight}}</p>
+                        <div ng-show="!!vm.order.shippingAddress && !!vm.order.shippingAddress.mapLatLang" id="map" ng-init="vm.initShippingAddressGoogleMap();"
+                            style="width:98%;height:500px;"></div>
+                    </md-card>
+                    <md-card layout-padding>
+                        <span class="md-title">اطلاعات حمل و نقل</span>
+
+                        <div layout="row">
+                            <md-input-container>
+                                <label for="shippedDate">تاریخ ارسال</label>
+                                <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.order.shipment.shippedDate" name="shippedDate"
+                                />
+                                <div ng-messages="vm.orderForm.shippedDate.$error">
+                                    <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                </div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label for="deliveryDate">تاریخ رسیدن به دست مشتری</label>
+                                <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.order.shipment.deliveryDate" name="deliveryDate"
+                                />
+                                <div ng-messages="vm.orderForm.deliveryDate.$error">
+                                    <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                </div>
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label for='shippingTrackNumber'>کد پیگیری حمل و نقل</label>
+                                <input type='text' name='shippingTrackNumber' ng-model='vm.order.shipment.trackingNumber'>
+                            </md-input-container>
+                        </div>
+                        <md-card-actions>
+                            <md-button class="md-raised" ng-click="vm.update()">
+                                به روز رسانی
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                    <md-card flex md-colors="{background:'yellow'}">
+                        <md-card-container layout-padding>
+                            <span class="md-title">نظر ادمین</span>
+                            <p class="md-subhead" ng-click="vm.shipmentCommentEditMode=!vm.commentEditMode" ng-show="!vm.shipmentCommentEditMode">{{vm.order.shipment.adminComment || 'نظری برای سفارش وارد نشده است'}}
+                                <md-button ng-show="!vm.commentEditMode" class="md-icon-button">
+                                    <md-icon md-svg-icon="edit"></md-icon>
+                                </md-button>
+
+                            </p>
+
+                            <md-input-container ng-show="vm.shipmentCommentEditMode" layout="column">
+                                <label for="comment">نظر ادمین</label>
+                                <textarea ng-model="vm.order.shipment.adminComment"></textarea>
+                            </md-input-container>
+                            <md-button ng-click="vm.update()" ng-show="vm.shipmentCommentEditMode" class="md-icon-button">
+                                <md-icon md-svg-icon="check-black" ng-click="vm.shipmentCommentEditMode=!vm.shipmentCommentEditMode"></md-icon>
+                            </md-button>
+                        </md-card-container>
+
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+            <md-tab>
+                <md-tab-label>
+                    گزارشات
+                </md-tab-label>
+                <md-tab-body>
+                    <md-card>
+                        <md-card-container>
+                            <md-list>
+                                <md-list-item class="md-3-line" ng-repeat="log in vm.order.orderLogs">
+                                    <img ng-if="::!!log.creator.avatarPath" ng-src="{{::log.creator.avatarPath}}" style="padding-left: 10px;" class="md-avatar">
+                                    <md-icon ng-if="::!log.creator.avatarPath" style="width:45px;height:45px;padding-left: 10px;" md-svg-src="user" aria-label="label"></md-icon>
+                                    <div class="md-list-item-text">
+                                        <h3>{{::log.log}}</h3>
+                                        <p>{{::log.creator.userName}}</p>
+                                        <p>{{::log.createDateTime}}</p>
+                                    </div>
+                                    <md-divider inset></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-container>
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </form>
+
+</md-content>

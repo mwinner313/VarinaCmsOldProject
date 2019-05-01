@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+{%antiforgery_token_input%}   
+{%- assign previews_page = vm.model.current_page | minus:1 -%}
+{% if previews_page != 0 %}
+
+{% paginate_link vm.model previews_page  %}
+{% else %} 
+
+{%endif%}
+
+{% for i in (vm.model.five_previews_page..vm.model.five_next_page) %}
+{%if i == vm.model.current_page %}
+{% paginate_link vm.model i %}    {{i}} <br/>
+{% else %}
+{% paginate_link vm.model i %}    {{i}} <br/>
+{% endif %}
+{% endfor %} 
+
+{% assign next_page = vm.model.current_page | plus : 1 %} 
+{% if next_page <= vm.model.all_pages_count %} 
+
+{% paginate_link vm.model next_page  %}
+{% else %}
+{% endif %}
+</body>
+</html>

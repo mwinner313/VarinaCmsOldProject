@@ -1,0 +1,39 @@
+{% for comment in comments %}
+<li class="reply">
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-lg-10">
+            <a href="#" title="" class="name-user">{{comment.creator.name}}</a>
+            <div class="cm-content">
+                <ol class="grid pull-left like">
+                    <li class="grid__item like">
+                        <span class="number">{{comment.like_count}}</span>
+                        <button class="icobutton icobutton--thumbs-up">
+                            <span class="fa fa-thumbs-up icon"></span>
+                        </button>
+                    </li>
+                    <li class="grid__item dislike">
+                        <span class="number">{{comment.dislike_count}}</span>
+                        <button class="icobutton icobutton--thumbs-up">
+                            <span class="fa fa-thumbs-down icon"></span>
+                        </button>
+                    </li>
+                </ol>
+                <p>{{comment.text}}</p>
+            </div>
+            <ul class="list-addition">
+                <li>
+                    <p>{{comment.create_date_time.from_now}}
+                        <i class="fa fa-clock-o pull-right"></i>
+                    </p>
+                </li>
+            </ul>
+            <a href="#" replay-id="{{comment.id}}" class="pull-left reply">پاسخ
+                <i class="fa fa-reply"></i>
+            </a>
+        </div>
+    </div>
+</li>
+{%if comment.childs != nill %}
+{% include 'partials/reply_comment' with {comments:comment.childs}%}
+{%endif%}
+{%endfor%}

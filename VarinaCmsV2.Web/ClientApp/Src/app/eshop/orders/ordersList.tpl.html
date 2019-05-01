@@ -1,0 +1,49 @@
+<md-content layout-fill>
+
+   
+    <div ng-scrollbars ng-scrollbars-config="scrollConfig">
+
+
+        <md-card>
+        <ng-include src="'/Src/app/eshop/orders/list-filter-options.html'"></ng-include>
+            
+            <md-card-content style="padding:0px;">
+                <md-table-container >
+                    <table md-table  md-progress="vm.tableProgressPromise">
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column md-numeric>نام مشتری</th>
+                                <th md-column md-numeric>تاریخ ثبت</th>
+                                <th md-column md-numeric>جمع کل هزینه <em class="">(تومان)</em></th>
+                                <th md-column md-numeric>وضعیت ارسال</th>
+                                <th md-column md-numeric>وضعیت پرداخت</th>
+                                <th md-column md-numeric>وضعیت سفارش</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-click="vm.goToDetails(order)" md-select="order" md-select-id="id" ng-repeat="order in vm.orders.items">
+                                <td md-cell ng-bind="order.creator.userName"></td>
+                                <td md-cell ng-bind="order.createDateTime"></td>
+                                <td md-cell ng-bind-template="{{order.orderTotal| currency:'':0}} تومان"></td>
+                                <td md-cell >
+                                <span ng-bind="order.shippingStatus |shippingStatus" md-colors="{background:(order.shippingStatus|shippingStatusColor)}"  class="md-button md-raised "> </span>
+                                </td>
+                                <td md-cell >
+                                    <span ng-bind="order.paymentStatus | paymentStatus" md-colors="{background:(order.paymentStatus|paymentStatusColor)}" class="md-button md-raised " ></span>
+                                </td>
+                                <td md-cell>
+                                    <span md-colors="{background:(order.orderStatus|orderStatusColor)}" class="md-button md-raised " ng-bind="order.orderStatus | orderStatus "></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15,20,30]" md-page="vm.query.pageNumber" md-total="{{vm.orders.count}}"
+                    md-on-paginate="vm.getOrders" md-page-select>
+                </md-table-pagination>
+            </md-card-content>
+        </md-card>
+        
+    </div>
+
+</md-content>

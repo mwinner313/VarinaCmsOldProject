@@ -1,0 +1,93 @@
+<md-accordion>
+    <md-accordion-group>
+        <md-accordion-content md-heading="جستجو" md-arrow="true">
+            <md-whiteframe  style="background-color: rgba(224, 226, 229, 0.14);" class="md-whiteframe-4dp" flex layout="row" layout-padding>
+                <div layout="column" flex="10">
+            
+                </div>
+                <div layout="column" flex="30">
+                    <md-input-container>
+                        <label for="title">عنوان محصول</label>
+                        <input type="text" ng-model="vm.query.title">
+                    </md-input-container>
+                    <md-input-container>
+                        <label for="title">کد محصول (sku)</label>
+                        <input type="text" ng-model="vm.query.sku">
+                    </md-input-container>
+                    <md-input-container>
+                        <label for=""></label>
+                        <tag-input model="vm.selectedTags"></tag-input>
+                    </md-input-container>
+                    <md-autocomplete md-no-cache="false" md-selected-item="vm.selectedCat" md-search-text="vm._catSearchText" md-selected-item-change="vm.removeCatIfSerachTextIsEmpty(vm._catSearchText)"
+                        md-items="item in vm.categories | filter:{title:vm._catSearchText} |limitTo:10" md-item-text="item.displayName" md-min-length="0"
+                        placeholder=" دسته بندی خود را جستجو کنید">
+                        <md-item-template>
+                            <span md-highlight-text="vm._catSearchText" md-highlight-flags="^i">{{item.displayName}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            موردی پیدا نشد!
+                        </md-not-found>
+                    </md-autocomplete>
+                    <md-input-container>
+                        <md-checkbox ng-model='vm.query.IncludeChildCategories' aria-label="Checkbox 1">
+                            شامل محصولات زیر مجموعه دسته بندی
+                        </md-checkbox>
+                    </md-input-container>
+                </div>
+                <div layout="column" flex="10">
+            
+                </div>
+            
+                <div layout="column" flex="40">
+            
+                    <md-input-container>
+                        <label>نوع محصول</label>
+                        <md-select flex ng-model="vm.query.productType">
+                            <md-option ng-value="5">
+                                همه
+                            </md-option>
+                            <md-option ng-value="10">
+                                ساده
+                            </md-option>
+                            <md-option ng-value="15">
+                                گروهی
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+            
+                    <md-input-container>
+                        <label>وضعیت انتشار</label>
+                        <md-select flex ng-model="vm.query.publishState">
+                            <md-option ng-value="5">
+                                همه
+                            </md-option>
+                            <md-option ng-value="10">
+                                منتشر شده ها
+                            </md-option>
+                            <md-option ng-value="15">
+                                منتشر نشده ها
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-checkbox ng-model='vm.query.hasEshantion' aria-label="Checkbox 1">
+                         دارای اشانتیون
+                    </md-checkbox>
+                   
+                    <md-checkbox ng-model='vm.query.lowStocks' aria-label="Checkbox 1">
+                         رو به پایان
+                    </md-checkbox>
+                    <md-checkbox ng-model='vm.query.availibleForPreOrder' aria-label="Checkbox 1">
+                         قابل پیش خرید
+                    </md-checkbox>
+            
+                </div>
+            
+                <md-button ng-click="vm.filter()" class="simple md-primary md-raised">
+                    فیلتر
+                    <md-icon md-svg-src="/Src/Html/svg/ic_filter_list_white_24px.svg"></md-icon>
+            
+                </md-button>
+            </md-whiteframe>
+        </md-accordion-content>
+    </md-accordion-group>
+</md-accordion>

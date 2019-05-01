@@ -1,0 +1,9 @@
+<md-input-container class="md-block" md-is-error="(vm.field.$touched&&vm.field.$invalid)||(vm.form.$submitted&&vm.field.$invalid)">
+    <p ng-class="{'has-error':(vm.field.$touched&&vm.field.$invalid)||(vm.form.$submitted&&vm.field.$invalid)}">
+      {{vm.fd.title}}  {{vm.fd.isRequired?"*":""}}
+    </p>
+        <input  autocomplete="off" type="number" class="form-control" ng-model="vm.model.rawValue.number" name="{{::vm.fd.handle}}" ng-required="{{vm.isFieldRequired()}}"/>
+        <div ng-messages="vm.field.$error" >
+            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+        </div>
+</md-input-container>

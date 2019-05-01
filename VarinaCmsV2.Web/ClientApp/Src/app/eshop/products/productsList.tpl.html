@@ -1,0 +1,75 @@
+<md-content layout-fill>
+    <!-- SELECTED -->
+    <md-toolbar class="md-table-toolbar md-hue-2 alternate" ng-show="vm.selectedProducts.length" style="background-color: #e3f2fd;color:blue;">
+        <div class="md-toolbar-tools">
+            <span>{{vm.selectedProducts.length}} انتخاب شده</span>
+            <span flex></span>
+            <md-card-actions layout layout-align="end">
+
+                <md-button class="md-fab" ng-click="vm.confirmDeleteList($event)">
+                    <md-tooltip md-direction="bottom">
+                        حذف
+                    </md-tooltip>
+                    <md-icon md-svg-icon="delete"></md-icon>
+                </md-button>
+
+            </md-card-actions>
+        </div>
+    </md-toolbar>
+    
+    <div ng-scrollbars ng-scrollbars-config="scrollConfig">
+        <md-button ui-sref="prductAdd({lang:currentLang})" class="md-fab ">
+            <md-tooltip md-direction="bottom">
+                افزودن
+            </md-tooltip>
+            <md-icon md-svg-icon="add"></md-icon>
+        </md-button>
+
+
+
+
+        <md-card>
+            <ng-include src="'/Src/app/eshop/products/list-filter-options.html'"></ng-include>
+
+            <md-card-content style="padding:0px;">
+                <md-table-container>
+                    <table md-table md-row-select multiple ng-model="vm.selectedProducts" md-progress="vm.tableProgressPromise">
+                        <thead md-head fix-head>
+                            <tr md-row>
+                                <th md-column md-numeric>تصویر</th>
+                                <th md-column md-numeric style="text-align: right">عنوان</th>
+                                <th md-column md-numeric>نوع</th>
+                                <th md-column md-numeric>موجودی</th>
+                                <th md-column md-numeric>دسته بندی</th>
+                                <th md-column md-numeric>قیمت</th>
+                                <th md-column md-numeric>کد کالا</th>
+                                <th md-column md-numeric>تاریخ انتشار</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-click="vm.showBottomSheetOptions(product)" md-select="product" md-select-id="id" ng-repeat="product in vm.products.items">
+                                <td md-cell>
+                                    <img class="product-image" ng-if="product.primaryImage.path" ng-src="http://localhost:21217{{product.primaryImage.path}}"
+                                        alt="">
+                                </td>
+                                <td md-cell style="text-align: right" class="md-title" ng-bind="product.title | strlimit:50"></td>
+                                <td md-cell ng-bind="product.type===5?'ساده':'گروهی'"></td>
+                                <td md-cell ng-if="::product.type===5" ng-bind="::product.inventory.trackMethod==5?'نامحدود':product.inventory.stockQuantity"></td>
+                                <td md-cell ng-if="::product.type===10">--</td>
+                                <td md-cell ng-bind="product.primaryCategoryTitle"></td>
+                                <td ng-if="product.type===5" md-cell ng-bind-template="{{::product.price| currency:'':0}} تومان"></td>
+                                <td ng-if="product.type===10" md-cell>--</td>
+                                <td md-cell ng-bind="::product.sku"></td>
+                                <td md-cell ng-bind="::product.publishDateTime"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15,20,30]" md-page="vm.query.pageNumber" md-total="{{vm.products.count}}"
+                    md-on-paginate="vm.getProducts" md-page-select>
+                </md-table-pagination>
+            </md-card-content>
+        </md-card>
+    </div>
+
+</md-content>

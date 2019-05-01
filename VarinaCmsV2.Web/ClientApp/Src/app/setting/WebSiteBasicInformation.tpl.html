@@ -1,0 +1,159 @@
+<md-dialog class="form-dialog-large" ng-keydown="($event.ctrlKey && $event.which==83 &&vm.widgetForm.$valid &&($event.preventDefault() ||vm.ok()))"
+    style="width:400px;">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-icon class="tool-bar-icon" md-svg-icon="{{vm.setting.icon}}"></md-icon>
+            {{::vm.setting.displayName}}
+            <span flex></span>
+            <md-button ng-click="vm.ok()" class="md-fab down-edge">
+                <md-icon md-svg-icon="check-white"></md-icon>
+                <md-tooltip>
+                    ویرایش
+                </md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-progress-linear class="md-warn" ng-show="vm.isSendingData" md-mode="indeterminate"></md-progress-linear>
+    <md-dialog-content>
+        <form name="vm.settingForm" id="" novalidate>
+
+            <md-tabs dir="rtl" md-dynamic-height style="height: 100%">
+                <md-tab>
+                    <md-tab-label>
+                        اطلاعات کلی
+                    </md-tab-label>
+                    <md-tab-body>
+                        <md-card layout="row">
+                            <div layout="column" flex layout-padding>
+                                <md-input-container class="md-icon-float  md-block">
+                                    <label for="title">عنوان وب سایت</label>
+                                    <input type="text" autocomplete="off" ng-model="vm.setting.data.title">
+                                </md-input-container>
+
+                                <md-input-container class="md-icon-float md-icon-right md-block">
+                                    <label for="facebook">فیسبوک</label>
+                                    <input type="text" autocomplete="off" id="facebook" ng-model="vm.setting.data.facebook">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/003-facebook.svg"></md-icon>
+                                </md-input-container>
+
+                                <md-input-container class="md-icon-right">
+                                    <label for="linkedin">لینکدین</label>
+                                    <input type="text" autocomplete="off" id="linkedin" ng-model="vm.setting.data.linkedIn">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/002-linkedin.svg"></md-icon>
+                                </md-input-container>
+                                <md-input-container class="md-icon-right">
+                                    <label for="googlePlus">گوگل پلاس</label>
+                                    <input type="text" autocomplete="off" id="googlePlus" ng-model="vm.setting.data.googlePlus">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/004-google-plus.svg"></md-icon>
+                                </md-input-container>
+
+                            </div>
+                            <div layout="column" flex layout-padding>
+                                <md-input-container class="md-icon-right">
+                                    <label for="twitter">توییتر</label>
+                                    <input type="text" autocomplete="off" id="twitter" ng-model="vm.setting.data.twitter">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/twitter.svg"></md-icon>
+                                </md-input-container>
+                                <md-input-container class="md-icon-right">
+                                    <label for="telegram">تلگرام</label>
+                                    <input type="text" autocomplete="off" id="telegram" ng-model="vm.setting.data.telegram">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/005-telegram.svg"></md-icon>
+                                </md-input-container>
+                                <md-input-container class="md-icon-right">
+                                    <label for="instagram">اینستاگرام</label>
+                                    <input type="text" autocomplete="off" id="instagram" ng-model="vm.setting.data.instagram">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/instagram.svg"></md-icon>
+                                </md-input-container>
+                                <md-input-container class="md-icon-right">
+                                    <label for="namasha">نماشا</label>
+                                    <input type="text" autocomplete="off" id="namasha" ng-model="vm.setting.data.namasha">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/instagram.svg"></md-icon>
+                                </md-input-container>
+                                <md-input-container class="md-icon-right">
+                                    <label for="aparat">آپارات</label>
+                                    <input type="text" autocomplete="off" id="aparat" ng-model="vm.setting.data.aparat">
+                                    <md-icon md-svg-src="/Src/Html/svg/social/instagram.svg"></md-icon>
+                                </md-input-container>
+                            </div>
+                        </md-card>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>توضیحات کلی وبسایت</md-tab-label>
+                    <md-tab-body>
+                        <md-card>
+                            <div class='md-subheader _md' role='heading' aria-level='2'>
+                                <div class='md-subheader-inner'>
+                                    <div class='md-subheader-content'>توضیحات کلی وبسایت</div>
+                                </div>
+                            </div>
+                            <md-input-container layout-padding class="md-icon-float md-block">
+                                <label for="description"></label>
+                                <textarea rows="4" autocomplete="off" name="description" ng-model="vm.setting.data.description"></textarea>
+                            </md-input-container>
+
+                        </md-card>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>کد امارگیر گوگل</md-tab-label>
+                    <md-tab-body>
+                        <md-card>
+                            <div class='md-subheader _md' role='heading' aria-level='2'>
+                                <div class='md-subheader-inner'>
+                                    <div class='md-subheader-content'>کد امارگیر گوگل</div>
+                                </div>
+                            </div>
+                            <div ui-codemirror class="codemirror" ng-model="vm.setting.data.googleAnalytics" ui-codemirror-opts="vm.codemirrorOptions"></div>
+                        </md-card>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>متا تگ ها</md-tab-label>
+                    <md-tab-body>
+                        <md-card>
+                            <div class='md-subheader _md' role='heading' aria-level='2'>
+                                <div class='md-subheader-inner'>
+                                    <div class='md-subheader-content'>متا تگ ها</div>
+                                </div>
+                            </div>
+                            <md-input-container layout-padding class=" md-block">
+                                <label for="metaTags"></label>
+                                <textarea rows="4" autocomplete="off" name="metaTags" ng-model="vm.setting.data.metaTags"></textarea>
+                            </md-input-container>
+                        </md-card>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>مختصات جغرافیایی نقشه گوگل</md-tab-label>
+                    <md-tab-body>
+                        <md-card>
+                            <div class='md-subheader _md' role='heading' aria-level='2'>
+                                <div class='md-subheader-inner'>
+                                    <div class='md-subheader-content'> مختصات جغرافیایی نقشه گوگل (
+                                        <small>مثال : 31.51122334,55.1156432</small>)</div>
+                                </div>
+                            </div>
+                            <md-input-container layout-padding class=" md-block">
+                                <label for="googleMapLatLang"></label>
+                                <input type="text" autocomplete="off" name="googleMapLatLang" ng-model="vm.setting.data.googleMapLatLang">
+                                </textarea>
+                            </md-input-container>
+                        </md-card>
+                    </md-tab-body>
+                </md-tab>
+            </md-tabs>
+
+
+
+
+
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.closeDialog()">
+            بستن
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

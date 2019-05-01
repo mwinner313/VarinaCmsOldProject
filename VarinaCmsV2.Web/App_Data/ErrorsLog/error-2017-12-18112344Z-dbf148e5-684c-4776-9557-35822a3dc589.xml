@@ -1,0 +1,189 @@
+﻿<error errorId="dbf148e5-684c-4776-9557-35822a3dc589" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="StructureMap.StructureMapConfigurationException" message="No default Instance is registered and cannot be automatically determined for type 'VarinaCmsV2.Core.Contracts.WebClientServices.Products.IShoppingCartHelper'&#xD;&#xA;&#xD;&#xA;There is no configuration specified for VarinaCmsV2.Core.Contracts.WebClientServices.Products.IShoppingCartHelper&#xD;&#xA;&#xD;&#xA;1.) new OrderController(*Default of IWorkContext*, *Default of IShoppingCartHelper*, *Default of IUserAgentHelper*, *Default of IOrderWebClientService*)&#xD;&#xA;2.) VarinaCmsV2.Web.Controllers.OrderController&#xD;&#xA;3.) Instance of VarinaCmsV2.Web.Controllers.OrderController&#xD;&#xA;4.) Container.GetInstance(VarinaCmsV2.Web.Controllers.OrderController)&#xD;&#xA;" source="Anonymously Hosted DynamicMethods Assembly" detail="System.InvalidOperationException: An error occurred when trying to create a controller of type 'VarinaCmsV2.Web.Controllers.OrderController'. Make sure that the controller has a parameterless public constructor. ---&gt; StructureMap.StructureMapConfigurationException: No default Instance is registered and cannot be automatically determined for type 'VarinaCmsV2.Core.Contracts.WebClientServices.Products.IShoppingCartHelper'&#xD;&#xA;&#xD;&#xA;There is no configuration specified for VarinaCmsV2.Core.Contracts.WebClientServices.Products.IShoppingCartHelper&#xD;&#xA;&#xD;&#xA;1.) new OrderController(*Default of IWorkContext*, *Default of IShoppingCartHelper*, *Default of IUserAgentHelper*, *Default of IOrderWebClientService*)&#xD;&#xA;2.) VarinaCmsV2.Web.Controllers.OrderController&#xD;&#xA;3.) Instance of VarinaCmsV2.Web.Controllers.OrderController&#xD;&#xA;4.) Container.GetInstance(VarinaCmsV2.Web.Controllers.OrderController)&#xD;&#xA;&#xD;&#xA;   at lambda_method(Closure , IBuildSession , IContext )&#xD;&#xA;   at StructureMap.Building.BuildPlan.Build(IBuildSession session, IContext context)&#xD;&#xA;   at StructureMap.BuildSession.BuildNewInSession(Type pluginType, Instance instance)&#xD;&#xA;   at StructureMap.Pipeline.NulloTransientCache.Get(Type pluginType, Instance instance, IBuildSession session)&#xD;&#xA;   at StructureMap.BuildSession.ResolveFromLifecycle(Type pluginType, Instance instance)&#xD;&#xA;   at StructureMap.SessionCache.GetObject(Type pluginType, Instance instance, ILifecycle lifecycle)&#xD;&#xA;   at StructureMap.SessionCache.GetDefault(Type pluginType, IPipelineGraph pipelineGraph)&#xD;&#xA;   at StructureMap.Container.GetInstance(Type pluginType)&#xD;&#xA;   at VarinaCmsV2.Web.DependencyResolvers.MvcDependencyResolver.GetService(Type serviceType) in E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\DependencyResolvers\MvcDependencyResolver.cs:line 23&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at Castle.Proxies.Invocations.IControllerFactory_CreateController.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.IControllerFactoryProxy.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="m.ghanbari01375@gmail.com" time="2017-12-18T11:23:44.2144328Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=lowELe41Kvcjeqis98Q_1e15T_koZx9TGRR3_BhjyHFZLMiN6Bvh_n_eUigsP_pmXaBJ0f6WxOPetRq-H48-3Hlp6KokW2uBuwTUcljvZC01; .AspNet.ApplicationCookie=aaR9Oslsa_Yl-Kl811h_W1ZFLT6K4DS51qHxG_m7-DCaR1K2_vFNaDH2q_qOKks9-xNPjWMyHqSs_QFcR5ncBhPlurNDwsdLdwTRwOXSatMlnkmcDvJbLfnj7onbZE1lgQQ85R75Xd9QykQQ0Q571XPtp5t71tJ7n-2vyJ_RQs49DkJAfXhsKzuj50egUTg-AUFta8eHZtgdjJRVH9YuW6gQwDy_ki0vurHtIjwLdcCeq8sWUU1P4oEMKohplqALrqAtyuf-UJVW6zejOBfrylMK72gyL9YdlLGzxDI1D-GwAkeiTVTox-i5FLPRn4nlC6OmnJeKceOjGmBa4oMyDzJnKSHDKCgumbt2yj_hywI_TmRUJYSU8a5r9US31gMDWgHKRujaX_RLyMTLzZ0C6XbLwBlxRD-32TlKifpBhMcHzEKWYEgWeVSMwxM909kWn2DhlLm0JSaYvzk9WP3avx32NutMqlT3r10Lax4bl3zleEyqsTSjL9FfZyHrtJ2uqUGlt4CCN_1fNzXHeRKXXGIraMqLBCMD5ML-Amh_MZZQHz_kK_6AWJLBhfjaZlA1xzKNUn5QTBeH-lPjcrDjSs_xkaXP29RMkf_LMKN8x3q8aOE3vpIw96vQt_tPOutugu-4JqyTL2CrOfC5AOA_6Za6T0eY4Q90p_cgwM_ggMYygJlWiUe_wFhMN6MufEKX6jnoXGOyUtV96AGtCxjGKT_luL1RXB5ilQixUQJIEvI&#xD;&#xA;HTTP_HOST:localhost:21217&#xD;&#xA;HTTP_REFERER:http://localhost:21217/cart&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=lowELe41Kvcjeqis98Q_1e15T_koZx9TGRR3_BhjyHFZLMiN6Bvh_n_eUigsP_pmXaBJ0f6WxOPetRq-H48-3Hlp6KokW2uBuwTUcljvZC01; .AspNet.ApplicationCookie=aaR9Oslsa_Yl-Kl811h_W1ZFLT6K4DS51qHxG_m7-DCaR1K2_vFNaDH2q_qOKks9-xNPjWMyHqSs_QFcR5ncBhPlurNDwsdLdwTRwOXSatMlnkmcDvJbLfnj7onbZE1lgQQ85R75Xd9QykQQ0Q571XPtp5t71tJ7n-2vyJ_RQs49DkJAfXhsKzuj50egUTg-AUFta8eHZtgdjJRVH9YuW6gQwDy_ki0vurHtIjwLdcCeq8sWUU1P4oEMKohplqALrqAtyuf-UJVW6zejOBfrylMK72gyL9YdlLGzxDI1D-GwAkeiTVTox-i5FLPRn4nlC6OmnJeKceOjGmBa4oMyDzJnKSHDKCgumbt2yj_hywI_TmRUJYSU8a5r9US31gMDWgHKRujaX_RLyMTLzZ0C6XbLwBlxRD-32TlKifpBhMcHzEKWYEgWeVSMwxM909kWn2DhlLm0JSaYvzk9WP3avx32NutMqlT3r10Lax4bl3zleEyqsTSjL9FfZyHrtJ2uqUGlt4CCN_1fNzXHeRKXXGIraMqLBCMD5ML-Amh_MZZQHz_kK_6AWJLBhfjaZlA1xzKNUn5QTBeH-lPjcrDjSs_xkaXP29RMkf_LMKN8x3q8aOE3vpIw96vQt_tPOutugu-4JqyTL2CrOfC5AOA_6Za6T0eY4Q90p_cgwM_ggMYygJlWiUe_wFhMN6MufEKX6jnoXGOyUtV96AGtCxjGKT_luL1RXB5ilQixUQJIEvI&#xD;&#xA;Host: localhost:21217&#xD;&#xA;Referer: http://localhost:21217/cart&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Order/ProceedUserCart" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\Order\ProceedUserCart" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="5139" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Order/ProceedUserCart" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Order/ProceedUserCart" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=lowELe41Kvcjeqis98Q_1e15T_koZx9TGRR3_BhjyHFZLMiN6Bvh_n_eUigsP_pmXaBJ0f6WxOPetRq-H48-3Hlp6KokW2uBuwTUcljvZC01; .AspNet.ApplicationCookie=aaR9Oslsa_Yl-Kl811h_W1ZFLT6K4DS51qHxG_m7-DCaR1K2_vFNaDH2q_qOKks9-xNPjWMyHqSs_QFcR5ncBhPlurNDwsdLdwTRwOXSatMlnkmcDvJbLfnj7onbZE1lgQQ85R75Xd9QykQQ0Q571XPtp5t71tJ7n-2vyJ_RQs49DkJAfXhsKzuj50egUTg-AUFta8eHZtgdjJRVH9YuW6gQwDy_ki0vurHtIjwLdcCeq8sWUU1P4oEMKohplqALrqAtyuf-UJVW6zejOBfrylMK72gyL9YdlLGzxDI1D-GwAkeiTVTox-i5FLPRn4nlC6OmnJeKceOjGmBa4oMyDzJnKSHDKCgumbt2yj_hywI_TmRUJYSU8a5r9US31gMDWgHKRujaX_RLyMTLzZ0C6XbLwBlxRD-32TlKifpBhMcHzEKWYEgWeVSMwxM909kWn2DhlLm0JSaYvzk9WP3avx32NutMqlT3r10Lax4bl3zleEyqsTSjL9FfZyHrtJ2uqUGlt4CCN_1fNzXHeRKXXGIraMqLBCMD5ML-Amh_MZZQHz_kK_6AWJLBhfjaZlA1xzKNUn5QTBeH-lPjcrDjSs_xkaXP29RMkf_LMKN8x3q8aOE3vpIw96vQt_tPOutugu-4JqyTL2CrOfC5AOA_6Za6T0eY4Q90p_cgwM_ggMYygJlWiUe_wFhMN6MufEKX6jnoXGOyUtV96AGtCxjGKT_luL1RXB5ilQixUQJIEvI" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:21217" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:21217/cart" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="lowELe41Kvcjeqis98Q_1e15T_koZx9TGRR3_BhjyHFZLMiN6Bvh_n_eUigsP_pmXaBJ0f6WxOPetRq-H48-3Hlp6KokW2uBuwTUcljvZC01" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="aaR9Oslsa_Yl-Kl811h_W1ZFLT6K4DS51qHxG_m7-DCaR1K2_vFNaDH2q_qOKks9-xNPjWMyHqSs_QFcR5ncBhPlurNDwsdLdwTRwOXSatMlnkmcDvJbLfnj7onbZE1lgQQ85R75Xd9QykQQ0Q571XPtp5t71tJ7n-2vyJ_RQs49DkJAfXhsKzuj50egUTg-AUFta8eHZtgdjJRVH9YuW6gQwDy_ki0vurHtIjwLdcCeq8sWUU1P4oEMKohplqALrqAtyuf-UJVW6zejOBfrylMK72gyL9YdlLGzxDI1D-GwAkeiTVTox-i5FLPRn4nlC6OmnJeKceOjGmBa4oMyDzJnKSHDKCgumbt2yj_hywI_TmRUJYSU8a5r9US31gMDWgHKRujaX_RLyMTLzZ0C6XbLwBlxRD-32TlKifpBhMcHzEKWYEgWeVSMwxM909kWn2DhlLm0JSaYvzk9WP3avx32NutMqlT3r10Lax4bl3zleEyqsTSjL9FfZyHrtJ2uqUGlt4CCN_1fNzXHeRKXXGIraMqLBCMD5ML-Amh_MZZQHz_kK_6AWJLBhfjaZlA1xzKNUn5QTBeH-lPjcrDjSs_xkaXP29RMkf_LMKN8x3q8aOE3vpIw96vQt_tPOutugu-4JqyTL2CrOfC5AOA_6Za6T0eY4Q90p_cgwM_ggMYygJlWiUe_wFhMN6MufEKX6jnoXGOyUtV96AGtCxjGKT_luL1RXB5ilQixUQJIEvI" />
+    </item>
+  </cookies>
+</error>

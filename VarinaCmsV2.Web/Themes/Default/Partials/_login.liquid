@@ -1,0 +1,23 @@
+<div class="form-item log-in">
+        <div class="table">
+            <form id="login-form" data-parsley-validate="">
+                <div class="table-cell">
+
+                    {%antiforgery_token_input%} 
+                    <input  name="EmailOrPhone" 
+                    required
+                    data-parsley-required-message="نام کاربری خالی مانده است"	 
+                    type="email" placeholder="نام کاربری" >
+                    <input  name="Password" placeholder="رمز عبور"  required
+                    data-parsley-required-message="رمز عبور خالی مانده است"	 type="password" >
+                    مرا به خاطر بسپار
+                     <input id="RememberMe" name="RememberMe" type="checkbox" value="true" />
+                   
+                    <button data-toggle="modal" data-target="#myModal" class="link-forget">فراموشی رمز عبور</button>
+                    <button type="submit" class="btn">ورود</button>
+                    <button class="btn register-b hidden-md hidden-lg">ثبت نام</button>
+                </div>
+            </form>
+        </div>
+</div>
+

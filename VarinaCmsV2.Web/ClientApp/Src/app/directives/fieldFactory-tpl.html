@@ -1,0 +1,15 @@
+<text-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='text'" model="vm.model"
+    form="vm.form"></text-field>
+<image-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='image'" model="vm.model"
+    form="vm.form"></image-field>
+<number-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='number'" model="vm.model"
+    form="vm.form"></number-field>
+<datetime-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='datetime'" model="vm.model"
+    form="vm.form"></datetime-field>
+<datetime-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='date'" just-date="::true"
+    model="vm.model" form="vm.form"></datetime-field>
+<number-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='time'" model="vm.model"
+    form="vm.form"></number-field>
+<html-content-field disable-required-validation="vm.disableRequiredValidation" fd="vm.fd" ng-if="vm.fd.type==='html'" model="vm.model"
+    form="vm.form"></html-content-field>
+<drop-down-field fd="vm.fd" model="vm.model" form="vm.form" ng-if="vm.fd.type==='dropdown'"></drop-down-field>

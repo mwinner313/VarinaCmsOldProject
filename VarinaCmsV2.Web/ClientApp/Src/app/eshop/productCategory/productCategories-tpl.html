@@ -1,0 +1,66 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-icon md-svg-icon="group"></md-icon>&nbsp; مدیریت دسته بندی محصولات
+        <span flex></span>
+        <md-button class="md-fab down-edge" ng-click="vm.showAddDialog($event)">
+            <md-tooltip md-direction="top">افزودن</md-tooltip>
+            <md-icon md-svg-icon="add"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content layout="column" flex ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <md-card>
+        <!-- <div style="margin-top: 35px;"> -->
+            <md-card-actions>
+                <md-button ng-show="vm.collectionChanged" ng-click="vm.updateChildParent()" class="md-raised md-warn">
+                    ذخیره تغییرات
+                </md-button>
+            </md-card-actions>
+            <md-card-content layout-padding ui-tree="vm.uiTreeOptions" ui-tree-nodes="" ng-model="vm.categories" id="tree-root">
+                <div ng-repeat="node in vm.categories" ui-tree-node ng-include="'nodes_renderer.html'"></div>
+            </md-card-content>
+        <!-- </div> -->
+    </md-card>
+</md-content>
+
+<script type="text/ng-template" id="nodes_renderer.html">
+    <md-card flex layout="row" style="padding:0px 10px;background-color: rgba(224, 226, 229, 0.14);">
+        <md-menu md-position-mode="target-right target">
+            <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+                <md-icon md-menu-origin md-svg-icon="options"></md-icon>
+            </md-button>
+            <md-menu-content width="4" dir="rtl">
+                <md-menu-item>
+                    <md-button ng-click="vm.showRemoveDialog($event,node)">
+                        <md-icon md-svg-icon="delete"></md-icon>
+                        حذف
+                    </md-button>
+
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="vm.showEditDialog($event,node)">
+                        <md-icon md-svg-icon="edit"></md-icon>
+                        ویرایش
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-href="{{node.toFullUrl}}" target="_blank">
+                        <md-icon md-svg-icon="eye"></md-icon>
+                        مشاهده در سایت
+                    </md-button>
+                </md-menu-item>
+
+        </md-menu>
+        &nbsp;
+        
+        <p>{{node.title}}  --- <span ng-if="isInRole('developer')">{{node.handle}}</span></p>
+        <span flex></span>
+        
+        <md-icon md-menu-origin md-svg-icon="anchor" ui-tree-handle></md-icon>
+
+    </md-card>
+    <div ui-tree-nodes="" ng-model="node.childs" ng-if="!!node.childs">
+        <div style="padding-left: 50px;" ng-repeat="node in node.childs | orderBy: 'order'" ui-tree-node ng-include="'nodes_renderer.html'">
+        </div>
+    </div>
+</script>

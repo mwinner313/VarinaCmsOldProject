@@ -1,0 +1,8 @@
+<p class="md-title"> برش ها</p>
+<md-divider></md-divider>
+    <md-button ng-click="vm.selectResized(cropped)" style="width: 100%;" class="md-primary md-raised" ng-repeat="cropped in vm.resizedImages">
+        {{cropped.metaData.sizeName}} ,
+        {{cropped.metaData.width}}
+        X
+        {{cropped.metaData.height}}
+    </md-button>

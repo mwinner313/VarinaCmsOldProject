@@ -1,0 +1,76 @@
+<md-content>
+  <!-- SELECTED -->
+  <md-toolbar class="md-table-toolbar md-hue-2 alternate" ng-show="vm.selectedPages.length" style="background-color: #e3f2fd;color:blue;">
+    <div class="md-toolbar-tools">
+      <span>{{vm.selectedPages.length}} صفحه انتخاب شده</span>
+      <span flex></span>
+      <md-card-actions layout-align="end">
+
+        <md-button class="md-fab" ng-click="vm.confirmDeleteList($event)">
+          <md-tooltip md-direction="bottom">
+
+            حذف
+
+          </md-tooltip>
+          <md-icon md-svg-icon="delete"></md-icon>
+        </md-button>
+
+      </md-card-actions>
+    </div>
+  </md-toolbar>
+  <!-- NOT SELECTED -->
+  <md-toolbar ng-show="!vm.selectedPages.length" class="md-table-toolbar md-hue-2">
+    <div class="md-toolbar-tools">
+      مدیریت صفحات ثابت
+      <span flex></span>
+      <md-button ng-click="vm.openSearchDialog()" class="md-fab edge-down">
+        <md-tooltip md-direction="bottom">
+          جستجو
+        </md-tooltip>
+        <md-icon md-svg-icon="search"></md-icon>
+      </md-button>
+
+      <md-button ui-sref="addPage({lang:currentLang})" class="md-fab edge-down">
+        <md-tooltip md-direction="bottom">
+          افزودن
+        </md-tooltip>
+        <md-icon md-svg-icon="add"></md-icon>
+      </md-button>
+
+    </div>
+  </md-toolbar>
+  <md-card ng-scrollbars ng-scrollbars-config="scrollConfig">
+      <md-table-container>
+        <table md-table md-row-select multiple ng-model="vm.selectedPages" md-progress="vm.tableProgressPromise">
+          <thead md-head>
+            <tr md-row>
+              <th md-column md-numeric>عنوان</th>
+              <th md-column ng-if="isInRole('developer')" md-numeric>دستگیره</th>
+              <th md-column md-numeric>تاریخ ثبت</th>
+              <th md-column md-numeric>تاریخ آخرین ویرایش</th>
+              <th md-column md-numeric>تاریخ انتشار</th>
+              <th md-column md-numeric>نویسنده</th>
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row ng-click="vm.showBottomSheetOptions(page)" md-select="page" md-select-id="id" ng-repeat="page in vm.pages.items">
+
+              <td md-cell ng-bind="page.title"></td>
+              <td md-cell ng-if="isInRole('developer')" ng-bind="page.handle"></td>
+              <td md-cell ng-bind="page.createDateTime "></td>
+              <td md-cell ng-bind="page.updateDateTime "></td>
+              <td md-cell ng-bind="page.publishDateTime"></td>
+              <td md-cell ng-bind="page.creatorUserName"></td>
+              <td md-cell>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+      <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15]" md-page="vm.query.pageNumber" md-total="{{vm.pages.count}}"
+        md-on-paginate="vm.getPages" md-page-select>
+      </md-table-pagination>
+  </md-card>
+ 
+</md-content>

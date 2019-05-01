@@ -1,0 +1,13 @@
+<div layout="column">
+    <md-card-actions>
+        <md-button class="md-primary simple md-raised menuitem-image-add-btn" ng-click="vm.selectImageFromFilePicker()" aria-label="انتخاب عکس">
+            انتخاب عکس </md-button>
+        <md-button class="md-accent  simple menuitem-image-remove-btn md-raised" ng-if="!!vm.selectedImage.path" ng-click="vm.removeImage()"
+            aria-label="انتخاب عکس">
+            حذف تصویر
+        </md-button>
+    </md-card-actions>
+    <img class="menuitem-image" height="200" ng-if="!!vm.selectedImage.path" ng-src="http://localhost:21217{{vm.selectedImage.path}}"  alt="{{vm.selectedImage.name}}"
+    />
+
+</div>

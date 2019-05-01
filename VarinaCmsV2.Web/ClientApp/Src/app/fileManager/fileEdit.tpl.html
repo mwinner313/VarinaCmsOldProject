@@ -1,0 +1,31 @@
+<md-dialog aria-label="ویرایش فایل" style="width: 70%;">
+        <md-progress-linear md-mode="indeterminate" ng-show="vm.isShowLoader" class="md-warn" aria-label="label">
+            </md-progress-linear>
+    <md-toolbar>
+      
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-src="edit" aria-label="ویرایش فایل"></md-icon>
+            &nbsp;ویرایش فایل
+            <span flex></span>
+            <md-button ng-click="vm.edit()" aria-label="ویرایش" class="md-fab down-edge">
+                <md-icon md-svg-src="check-white" aria-label="label" ></md-icon>
+            </md-button>
+        </div>
+    
+    </md-toolbar>
+    <md-dialog-content layout-padding>
+        
+        <form novalidate name="vm.fileForm">
+                <md-input-container class="md-block" md-is-error="vm.fileForm.name.$invalid">
+                        <label for="name">نام فایل</label>
+                        <input autocomplete="off" type="text" name="name" required ng-model="vm.file.name" />
+                        <div ng-messages="vm.fileForm.name.$error">
+                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                        </div>
+                    </md-input-container>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.closeDialog()" class="md-warn"  aria-label="بستن">بستن</md-button>
+    </md-dialog-actions>
+</md-dialog>

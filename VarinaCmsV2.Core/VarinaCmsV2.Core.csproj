@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{701C81AB-DC0B-489A-92EC-32923BE2AC7E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VarinaCmsV2.Core</RootNamespace>
+    <AssemblyName>VarinaCmsV2.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotLiquid, Version=2.0.254.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.0.254\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.3.0.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\Builders\IEntityBuilder.cs" />
+    <Compile Include="Contracts\Builders\ISchemeBuilder.cs" />
+    <Compile Include="Contracts\Configuration\Base\IAppConfigurationElement.cs" />
+    <Compile Include="Contracts\Configuration\Base\IAppConfigurationElementCollection.cs" />
+    <Compile Include="Contracts\Configuration\ICmsConfiguration.cs" />
+    <Compile Include="Contracts\DataBaseContracts\IDatabaseInitialDataSeeder.cs" />
+    <Compile Include="Contracts\DataServices\IAddresDataService.cs" />
+    <Compile Include="Contracts\DataServices\ICategoryDataService.cs" />
+    <Compile Include="Contracts\DataServices\ICachedDataService.cs" />
+    <Compile Include="Contracts\DataServices\ICommentDataService.cs" />
+    <Compile Include="Contracts\DataServices\ICouponCodeDataService.cs" />
+    <Compile Include="Contracts\DataServices\IDataService.cs" />
+    <Compile Include="Contracts\DataServices\IDiscountUsageDataService.cs" />
+    <Compile Include="Contracts\DataServices\IEntityDataService.cs" />
+    <Compile Include="Contracts\DataServices\IEntitySchemeDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFieldDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFieldDefenitionDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFieldDefenitionGroupDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFileDataDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFormDataService.cs" />
+    <Compile Include="Contracts\DataServices\IFormSchemeDataService.cs" />
+    <Compile Include="Contracts\DataServices\ILanguageDataService.cs" />
+    <Compile Include="Contracts\Configuration\Base\IVarinaConfigurationSection.cs" />
+    <Compile Include="Contracts\DataServices\IMenuDataService.cs" />
+    <Compile Include="Contracts\DataServices\IMenuItemDataService.cs" />
+    <Compile Include="Contracts\DataServices\IMessageServiceAccountDataService.cs" />
+    <Compile Include="Contracts\DataServices\IMetaDataDataService.cs" />
+    <Compile Include="Contracts\DataServices\IDiscountDataService.cs" />
+    <Compile Include="Contracts\DataServices\IOrderDataService.cs" />
+    <Compile Include="Contracts\DataServices\IOrderItemDataService.cs" />
+    <Compile Include="Contracts\DataServices\IOrderLogDataService.cs" />
+    <Compile Include="Contracts\DataServices\IPageDataService.cs" />
+    <Compile Include="Contracts\DataServices\IProductCategoryDataService.cs" />
+    <Compile Include="Contracts\DataServices\IProductDataService.cs" />
+    <Compile Include="Contracts\DataServices\IProductReviewDataService.cs" />
+    <Compile Include="Contracts\DataServices\ISettingDataService.cs" />
+    <Compile Include="Contracts\DataServices\IShoppingCartItemDataService.cs" />
+    <Compile Include="Contracts\DataServices\ITagDataService.cs" />
+    <Compile Include="Contracts\DataServices\IUserDataService.cs" />
+    <Compile Include="Contracts\DataServices\IWidgetContainerDataService.cs" />
+    <Compile Include="Contracts\DataServices\IWidgetDataService.cs" />
+    <Compile Include="Contracts\Decorators\LiquidDataDecorator.cs" />
+    <Compile Include="Contracts\FileFieldDataWrapper.cs" />
+    <Compile Include="Contracts\IWorkContext.cs" />
+    <Compile Include="Contracts\MetaData\IMenuItemMetaDataHandler.cs" />
+    <Compile Include="Contracts\MetaData\IMetaDataHandler.cs" />
+    <Compile Include="Contracts\ModelFactories\ICartModelFactory.cs" />
+    <Compile Include="Contracts\ModelFactories\ICheckoutModelFactory.cs" />
+    <Compile Include="Contracts\Security\IRestrictedItemAccessManager.cs" />
+    <Compile Include="Contracts\Security\ISecurityLogger.cs" />
+    <Compile Include="Contracts\Security\IUserFilterStrategy.cs" />
+    <Compile Include="Contracts\Security\IUserFilterStrategyFactory.cs" />
+    <Compile Include="Contracts\Templating\ILiquidTemplateFinderStratogy.cs" />
+    <Compile Include="Contracts\Templating\ITemplateFinderFactory.cs" />
+    <Compile Include="Contracts\Templating\ITemplateProvider.cs" />
+    <Compile Include="Contracts\WebClientServices\Comment\CommentWebClientServiceSubject.cs" />
+    <Compile Include="Contracts\WebClientServices\Comment\ICommentWebClientObserver.cs" />
+    <Compile Include="Contracts\WebClientServices\Discounts\IDiscountValidator.cs" />
+    <Compile Include="Contracts\WebClientServices\Discounts\IDiscountWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\EntityWebClientServiceObserver.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\EntityWebClientServiceSubject.cs" />
+    <Compile Include="Contracts\WebClientServices\Comment\ICommentWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\IEntitySchemeWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\IEntityWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\PaginatedEntities.cs" />
+    <Compile Include="Contracts\WebClientServices\Entities\UserEntitiesPaginated.cs" />
+    <Compile Include="Contracts\WebClientServices\Orders\IOrderWebClientObserver.cs" />
+    <Compile Include="Contracts\WebClientServices\Orders\IOrderWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Orders\OrderWebClientServiceSubject.cs" />
+    <Compile Include="Contracts\WebClientServices\Pages\IPageWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\AddCostomerReviewRequest.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\AddCustomerReviewResponse.cs" />
+    <Compile Include="Contracts\WebClientServices\Cart\AddToCartResponse.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\DownloadProductResponse.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\DownloadResponseStatus.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\DownloadSampleProductResponse.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\IShoppingCartHelper.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\PaginatedProducTag.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\SearchProductResult.cs" />
+    <Compile Include="Contracts\WebClientServices\Cart\ShoppingCartItemUpdateModel.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\IProductWebClientService.cs" />
+    <Compile Include="Contracts\WebClientServices\Products\PaginatedProductCategory.cs" />
+    <Compile Include="Contracts\WebClientServices\Cart\RomveFromCartResponse.cs" />
+    <Compile Include="Contracts\Web\ICmsUrlStrategy.cs" />
+    <Compile Include="Contracts\Web\ICmsUrlBuilderFactory.cs" />
+    <Compile Include="Contracts\Widget\BaseWidgetLiquidData.cs" />
+    <Compile Include="Contracts\Widget\IWidget.cs" />
+    <Compile Include="Contracts\Widget\IWidgetFactory.cs" />
+    <Compile Include="CustomAttributes\UserAttributes.cs" />
+    <Compile Include="FrontEndOptions\CustomPagination.cs" />
+    <Compile Include="FrontEndOptions\FrontEndDeveloperOptions.cs" />
+    <Compile Include="FrontEndOptions\ImageOptions.cs" />
+    <Compile Include="FrontEndOptions\PaginationOption.cs" />
+    <Compile Include="FrontEndOptions\RelatedEntityLoadOption.cs" />
+    <Compile Include="FrontEndOptions\ResizeOption.cs" />
+    <Compile Include="GlobalDataOrdering.cs" />
+    <Compile Include="Infrastructure\BaseAfterAddingEntityLogic.cs" />
+    <Compile Include="Infrastructure\BaseAfterDeleteEntityLogic.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\CommentsGlobalFilter.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\NotApprovedReviewGlobalFilter.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\ProductVisibleIndividuallyGlobalFilter.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\VisibilityControlledGlobalFilter.cs" />
+    <Compile Include="Infrastructure\IBaseBeforeAddingEntityLogic.cs" />
+    <Compile Include="Infrastructure\IBaseBeforeDeleteEntityLogic.cs" />
+    <Compile Include="Infrastructure\IBaseBeforeUpdatingEntityLogic.cs" />
+    <Compile Include="EntityStates\EntitySchemeState.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\GlobalizeItemGlobalFilter.cs" />
+    <Compile Include="Infrastructure\Logics\HaveRelatadCategoryItemLogic.cs" />
+    <Compile Include="Infrastructure\Logics\MenuItemsAfterDeletingTagertsLogics.cs" />
+    <Compile Include="Infrastructure\Logics\MetaDataGarbageCollector.cs" />
+    <Compile Include="Infrastructure\Logics\ParentChildDataBeforeDeleteLogic.cs" />
+    <Compile Include="Infrastructure\Logics\TaggedItemLogic.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\ScheduledItemGlobalFilter.cs" />
+    <Compile Include="Infrastructure\Logics\SitemMapItemLogic.cs" />
+    <Compile Include="Infrastructure\Logics\TrackableItemLogic.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\RestrictedItemGlobalFilter.cs" />
+    <Compile Include="Infrastructure\GlobalFilters\SoftDeletibleItemGlobalFilter.cs" />
+    <Compile Include="LogicFacade\IDiscountFacade.cs" />
+    <Compile Include="LogicFacade\IEntityFacade.cs" />
+    <Compile Include="LogicFacade\IEntitySchemeFacade.cs" />
+    <Compile Include="Infrastructure\Logics\ParentChildUrlChainLogic.cs" />
+    <Compile Include="LogicFacade\IFieldDefentionFacade.cs" />
+    <Compile Include="LogicFacade\IProductFacade.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
+    <Compile Include="Modules\CmsModuleProvider.cs" />
+    <Compile Include="Modules\ICmsModuleProvider.cs" />
+    <Compile Include="Modules\IModule.cs" />
+    <Compile Include="Modules\MisingModuleDllException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Premissions\CategoryPremission.cs" />
+    <Compile Include="Security\Premissions\CommentPrmission.cs" />
+    <Compile Include="Security\Premissions\DiscountPremission.cs" />
+    <Compile Include="Security\Premissions\EntityPremission.cs" />
+    <Compile Include="Security\Premissions\FieldDefenitionPremission.cs" />
+    <Compile Include="Security\Premissions\FilePremission.cs" />
+    <Compile Include="Security\Premissions\FormPremission.cs" />
+    <Compile Include="Security\Premissions\FormSchemePremission.cs" />
+    <Compile Include="Security\Premissions\MenuPremssion.cs" />
+    <Compile Include="Security\Premissions\OrderPremission.cs" />
+    <Compile Include="Security\Premissions\PagePremision.cs" />
+    <Compile Include="Security\Premissions\PanelPremission.cs" />
+    <Compile Include="Security\Premissions\ProductCategoryPremission.cs" />
+    <Compile Include="Security\Premissions\ProductPremission.cs" />
+    <Compile Include="Security\Premissions\SchemePremission.cs" />
+    <Compile Include="Security\Premissions\PreDefRoles.cs" />
+    <Compile Include="Infrastructure\IBaseAfterUpdatingEntityLogic.cs" />
+    <Compile Include="Security\Premissions\UserManagePremission.cs" />
+    <Compile Include="Security\Premissions\WidgetPremission.cs" />
+    <Compile Include="ServiceObservers\FileDataObserver.cs" />
+    <Compile Include="ServiceObservers\FileServiceSubject.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Contracts\WebClientServices\Cart\ICartService.cs" />
+    <Compile Include="Services\Category\CategoryDeleteRequest.cs" />
+    <Compile Include="Services\Category\CategoryGetRequest.cs" />
+    <Compile Include="Services\Category\CategoryListRequest.cs" />
+    <Compile Include="Services\Category\CategoryListResponse.cs" />
+    <Compile Include="Services\Category\CategoryParentChildUpdateRequest.cs" />
+    <Compile Include="Services\Category\CategoryQuery.cs" />
+    <Compile Include="Services\Category\CategoryAddRequest.cs" />
+    <Compile Include="Services\Category\CategoryResponse.cs" />
+    <Compile Include="Services\Category\CategoryUpdateRequest.cs" />
+    <Compile Include="Services\Comments\CommentDetailRequest.cs" />
+    <Compile Include="Services\Comments\CommentDetailResponse.cs" />
+    <Compile Include="Services\Comments\CommentStatus.cs" />
+    <Compile Include="Services\Comments\CommentApproveRequest.cs" />
+    <Compile Include="Services\Comments\CommentApproveRespnose.cs" />
+    <Compile Include="Services\Comments\CommentDeleteRequest.cs" />
+    <Compile Include="Services\Comments\CommentDeleteResponse.cs" />
+    <Compile Include="Services\Comments\CommentEditRequest.cs" />
+    <Compile Include="Services\Comments\CommentEditResponse.cs" />
+    <Compile Include="Services\Comments\CommentGetListRequest.cs" />
+    <Compile Include="Services\Comments\CommentListResponse.cs" />
+    <Compile Include="Services\Comments\CommentQuery.cs" />
+    <Compile Include="Services\Comments\CommentResponse.cs" />
+    <Compile Include="Services\Comments\ICommentService.cs" />
+    <Compile Include="Services\CurrentUser\EditCurrentUserModel.cs" />
+    <Compile Include="Services\CurrentUser\ICurrentUserService.cs" />
+    <Compile Include="Services\CurrentUser\UserAddressesResponse.cs" />
+    <Compile Include="Services\CurrentUser\UserEditAction.cs" />
+    <Compile Include="Contracts\WebClientServices\Discounts\CouponUsageResponse.cs" />
+    <Compile Include="Services\Dashboard\DashboardWidgetData.cs" />
+    <Compile Include="Services\Dashboard\IDashboardService.cs" />
+    <Compile Include="Services\Discounts\DiscountAddRequest.cs" />
+    <Compile Include="Services\Discounts\DiscountAddResponse.cs" />
+    <Compile Include="Services\Discounts\DiscountListRequest.cs" />
+    <Compile Include="Services\Discounts\DiscountListResponse.cs" />
+    <Compile Include="Services\Discounts\DiscountQuery.cs" />
+    <Compile Include="Services\Discounts\DiscountRequest.cs" />
+    <Compile Include="Services\Discounts\DiscountResponse.cs" />
+    <Compile Include="Services\Discounts\DisocuntDeleteRequest.cs" />
+    <Compile Include="Services\Discounts\DisocuntEditRequest.cs" />
+    <Compile Include="Services\Discounts\DisountDeleteResponse.cs" />
+    <Compile Include="Services\Discounts\DisountEditResponse.cs" />
+    <Compile Include="Services\Discounts\IDiscountService.cs" />
+    <Compile Include="Services\Orders\IOrderLogger.cs" />
+    <Compile Include="Services\Orders\IOrderService.cs" />
+    <Compile Include="Services\Orders\OrderAddRequest.cs" />
+    <Compile Include="Services\Orders\OrderAddResponse.cs" />
+    <Compile Include="Services\Orders\OrderDeleteRequest.cs" />
+    <Compile Include="Services\Orders\OrderDeleteResponse.cs" />
+    <Compile Include="Services\Orders\OrderEditRequest.cs" />
+    <Compile Include="Services\Orders\OrderEditResponse.cs" />
+    <Compile Include="Services\Orders\OrderGetRequest.cs" />
+    <Compile Include="Services\Orders\OrderListRequest.cs" />
+    <Compile Include="Services\Orders\OrderListResponse.cs" />
+    <Compile Include="Services\Orders\OrderQuery.cs" />
+    <Compile Include="Services\Orders\OrderResponse.cs" />
+    <Compile Include="Services\ProductCategories\IProductCategoryService.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryGetResponse.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryAddRequest.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryAddResponse.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryDeleteRequest.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryDeleteResponse.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryEditRequest.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryEditResponse.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryListRequest.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryListResponse.cs" />
+    <Compile Include="Services\ProductCategories\ProductCategoryQuery.cs" />
+    <Compile Include="Services\Product\ProductTypeOption.cs" />
+    <Compile Include="Services\PublishState.cs" />
+    <Compile Include="Services\File\FileAddRequest.cs" />
+    <Compile Include="Services\File\FileDeleteRequest.cs" />
+    <Compile Include="Services\File\FileEditRequest.cs" />
+    <Compile Include="Services\File\FileGetListRequest.cs" />
+    <Compile Include="Services\File\FileGetRequest.cs" />
+    <Compile Include="Services\File\FileListResponse.cs" />
+    <Compile Include="Services\File\FileQuery.cs" />
+    <Compile Include="Services\File\FileResponse.cs" />
+    <Compile Include="Services\File\GroupedByDateFile.cs" />
+    <Compile Include="Services\File\IFileService.cs" />
+    <Compile Include="Services\Form\FormChangeIsSeenStateRequest.cs" />
+    <Compile Include="Services\Form\FormListReponse.cs" />
+    <Compile Include="Services\Form\FormListRequest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeListReponse.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeResponse.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeAddReqest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeDeleteRequest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeEditRequest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeGetListRequest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeGetRequest.cs" />
+    <Compile Include="Services\FormScheme\FormSchemeQuery.cs" />
+    <Compile Include="Services\FormScheme\IFormSchemeService.cs" />
+    <Compile Include="Services\Form\FormQuery.cs" />
+    <Compile Include="Services\Form\FormSubmitRequest.cs" />
+    <Compile Include="Services\Form\FormSubmitResponse.cs" />
+    <Compile Include="Services\Form\IFormService.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\Menu\MenuAddRequest.cs" />
+    <Compile Include="Services\Menu\MenuDeleteRequest.cs" />
+    <Compile Include="Services\Menu\MenuListRequest.cs" />
+    <Compile Include="Services\Menu\MenuListResponse.cs" />
+    <Compile Include="Services\Menu\MenuResponse.cs" />
+    <Compile Include="Services\Menu\MenuService.cs" />
+    <Compile Include="Services\Menu\MenuUpdateRequest.cs" />
+    <Compile Include="Services\ParentChildUpdateRequest.cs" />
+    <Compile Include="Services\Product\IProductService.cs" />
+    <Compile Include="Services\Product\ProductAddRequest.cs" />
+    <Compile Include="Services\Product\ProductAddResponse.cs" />
+    <Compile Include="Services\Product\ProductDeleteRequest.cs" />
+    <Compile Include="Services\Product\ProductDeleteResponse.cs" />
+    <Compile Include="Services\Product\ProductEditRequest.cs" />
+    <Compile Include="Services\Product\ProductEditResponse.cs" />
+    <Compile Include="Services\Product\ProductListRequest.cs" />
+    <Compile Include="Services\Product\ProductListResponse.cs" />
+    <Compile Include="Services\Product\ProductQuery.cs" />
+    <Compile Include="Services\Product\ProductRequest.cs" />
+    <Compile Include="Services\Product\ProductResponse.cs" />
+    <Compile Include="Services\RoleManagement\RoleQuery.cs" />
+    <Compile Include="Services\Settings\ISettingService.cs" />
+    <Compile Include="Services\SimpleResonse.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeAddRequest.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeDeleteRequest.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeQuery.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeListRequest.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeListResponse.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeGetRequest.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeResponse.cs" />
+    <Compile Include="Services\EntityScheme\EntitySchemeUpdateRequest.cs" />
+    <Compile Include="Services\EntityScheme\IEntitySchemeService.cs" />
+    <Compile Include="Services\Entity\EntityAddRequest.cs" />
+    <Compile Include="Services\Entity\EntityDeleteRequest.cs" />
+    <Compile Include="Services\Entity\EntityListRequest.cs" />
+    <Compile Include="Services\Entity\EntityListResponse.cs" />
+    <Compile Include="Services\Entity\EntityQuery.cs" />
+    <Compile Include="Services\Entity\EntityGetRequest.cs" />
+    <Compile Include="Services\Entity\EntityResponse.cs" />
+    <Compile Include="Services\Entity\EntityUpdateRequest.cs" />
+    <Compile Include="Services\Entity\IEntityService.cs" />
+    <Compile Include="Services\Category\ICategoryService.cs" />
+    <Compile Include="Services\IServiceRequest.cs" />
+    <Compile Include="Services\IServiceRequestQuery.cs" />
+    <Compile Include="Services\IServiceResponse.cs" />
+    <Compile Include="Services\Page\IPageService.cs" />
+    <Compile Include="Services\Page\PageAddRequest.cs" />
+    <Compile Include="Services\Page\PageDeleteRequest.cs" />
+    <Compile Include="Services\Page\PageListRequest.cs" />
+    <Compile Include="Services\Page\PageListResponse.cs" />
+    <Compile Include="Services\Page\PageQuery.cs" />
+    <Compile Include="Services\Page\PageRequest.cs" />
+    <Compile Include="Services\Page\PageResponse.cs" />
+    <Compile Include="Services\Page\PageUpdateRequest.cs" />
+    <Compile Include="Services\ResponseAccess.cs" />
+    <Compile Include="Services\UserManagement\IUserManagementService.cs" />
+    <Compile Include="Services\UserManagement\UserAddRequest.cs" />
+    <Compile Include="Services\UserManagement\UserDeleteRequest.cs" />
+    <Compile Include="Services\UserManagement\UserGetRequest.cs" />
+    <Compile Include="Services\UserManagement\UserListRequest.cs" />
+    <Compile Include="Services\UserManagement\UserListResponse.cs" />
+    <Compile Include="Services\UserManagement\UserQuery.cs" />
+    <Compile Include="Services\UserManagement\UserResponse.cs" />
+    <Compile Include="Services\UserManagement\UserUpdateRequest.cs" />
+    <Compile Include="Contracts\Widget\AvailibleWidget.cs" />
+    <Compile Include="Services\Widget\IWidgetContainerService.cs" />
+    <Compile Include="Services\Widget\WidgetAddRequest.cs" />
+    <Compile Include="Services\Widget\WidgetContainerAddRequest.cs" />
+    <Compile Include="Services\Widget\WidgetContainerDeleteRequest.cs" />
+    <Compile Include="Services\Widget\WidgetContainerEditRequest.cs" />
+    <Compile Include="Services\Widget\WidgetContainerResponse.cs" />
+    <Compile Include="Services\Widget\WidgetDeleteRequest.cs" />
+    <Compile Include="Services\Widget\WidgetEditRequest.cs" />
+    <Compile Include="Services\Widget\WidgetRequest.cs" />
+    <Compile Include="Services\Widget\WidgetContainerListResponse.cs" />
+    <Compile Include="Services\Widget\WidgetResponse.cs" />
+    <Compile Include="SettingHelper.cs" />
+    <Compile Include="Settings\ShaprakGateWaySetting.cs" />
+    <Compile Include="Settings\WebSiteBasicInformation.cs" />
+    <Compile Include="Settings\WebSitePolicies.cs" />
+    <Compile Include="Settings\WebSiteProductEditorSetting.cs" />
+    <Compile Include="Contracts\Widget\SocialLinks.cs" />
+    <Compile Include="Web\ActionFilters\BaseActionFilter.cs" />
+    <Compile Include="Web\ActionFilters\MvcEnableEntityValidationAttribute.cs" />
+    <Compile Include="Web\ActionFilters\MvcCmsFormDataActionFilter.cs" />
+    <Compile Include="Web\ActionFilters\WebApiEnableEntityValidationAttribute.cs" />
+    <Compile Include="Web\Exceptions\NotDefinedCmsAuthorizeAttributeException.cs" />
+    <Compile Include="Web\LiquidController.cs" />
+    <Compile Include="Web\Routes.cs" />
+    <Compile Include="Web\Security\Mvc\MvcCmsAuthorizeActionFilterAttribute.cs" />
+    <Compile Include="Web\Security\Mvc\MvcCmsAuthorizeAttribute.cs" />
+    <Compile Include="Web\Security\WebApi\WebApiCmsAuthorize.cs" />
+    <Compile Include="Web\Security\WebApi\WebApiCmsAuthorizeActionFilterAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\Configuration\Modules\" />
+    <Folder Include="Services\Comment\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VarinaCmsV2.Common\VarinaCmsV2.Common.csproj">
+      <Project>{60D537FD-FC3C-4637-8122-A65A4F0ABEBA}</Project>
+      <Name>VarinaCmsV2.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Data\VarinaCmsV2.Data.csproj">
+      <Project>{CD83DD28-C9D7-47D2-99F7-06A1A40EBD8E}</Project>
+      <Name>VarinaCmsV2.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.DomainClasses\VarinaCmsV2.DomainClasses.csproj">
+      <Project>{5B6A1CD7-F23A-4924-B45C-ACEF658DAC42}</Project>
+      <Name>VarinaCmsV2.DomainClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Security\VarinaCmsV2.Security.csproj">
+      <Project>{AD6B0CD5-132F-4A07-85B8-2E774E960238}</Project>
+      <Name>VarinaCmsV2.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.ViewModel\VarinaCmsV2.ViewModel.csproj">
+      <Project>{52E43EF2-57D5-444C-8380-4200EFB35370}</Project>
+      <Name>VarinaCmsV2.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

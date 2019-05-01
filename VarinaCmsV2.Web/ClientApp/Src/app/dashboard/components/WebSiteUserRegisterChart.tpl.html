@@ -1,0 +1,8 @@
+<div layout="row" layout-align="center center">
+        <md-button ng-click="vm.changeChartMode(key)" ng-class="{'md-raised md-primary':vm.selectedChartMode===key}" ng-repeat="(key, value) in vm.data">{{key}}</md-button>
+</div>
+<div>
+        <canvas id="bar" class="chart chart-bar" chart-data="vm.chartData" chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"
+                chart-dataset-override="vm.datasetOverride" chart-click="vm.onClick"></canvas>
+
+</div>

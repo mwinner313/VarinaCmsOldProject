@@ -1,0 +1,37 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h1>مدیریت ابزارک ها</h1>
+        <span flex></span>
+        <md-button class="md-fab down-wdge" ng-disabled="vm.unSavedWidgetContainerExists" ng-click="vm.addWidgetContainer()">
+            <md-icon md-svg-src="add" aria-label="label" class="snumber"></md-icon>
+            <md-tooltip md-direction="bottom">افزودن موقیعت</md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content ng-scrollbars ng-scrollbars-config="scrollConfig" layout="column" flex layout-wrap layout-padding>
+    <div layout="column" layout-gt-md="row">
+        <div flex-gt-md="20" flex>
+            <md-card>
+                <md-card-content dnd-list="vm.widgets.availibleWidgets" class="widget-content">
+                    <div class="md-subheader _md" role="heading" aria-level="2">
+                        <div class="md-subheader-inner">
+                            <div class="md-subheader-content">ابزارک ها</div>
+                        </div>
+                    </div>
+                    <ul style="padding:0px;margin:0px;" dnd-effect-allowed="link">
+                        <li class="widget-item" ng-repeat="widget in vm.widgets.availibleWidgets" dnd-draggable="widget" dnd-moved="vm.resetAvailibleWidgets()"
+                            layout="row">
+                            <div class="widget-anchor">
+                                <md-icon md-menu-origin md-svg-icon="anchor"></md-icon>
+                            </div>
+                            <p class="widget-title">{{widget.title}}
+                            </p>
+                        </li>
+                    </ul>
+                </md-card-content>
+            </md-card>
+        </div>
+
+        <div flex ng-include="'/Src/app/widgets/widgetContainers.tpl.html'"></div>
+    </div>
+</md-content>

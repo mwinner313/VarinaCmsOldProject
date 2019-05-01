@@ -1,0 +1,43 @@
+{
+  "entityRelatedItemsLoadOptions": [
+    {
+      //    ByDateDecending=1,
+      //    Random=2,
+      //    VisitNumber=3,
+      //    LikesCount=4
+      "order": "2",
+      "count": "3",
+      "handle": "for_article_page"
+    }
+  ],
+  "paginationSize": {
+    "default": "12",
+    "homePage": "18"
+  },
+  "images": {
+    "allowedTypes": [ ".jpg", ".png", ".jpeg" ],
+    "resizeOptions": [
+      {
+        "width": "650",
+        "height": "400",
+        "name": "small"
+      },
+      {
+        "width": "800",
+        "height": "600",
+        "name": "medium"
+      },
+      {
+        "width": "1200",
+        "height": "800",
+        "name": "large"
+      },
+      {
+        "width": "152",
+        "height": "85",
+        "name": "thumb"
+      }
+    ]
+  },
+  "MegaMenuItemSize": "4"
+}

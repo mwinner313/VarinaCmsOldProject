@@ -1,0 +1,42 @@
+<md-input-container md-is-error="(vm.userForm.userName.$invalid && (vm.userForm.userName.$dirty||vm.userForm.$submitted))">
+    <p ng-class="{'has-error':vm.userForm.userName.$invalid&&(vm.userForm.$submitted&&vm.userForm.userName.$invalid)}">
+        نام کاربری (user name)</p>
+    <input autocomplete="off" type="text" ng-model="vm.user.userName" name="userName" required>
+    <div ng-messages="vm.userForm.userName.$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>
+
+<md-input-container md-is-error="(vm.userForm.name.$invalid && (vm.userForm.name.$dirty||vm.userForm.$submitted))">
+    <p ng-class="{'has-error':vm.userForm.name.$invalid&&(vm.userForm.$submitted&&vm.userForm.name.$invalid)}">
+        نام</p>
+    <input autocomplete="off" type="text" ng-model="vm.user.name" name="name" required>
+    <div ng-messages="vm.userForm.name.$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>
+
+<md-input-container md-is-error="(vm.userForm.email.$invalid && (vm.userForm.email.$dirty||vm.userForm.$submitted))">
+    <p ng-class="{'has-error':vm.userForm.email.$invalid&&(vm.userForm.$submitted&&vm.userForm.email.$invalid)}">
+        ایمیل</p>
+    <input autocomplete="off" type="email" ng-model="vm.user.email" name="email" required>
+    <div ng-messages="vm.userForm.email.$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>
+
+<md-input-container md-is-error="(vm.userForm.phoneNumber.$invalid && (vm.userForm.phoneNumber.$dirty||vm.userForm.$submitted))">
+    <p ng-class="{'has-error':vm.userForm.phoneNumber.$invalid&&(vm.userForm.$submitted&&vm.userForm.phoneNumber.$invalid)}">
+        شماره تماس</p>
+    <input autocomplete="off" type="text" ng-model="vm.user.phoneNumber" name="phoneNumber" required>
+    <div ng-messages="vm.userForm.phoneNumber.$error">
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>
+
+<md-checkbox ng-model="vm.user.isBanned" name="isBanned" aria-label="label">سلب دسترسی ورود به سایت <span flex></span> </md-checkbox>
+
+<md-input-container ng-show="vm.user.isBanned">
+    <p>دلیل سلب دسترسی <span style="font-size: 12px">(به کاربر هنگام ورود نمایش داده خواهد شد)</span></p>
+    <textarea autocomplete="off" ng-model="vm.user.banReason" name="banReason"></textarea>
+</md-input-container>

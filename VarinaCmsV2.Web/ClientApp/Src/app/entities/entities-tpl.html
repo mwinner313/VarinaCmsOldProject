@@ -1,0 +1,91 @@
+<!-- NOSELECT -->
+<md-toolbar ng-show="vm.selectedEntities.length===0" class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h1>لیست {{vm.scheme.title}}</h1>
+        <md-input-container hide-sm hide-xs>
+
+        </md-input-container>
+        <span flex></span>
+        <md-button ui-sref="entityAdd({scheme:vm.scheme.handle,lang:currentLang})" class="md-fab edge-down">
+            <md-tooltip md-direction="bottom">
+                افزودن
+            </md-tooltip>
+            <md-icon md-svg-icon="add"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<!-- SELECT -->
+<md-toolbar ng-show="vm.selectedEntities.length!==0">
+    <div class="md-toolbar-tools">
+        <h1>{{vm.selectedEntities.length}} مورد انتخاب شده </h1>
+        <span flex></span>
+        <md-button ng-click="vm.confirmDeleteList()" class="md-fab">
+            <md-tooltip md-direction="bottom">
+                حذف
+            </md-tooltip>
+            <md-icon md-svg-icon="delete"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-content>
+    <md-card layout-padding>
+        <md-autocomplete md-no-cache="false" md-selected-item="vm._selectedCat" md-search-text="vm._catSearchText" md-selected-item-change="vm.search()"
+            md-items="item in vm.categories | filter:{title:vm._catSearchText}" md-item-text="item.displayName" md-min-length="0"
+            placeholder="جستجو در دسته بندی">
+            <md-item-template>
+                <span md-highlight-text="vm._catSearchText" md-highlight-flags="^i">{{item.displayName}}</span>
+            </md-item-template>
+            <md-not-found>
+                موردی پیدا نشد!
+            </md-not-found>
+        </md-autocomplete>
+        <md-input-container>
+            <label for='searchText'>جستجو</label>
+            <input type='text' ng-enter="vm.search()" name='searchText' ng-model='vm.searchText'>
+        </md-input-container>
+    </md-card>
+
+    <md-card>
+        <md-card-content style="padding:0px">
+            <md-table-container>
+                <table md-table md-row-select multiple ng-model="vm.selectedEntities" md-progress="vm.tableProgressPromise">
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column md-numeric>عنوان</th>
+                            <!-- <th md-column ng-if="isInRole('developer')" md-numeric>دستگیره</th> -->
+                            <th md-column md-numeric>دسته بندی</th>
+                            <th md-column md-numeric>تاریخ ثبت</th>
+                            <th md-column md-numeric>تاریخ آخرین ویرایش</th>
+                            <th md-column md-numeric>تاریخ انتشار</th>
+                            <th md-column md-numeric>نویسنده</th>
+                            <th md-column md-numeric ng-repeat="fd in vm.scheme.fieldDefenitions |orderBy:'order' |filter:{showInTable:true}" ng-bind="fd.title"></th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-click="vm.showBottomSheetOptions(entity)" md-select="entity" md-select-id="id" ng-repeat="entity in vm.entities.entities">
+                            <td md-cell ng-bind="entity.title"></td>
+                            <!-- <td md-cell ng-if="isInRole('developer')" ng-bind="entity.handle"></td> -->
+                            <td md-cell>
+                                <span>
+                                    {{entity.primaryCategory.title}}
+                                    <md-tooltip md-direction="top">
+                                        {{entity.primaryCategory.displayName}}
+                                    </md-tooltip>
+                                </span>
+                            </td>
+                            <td md-cell ng-bind="entity.createDateTime"></td>
+                            <td md-cell ng-bind="entity.updateDateTime"></td>
+                            <td md-cell ng-bind="entity.publishDateTime"></td>
+                            <td md-cell ng-bind="entity.creatorUserName"></td>
+                            <td md-cell ng-repeat="f in entity.fields |orderBy:'fieldDefenitonOrder' |filter:{fieldDefenitionShowInTable:true}" ng-bind="f|fieldPreview"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15]" md-page="vm.query.pageNumber" md-total="{{vm.entities.count}}"
+                md-on-paginate="vm.getEntitiesAndUpdateRoute" md-page-select></md-table-pagination>
+        </md-card-content>
+    </md-card>
+</md-content>

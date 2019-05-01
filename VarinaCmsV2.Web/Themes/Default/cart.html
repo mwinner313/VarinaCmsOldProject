@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Bootstrap 3, from LayoutIt!</title>
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+    <link rel="stylesheet" href="/Content/jquery.toast.min.css">    
+	<link href="/Themes/Default/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/Themes/Default/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<form action="/Cart/ProceedWithOrder" method="POST">
+		{%antiforgery_token_input%}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						{{vm.model.user.user_name}} سبد خرید شما
+					</h3>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>
+									#
+								</th>
+								<th>
+									Product
+								</th>
+								<th>
+									price
+								</th>
+								<th>
+									pic
+								</th>
+								<th>
+									Quantity
+								</th>
+								<th>
+									warnings
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{%for item in vm.model.shopping_cart_items%}
+							<tr>
+								<td>
+									{{forloop.index}}
+									<input type="hidden" value="{{item.id}}" name="[{{forloop.index|minus : 1}}].id" /> 
+								</td>
+								<td>
+									{{item.product.title}}
+								</td>
+								<td>
+									{{item.product.price}}
+								</td>
+								<td>
+									{% assign pic = item.product.pictures | first %}
+									<img height="200" src="{{pic.path}}">
+								</td>
+								<td>
+									<input type="number" name="[{{forloop.index|minus : 1}}].quantity" value="{{item.quantity}}">
+								</td>
+								<td>
+									<ul>
+										{% for warn in item.warnings%}
+										<li>{{warn}}</li>{%endfor%}
+									</ul>
+								</td>
+								<td>
+							<input class="btn btn-primary" remove-from-cart product-id="{{item.product_id}}" type="button" value="x">
+							
+								</td>
+							</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								هزینه
+							</h3>
+						</div>
+						<div class="panel-body">
+							{{vm.model.total_price}}
+						</div>
+						<div class="panel-footer">
+							<input class="btn btn-primary" type="submit" value="ذخیره و ثبت سفارش">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="/Themes/Default/js/jquery.min.js"></script>
+	<script src="/Themes/Default/js/bootstrap.min.js"></script>
+	<script src="/Themes/Default/js/scripts.js"></script>
+	<script src="/Scripts/libs/jquery.toast.min.js"></script>
+	<script src="/Scripts/cms/cart.js"></script>
+</body>
+
+</html>

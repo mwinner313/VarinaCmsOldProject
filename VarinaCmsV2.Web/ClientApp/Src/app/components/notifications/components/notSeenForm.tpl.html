@@ -1,0 +1,17 @@
+<div layout-padding layout="column" style="height:480px;" ng-nicescroll nice-option="{}">
+    <md-divider md-inset></md-divider>
+    <md-list flex>
+        <div ng-repeat="group in vm.notSeenForms">
+            <md-subheader class="md-no-sticky"> {{::group.scheme}} </md-subheader>
+            <md-list-item ng-repeat="form in group.items" class="md-3-line">
+                <div class="md-list-item-text" layout="column">
+                    <span ng-repeat="f in form.fields"> {{::f.fd.title}} : {{::f|fieldPreview}} </span>
+                </div>
+                <md-button ng-click="vm.changeIsSeenState(form)">
+                    <md-icon ng-show="form.isSeen" md-svg-icon="bell2"></md-icon>
+                    <md-icon ng-show="!form.isSeen" md-svg-icon="eye"></md-icon>
+                </md-button>
+            </md-list-item>
+        </div>
+    </md-list>
+</div>

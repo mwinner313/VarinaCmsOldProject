@@ -1,0 +1,38 @@
+<ng-form layout="row" layout-xs="column" layout-padding novalidate autocomplete="off" name="vm.schemeForm" flex>
+    <md-card style="background-color:#f2f2f2" layout-gt-xs="column" flex="30" flex-sm="100" flex-xs="100">
+
+        <md-input-container flex class="md-block" md-is-error="(vm.schemeForm.title.$invalid && (vm.schemeForm.title.$dirty||vm.schemeForm.$submitted))">
+            <label for="title">عنوان</label>
+            <input type="text" ng-pattern="/[^0-9_-]+$/" ng-model="vm.scheme.title" name="title" ng-required="true" />
+            <div ng-messages="vm.schemeForm.title.$error">
+                <p ng-message="pattern"> حروف غیر مجاز : [a-zA-Z0-9_-]</p>
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+            </div>
+        </md-input-container>
+
+        <md-input-container flex class="md-block" md-is-error="(vm.schemeForm.handle.$invalid && (vm.schemeForm.handle.$dirty||vm.schemeForm.$submitted))">
+            <label for="handle">دستگیره</label>
+            <input type="text" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="vm.scheme.handle" name="handle" ng-required="true" />
+            <div ng-messages="vm.schemeForm.handle.$error">
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+            </div>
+        </md-input-container>
+
+        <md-input-container flex class="md-block" md-is-error="(vm.schemeForm.url.$invalid && (vm.schemeForm.url.$dirty||vm.schemeForm.$submitted))">
+            <label for="handle">مسیر</label>
+            <input type="text" ng-pattern="/^[a-zA-Z0-9_-]+$/" ng-model="vm.scheme.url" name="url" ng-required="true" />
+            <div ng-messages="vm.schemeForm.url.$error">
+                <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                <p ng-message="pattern"> حروف مجاز : [a-zA-Z0-9_-]</p>
+            </div>
+        </md-input-container>
+
+    </md-card>
+    <md-card style="background-color:#f2f2f2" layout-gt-xs="column" flex="70" flex-sm="100" flex-xs="100">
+        <md-input-container flex class="md-block">
+            <label for="">توضیحات</label>
+            <textarea ng-model="vm.scheme.description" name="description" rows="8"> </textarea>
+        </md-input-container>
+    </md-card>
+</ng-form>

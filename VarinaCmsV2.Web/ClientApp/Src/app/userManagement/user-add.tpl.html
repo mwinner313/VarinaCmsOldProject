@@ -1,0 +1,58 @@
+<md-dialog class="form-dialog-medium" aria-label="label">
+        <md-toolbar class="md-hue-2">
+            <md-progress-linear md-mode="indeterminate" ng-show="vm.isSendingData" class="md-warn"></md-progress-linear>
+    
+            <div class="md-toolbar-tools">
+                    <md-icon md-svg-src="user" aria-label="label" class="tool-bar-icon"></md-icon>
+                    <p> افزودن کاربر</p>
+                <span flex></span>
+                <md-button class="md-fab down-edge" ng-disabled="vm.isSendingData" ng-click="vm.ok()">
+                    <md-icon md-svg-icon="check-white"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+    
+            <form name="vm.userForm" novalidate layout-padding layout="column">
+            <div replace ng-include="'/Src/app/userManagement/user.AddOrUpdate_sharedFields.html'"></div>
+    
+                <md-input-container md-is-error="(vm.userForm.password.$invalid && (vm.userForm.password.$dirty||vm.userForm.$submitted))">
+                    <p ng-class="{'has-error':vm.userForm.password.$invalid&&(vm.userForm.$submitted&&vm.userForm.password.$invalid)}">
+                        رمز عبور</p>
+                    <input autocomplete="off" type="password" ng-minlength="6" ng-model="vm.user.password" name="password" required>
+                    <div ng-messages="vm.userForm.password.$error">
+                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                        <p ng-message="match">تکرار رمز عبور صحیح نمیباشد</p>
+                        <p ng-message="minlength">رمز عبور باید بیشتر از 6 حرف باشد</p>
+                    </div>
+                </md-input-container>
+                <md-input-container md-is-error="(vm.userForm.confirmPassword.$invalid && (vm.userForm.confirmPassword.$dirty||vm.userForm.$submitted))">
+                    <p ng-class="{'has-error':vm.userForm.confirmPassword.$invalid&&(vm.userForm.$submitted&&vm.userForm.confirmPassword.$invalid)}">
+                        تکرار رمز عبور </p>
+                    <input autocomplete="off" type="password" ng-model="vm.user.confirmPassword" name="confirmPassword" compare="vm.user.password" required>
+                    <div ng-messages="vm.userForm.confirmPassword.$error">
+                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                        <p ng-message="match">تکرار رمز عبور صحیح نمیباشد</p>
+                    </div>
+                </md-input-container>
+                <!-- <md-whiteframe class="md-whiteframe-10dp" flex flex-gt-sm="45" layout="column">
+                </md-whiteframe> -->
+                <!-- <span flex></span> -->
+                <!-- <md-whiteframe class="md-whiteframe-10dp" flex-gt-sm="50" flex layout="column">
+                    <fieldset class="standard">
+                        <legend>Using &lt;md-checkbox&gt; with &lt;ng-checked&gt; </legend>
+                        <div layout="row" layout-wrap flex>
+                            <div flex="50">
+                                <md-checkbox ng-repeat="role in vm.roles">
+                                 {{role.name}}
+                                </md-checkbox>
+                            </div>
+                        </div>
+                    </fieldset>
+                </md-whiteframe> -->
+            </form>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <md-button ng-click="vm.cancel()" aria-label="بستن">بستن</md-button>
+        </md-dialog-actions>
+    </md-dialog>

@@ -1,0 +1,47 @@
+<md-content layout-fill>
+    <md-toolbar class="md-table-toolbar md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-icon class="tool-bar-icon" md-svg-icon="discount"></md-icon>
+            <h2 class="title">مدیریت تخفیفات</h2>
+            <span flex></span>
+            <md-button ui-sref="discountAdd({lang:currentLang})" class="md-fab edge-down">
+                <md-tooltip md-direction="bottom">
+                    افزودن
+                </md-tooltip>
+                <md-icon md-svg-icon="add"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div ng-scrollbars ng-scrollbars-config="scrollConfig">
+        <ng-include src="'/Src/app/eshop/discounts/list-filter-options.html'"></ng-include>
+        <md-card>
+            <md-card-content style="padding:0px;">
+                <md-table-container>
+                    <table md-table md-row-select ng-model="vm.selecteddiscounts" md-progress="vm.tableProgressPromise">
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column md-numeric>نام تخفیف</th>
+                                <th md-column md-numeric>نوع تخفیف</th>
+                                <th md-column md-numeric>میزان تخفیف </th>
+                                <th md-column md-numeric>تاریخ شروع</th>
+                                <th md-column md-numeric>تاریخ پایان</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-click="vm.goToDetails(discount)" md-select="discount" md-select-id="id" ng-repeat="discount in vm.discounts.items">
+                                <td md-cell ng-bind="discount.name"></td>
+                                <td md-cell ng-bind="discount.discountType|discountType"></td>
+                                <td md-cell ng-bind="discount.usePercentage?(discount.discountPercentage+'%'):((discount.discountAmount|currency:'':0)+' تومان ')"></td>
+                                <td md-cell ng-bind="discount.startDate||'--'"></td>
+                                <td md-cell ng-bind="discount.endDate||'--'"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.pageSize" md-limit-options="[5, 10, 15,20,30]" md-page="vm.query.pageNumber" md-total="{{vm.discounts.count}}"
+                    md-on-paginate="vm.getDiscounts" md-page-select>
+                </md-table-pagination>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

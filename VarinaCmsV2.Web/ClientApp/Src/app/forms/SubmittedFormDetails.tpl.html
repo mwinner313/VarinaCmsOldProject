@@ -1,0 +1,17 @@
+<md-dialog aria-label="form-detail">
+   <md-dialog-content >
+     
+    <ul layout-padding>
+        <li ng-repeat="field in vm.form.fields">
+            <p style="color:blueviolet">{{field.fieldDefenitionTitle}} :</p>
+          <div ng-bind-html="field | fieldPreview"></div>
+          
+        </li>
+    </ul>
+   </md-dialog-content>
+   <md-dialog-actions>
+       
+      <md-button ng-click="vm.close()"  aria-label="close">بستن</md-button>
+      <md-button ng-click="vm.changeIsSeenState()"  aria-label="close"><md-icon md-svg-src="eye" aria-label="eye" ></md-icon></md-button>
+   </md-dialog-actions>
+</md-dialog>

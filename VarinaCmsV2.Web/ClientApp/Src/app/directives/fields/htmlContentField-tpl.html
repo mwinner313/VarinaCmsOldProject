@@ -1,0 +1,7 @@
+<md-input-container class="md-block">
+    <p class="md-title"> {{vm.fd.title}}</p>
+    <textarea ui-tinymce="vm.tinyMceOptions" ng-model="vm.model.rawValue.content" name="{{vm.fd.handle}}" ng-required="{{vm.isFieldRequired()}}"></textarea>
+    <div ng-messages="vm.field.$error" >
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>

@@ -1,0 +1,72 @@
+<md-dialog aria-label="آپلود فایل" style="width: 70%; height: auto">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-icon md-svg-icon="upload" style="width: 40px;height: 40px;" aria-label="label" class="upload"></md-icon>
+            &nbsp;
+            <span>آپلود فایل</span>
+            <span flex></span>
+            <md-button ng-click="vm.uploader.uploadAll()" aria-label="" class="md-fab down-edge" ng-disabled="!vm.uploader.queue.length">
+                <md-icon md-svg-src="up-btn" aria-label="label" class="snumber"></md-icon>
+                <md-tooltip>
+                    شروع
+                </md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+        <input type="file" id="filePicker" class="ng-hide" nv-file-select="" uploader="vm.uploader" multiple value="انتخاب فایل"
+        />
+        <section layout-padding nv-file-drop uploader="vm.uploader " class="file-drop-zone">
+            <md-card class="drop-zone">
+                <div layout-padding class="line" layout-align="center center">
+                    <span class="drop-zone-no-file-text" ng-show="!vm.uploader.queue.length">فایل های خود را اضافه کنید</span>
+                    <md-table-container ng-show="!!vm.uploader.queue.length">
+                        <table ng-nicescroll nice-option="{cursorcolor: '#e2edff'}" md-table flex>
+                            <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                               
+                                <th md-column style="text-align: inherit">
+                                    <span>پیش رفت </span>
+                                </th>
+                                <th md-column style="text-align: inherit">
+                                    <span>نام فایل </span>
+                                </th>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="item in vm.uploader.queue">
+                                  
+                                    <td md-cell style="text-align: inherit">
+                                        <md-progress-linear md-mode="determinate" value="{{item.progress}}" aria-label="label">&nbsp;
+                                        </md-progress-linear>
+                                        {{ item.file.size/1024/1024|number:2 }} MB
+                                        <span ng-show="!!item.progress">{{item.progress}} %</span>
+                                    </td>
+                                    <td md-cell style="text-align: inherit">    {{item.file.name}}
+                                           
+                                        <md-button ng-show="!item.isUploaded" ng-click="item.remove()" aria-label="حذف" class="md-mini">
+                                            <md-icon md-svg-src="delete"></md-icon>
+                                            حذف
+                                        </md-button>
+                                        <md-button ng-show="item.isUploading" ng-click="item.cancel()" aria-label="انصراف" class="md-mini">
+                                            <md-icon md-svg-src="delete"></md-icon>
+                                            انصراف
+                                        </md-button>
+
+                                        <md-icon ng-show="item.isUploaded" md-svg-src="check-black"></md-icon>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                </div>
+            </md-card>
+
+        </section>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.closeDialog()" aria-label="بستن">بستن</md-button>
+        <md-button onclick="$('#filePicker').trigger('click')" class="md-primary md-raised" aria-label="انتخاب فایل">انتخاب فایل</md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,183 @@
+﻿<error errorId="d885bdb0-73d1-422e-b424-18ec084f7d78" application="/LM/W3SVC/2/ROOT" host="DESKTOP-CI1JFP3" type="VarinaCmsV2.Common.NotFoundRequestException" message="Exception of type 'VarinaCmsV2.Common.NotFoundRequestException' was thrown." detail="VarinaCmsV2.Common.NotFoundRequestException: Exception of type 'VarinaCmsV2.Common.NotFoundRequestException' was thrown." user="m.ghanbari01375@gmail.com" time="2017-12-17T13:56:29.8299182Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;HTTP_COOKIE:Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=8wvs8ztNN48dBktj-1RfjEoFq99QULG6cbJr0NaSt2frQ0pD99H63SdyFU6sMw0mW1uaiUwWRZGXlyW32WpBIuU0LrUUrQxBV8jtq38MKZM1; io=yvWqSz8FRDn59L_UAAAN; .AspNet.ApplicationCookie=Zc_puI093-ZcVdi1ownzCIxAGd5la6m-XyQI0f-oRk9uGynbdMJjWCp8ewfYMdVh7HqQl7Xw8VI4uXQHHys-p6SaE31m1_WunC9FYyLS4p3pPF1YAXX3jYuhq036hpUogYayjxXEUni8bASCYukUt5BvEOS1Phs5htqHC0shh4AfPCxnPKIyU3qsnBn4JdZomKz2V-3-6LK5wbYZMjHUWdUMllhntDJlJk1ZexdP1W1yjhTfUZmFPxIl0QdB5l6kwXFe8VqmAPyWzquPyzgbicv9q-KnXgH5Hw845rPF_ELqgVRx4eIljVoaoU4OsBvxWjMXK_qmVMQkqCjbVC1YzxeKfUrlVRqBwQ5_Ufr3hsncx81kYXeMytq46SV1CT1oT9iXles4wHesxfxntP0aRZ_Auw3SOttxmpHrQmE5idy-DvE8o9LhG96SFM8FtpRqcHalmLUoDKJNeOG773LCgtD6HAyJXHmFow6onM89exIdSAA2GnmfRGgkOzMlQp6PazTyNVqGuBgLznQaYqZ4sJnKYRMDsQ1dzo_wsI3AIFGLdlFGdE-MiXHaVUoBFnWGVoXg0LMl00bOZcEGbiG2gj8FDADSplni_fQDFU7F5t1hdgjeoS_prHVO3H3EGLO96tA_FuOE36E9U3CFhXxmM3EGYFTO4FAL2N7Cd3SuZr7H4DILnK0oTEyhSpFmvjwAnLdd-U7m82zyzyv_g6YHrKVAFBvtALug7as8-lZf_QM&#xD;&#xA;HTTP_HOST:localhost:21217&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9,fa;q=0.8&#xD;&#xA;Cookie: Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=8wvs8ztNN48dBktj-1RfjEoFq99QULG6cbJr0NaSt2frQ0pD99H63SdyFU6sMw0mW1uaiUwWRZGXlyW32WpBIuU0LrUUrQxBV8jtq38MKZM1; io=yvWqSz8FRDn59L_UAAAN; .AspNet.ApplicationCookie=Zc_puI093-ZcVdi1ownzCIxAGd5la6m-XyQI0f-oRk9uGynbdMJjWCp8ewfYMdVh7HqQl7Xw8VI4uXQHHys-p6SaE31m1_WunC9FYyLS4p3pPF1YAXX3jYuhq036hpUogYayjxXEUni8bASCYukUt5BvEOS1Phs5htqHC0shh4AfPCxnPKIyU3qsnBn4JdZomKz2V-3-6LK5wbYZMjHUWdUMllhntDJlJk1ZexdP1W1yjhTfUZmFPxIl0QdB5l6kwXFe8VqmAPyWzquPyzgbicv9q-KnXgH5Hw845rPF_ELqgVRx4eIljVoaoU4OsBvxWjMXK_qmVMQkqCjbVC1YzxeKfUrlVRqBwQ5_Ufr3hsncx81kYXeMytq46SV1CT1oT9iXles4wHesxfxntP0aRZ_Auw3SOttxmpHrQmE5idy-DvE8o9LhG96SFM8FtpRqcHalmLUoDKJNeOG773LCgtD6HAyJXHmFow6onM89exIdSAA2GnmfRGgkOzMlQp6PazTyNVqGuBgLznQaYqZ4sJnKYRMDsQ1dzo_wsI3AIFGLdlFGdE-MiXHaVUoBFnWGVoXg0LMl00bOZcEGbiG2gj8FDADSplni_fQDFU7F5t1hdgjeoS_prHVO3H3EGLO96tA_FuOE36E9U3CFhXxmM3EGYFTO4FAL2N7Cd3SuZr7H4DILnK0oTEyhSpFmvjwAnLdd-U7m82zyzyv_g6YHrKVAFBvtALug7as8-lZf_QM&#xD;&#xA;Host: localhost:21217&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="m.ghanbari01375@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Themes/Default/js/jquery.min.map" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\programming\projects\Source\VarinaCmsV2\VarinaCmsV2.Web\Themes\Default\js\jquery.min.map" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="10312" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Themes/Default/js/jquery.min.map" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="21217" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Themes/Default/js/jquery.min.map" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9,fa;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4=; Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4=; Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4=; Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4=; glimpsePolicy=; __RequestVerificationToken=8wvs8ztNN48dBktj-1RfjEoFq99QULG6cbJr0NaSt2frQ0pD99H63SdyFU6sMw0mW1uaiUwWRZGXlyW32WpBIuU0LrUUrQxBV8jtq38MKZM1; io=yvWqSz8FRDn59L_UAAAN; .AspNet.ApplicationCookie=Zc_puI093-ZcVdi1ownzCIxAGd5la6m-XyQI0f-oRk9uGynbdMJjWCp8ewfYMdVh7HqQl7Xw8VI4uXQHHys-p6SaE31m1_WunC9FYyLS4p3pPF1YAXX3jYuhq036hpUogYayjxXEUni8bASCYukUt5BvEOS1Phs5htqHC0shh4AfPCxnPKIyU3qsnBn4JdZomKz2V-3-6LK5wbYZMjHUWdUMllhntDJlJk1ZexdP1W1yjhTfUZmFPxIl0QdB5l6kwXFe8VqmAPyWzquPyzgbicv9q-KnXgH5Hw845rPF_ELqgVRx4eIljVoaoU4OsBvxWjMXK_qmVMQkqCjbVC1YzxeKfUrlVRqBwQ5_Ufr3hsncx81kYXeMytq46SV1CT1oT9iXles4wHesxfxntP0aRZ_Auw3SOttxmpHrQmE5idy-DvE8o9LhG96SFM8FtpRqcHalmLUoDKJNeOG773LCgtD6HAyJXHmFow6onM89exIdSAA2GnmfRGgkOzMlQp6PazTyNVqGuBgLznQaYqZ4sJnKYRMDsQ1dzo_wsI3AIFGLdlFGdE-MiXHaVUoBFnWGVoXg0LMl00bOZcEGbiG2gj8FDADSplni_fQDFU7F5t1hdgjeoS_prHVO3H3EGLO96tA_FuOE36E9U3CFhXxmM3EGYFTO4FAL2N7Cd3SuZr7H4DILnK0oTEyhSpFmvjwAnLdd-U7m82zyzyv_g6YHrKVAFBvtALug7as8-lZf_QM" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:21217" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="Entity-Like-096c9575-1cca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-f109c102-9fca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-2f62e33e-a0ca-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="Entity-Like-52a9538e-98c7-e711-9ba8-b8ee65d632f4">
+      <value string="" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="8wvs8ztNN48dBktj-1RfjEoFq99QULG6cbJr0NaSt2frQ0pD99H63SdyFU6sMw0mW1uaiUwWRZGXlyW32WpBIuU0LrUUrQxBV8jtq38MKZM1" />
+    </item>
+    <item name="io">
+      <value string="yvWqSz8FRDn59L_UAAAN" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="Zc_puI093-ZcVdi1ownzCIxAGd5la6m-XyQI0f-oRk9uGynbdMJjWCp8ewfYMdVh7HqQl7Xw8VI4uXQHHys-p6SaE31m1_WunC9FYyLS4p3pPF1YAXX3jYuhq036hpUogYayjxXEUni8bASCYukUt5BvEOS1Phs5htqHC0shh4AfPCxnPKIyU3qsnBn4JdZomKz2V-3-6LK5wbYZMjHUWdUMllhntDJlJk1ZexdP1W1yjhTfUZmFPxIl0QdB5l6kwXFe8VqmAPyWzquPyzgbicv9q-KnXgH5Hw845rPF_ELqgVRx4eIljVoaoU4OsBvxWjMXK_qmVMQkqCjbVC1YzxeKfUrlVRqBwQ5_Ufr3hsncx81kYXeMytq46SV1CT1oT9iXles4wHesxfxntP0aRZ_Auw3SOttxmpHrQmE5idy-DvE8o9LhG96SFM8FtpRqcHalmLUoDKJNeOG773LCgtD6HAyJXHmFow6onM89exIdSAA2GnmfRGgkOzMlQp6PazTyNVqGuBgLznQaYqZ4sJnKYRMDsQ1dzo_wsI3AIFGLdlFGdE-MiXHaVUoBFnWGVoXg0LMl00bOZcEGbiG2gj8FDADSplni_fQDFU7F5t1hdgjeoS_prHVO3H3EGLO96tA_FuOE36E9U3CFhXxmM3EGYFTO4FAL2N7Cd3SuZr7H4DILnK0oTEyhSpFmvjwAnLdd-U7m82zyzyv_g6YHrKVAFBvtALug7as8-lZf_QM" />
+    </item>
+  </cookies>
+</error>

@@ -1,0 +1,18 @@
+<md-input-container class="md-block" md-is-error="(vm.field.$touched&&vm.field.$invalid)||(vm.form.$submitted&&vm.field.$invalid)">
+
+    <p ng-class="{'has-error':(vm.field.$touched&&vm.field.$invalid)||(vm.form.$submitted&&vm.field.$invalid)}">
+        {{vm.fd.title}} {{vm.fd.isRequired?"*":""}}
+    </p>
+
+    <input  autocomplete="off" type="text" ng-if="!vm.justDate" ng-pattern="::vm.datetimeRegex" persian-date class="form-control input-rtl"
+        ng-model="vm.model.rawValue.dateTimeString" name="{{::vm.fd.handle}}"  ng-required="vm.isFieldRequired()"
+    />
+    <input  autocomplete="off" type="text" ng-if="vm.justDate" ng-pattern="::vm.dateRegex" persian-date just-date="true" class="form-control input-rtl"
+        ng-model="vm.model.rawValue.dateTimeString" name="{{::vm.fd.handle}}" ng-required="vm.isFieldRequired()"
+    />
+    <div ng-messages="vm.field.$error" >
+        <p ng-message="pattern" ng-if="!vm.justDate" class="text-danger"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+        <p ng-message="pattern" ng-if="vm.justDate" class="text-danger"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09)</p>
+        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+    </div>
+</md-input-container>

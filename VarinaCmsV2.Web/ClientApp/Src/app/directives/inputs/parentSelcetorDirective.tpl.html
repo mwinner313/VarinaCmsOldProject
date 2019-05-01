@@ -1,0 +1,21 @@
+<md-autocomplete 
+    md-search-text="vm.searchText"
+    md-autoselect="!!vm.model.parentId"
+    md-selected-item="vm.selected" 
+    md-selected-item-change="vm.setParent()"
+    md-no-cache="true" md-clear-button="true"
+    md-search-text-change="vm.removeParentIfTextIsEmpty()"	
+    md-delay="1000"
+    md-min-length="0"
+    md-dropdown-position="top"
+    md-input-name="vm.name"
+    md-items="item in vm.getItems(vm.searchText)"
+    md-item-text="item.displayName||item.title"
+    placeholder="{{vm.inputPlaceholder}}">
+    <md-item-template>
+        <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.displayName||item.title}}</span>
+    </md-item-template>
+    <md-not-found>
+        موردی یافت نشد
+    </md-not-found>
+</md-autocomplete>

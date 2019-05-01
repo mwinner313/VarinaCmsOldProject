@@ -1,0 +1,91 @@
+<md-accordion>
+    <md-accordion-group>
+        <md-accordion-content md-heading="جستجو" md-arrow="true">
+            <md-whiteframe style="background-color: rgba(224, 226, 229, 0.14);" class="md-whiteframe-4dp" flex layout="row" layout-padding>
+                <form name="vm.filterForm" flex layout="row">
+                    <div layout="column" flex="10">
+
+                    </div>
+                    <div layout="column" flex="30">
+                        <md-input-container class="md-block">
+                            <label for="fromDate">ازتاریخ</label>
+                            <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.query.fromDate" name="fromDate" />
+                            <div ng-messages="vm.filterForm.fromDate.$error">
+                                <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label for="toDate">تا تاریخ</label>
+                            <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.query.toDate" name="toDate" />
+                            <div ng-messages="vm.filterForm.toDate.$error">
+                                <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="productTitle">عنوان محصول</label>
+                            <input type="text" ng-model="vm.query.productTitle">
+                        </md-input-container>
+
+                    </div>
+                    <div layout="column" flex="10">
+
+                    </div>
+
+                    <div layout="column" flex="40">
+
+                        <md-input-container>
+                            <label>وضعیت سفارش</label>
+                            <md-select flex ng-model="vm.query.orderStatus">
+                                <md-option ng-value="5">همه</md-option>
+                                <md-option ng-value="10">در حال انتظار</md-option>
+                                <md-option ng-value="30">تکمیل</md-option>
+                                <md-option ng-value="40">کنسل</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>وضعیت حمل و نقل</label>
+                            <md-select flex ng-model="vm.query.shippingStatus">
+                                <md-option ng-value="5">همه</md-option>
+                                <md-option ng-value="10">احتیاج به ارسال ندارد</md-option>
+                                <md-option ng-value="20">هنوز ارسال نشده</md-option>
+                                <md-option ng-value="30">ارسال شده</md-option>
+                                <md-option ng-value="40">رسیده به دست مشتری</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>وضعیت پرداخت</label>
+                            <md-select flex ng-model="vm.query.paymentStatus">
+                                <md-option ng-value="5">همه</md-option>
+                                <md-option ng-value="10">در حال انتظار</md-option>
+                                <md-option ng-value="20">پرداخت شده</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <!-- <md-input-container>
+                            <label>نحوه پرداخت</label>
+                            <md-select flex ng-model="vm.query.paymentMethod">
+                                <md-option ng-repeat="method in vm.paymentMethods" ng-value="{{::method}}">{{::method}}</md-option>
+                            </md-select>
+                        </md-input-container> -->
+                        <md-input-container>
+                            <label for="costumerName">نام خریدار</label>
+                            <input type="text" ng-model="vm.query.userName">
+                        </md-input-container>
+                        <md-checkbox ng-show="vm.productEditorSetting.downLoadFile" ng-model='vm.query.notActivatedDownloads' aria-label="Checkbox 1">
+                            محصول دانلودی فعال نشده
+                        </md-checkbox>
+                        <md-checkbox ng-model='vm.query.notSeen' aria-label="Checkbox 1">
+                            مشاهده نشده
+                        </md-checkbox>
+                    </div>
+
+                    <md-button ng-click="vm.filter()" class="simple md-primary md-raised">
+                        فیلتر
+                        <md-icon md-svg-src="/Src/Html/svg/ic_filter_list_white_24px.svg"></md-icon>
+                    </md-button>
+                </form>
+            </md-whiteframe>
+        </md-accordion-content>
+    </md-accordion-group>
+</md-accordion>

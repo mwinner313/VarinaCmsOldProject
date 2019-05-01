@@ -1,0 +1,21 @@
+
+            <section class="footer-down">
+                <div class="container-puz width">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-5">
+                            <p>© کپی بخش یا کل هر کدام از مطالب پازل تنها با کسب مجوز مکتوب امکان پذیر است.</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 pull-left">
+                            <ul class="list-footer pull-left">
+                                {% for item in vm.model.menu.menu_items %}
+                                <li>
+                                    <a href="{{item.url}}" title="{{item.title}}">{{item.title}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+         
+         

@@ -1,0 +1,48 @@
+<md-card flex layout="row" style="padding:0px 10px;background-color: rgba(224, 226, 229, 0.14);">
+    <md-accordion layout="column" flex>
+        <md-accordion-group>
+            <md-accordion-content style="direction:rtl;" ng-class="{'has-error':(vm['menu_item_form_{{::child.id | dashremove}}'].$invalid)}"
+                md-heading="{{child.title|strlimit:40}}" style="padding:10px;" md-arrow="true">
+               
+
+                <p style="direction:ltr;float:left;" class="md-caption">
+                    {{child.targetType|targetType}}
+                    <a ng-href="{{child.url || child.toFullUrl}}" target="_blank">
+                        <i class="fa fa-link"></i>{{child.url || child.toFullUrl}}
+                    </a>
+                </p>
+                <ng-form name="vm.menu_item_form_{{::child.id | dashremove}}" novalidate>
+
+                        <md-input-container class="md-block">
+                            <label>عنوان</label>
+                            <input name="title" autocomplete="off" required ng-model="child.title" />
+                        </md-input-container>
+                        <md-input-container ng-if="child.targetType==vm.menuItemTargetType.customLink" class="md-block">
+                            <label>مسیر</label>
+                            <input name="customlink" style="direction: ltr;" autocomplete="off" required ng-model="child.url" />
+                            <div ng-messages="vm['menu_item_form_{{::child.id | dashremove}}'].customlink.$error">
+                            </div>
+                        </md-input-container>
+                        <md-radio-group ng-model="child.linkTarget" layout="row">
+                            <md-radio-button value="_blank" class="md-primary">در صفحه جدید باز شود</md-radio-button>
+                            <md-radio-button value="">در همان صفحه باز شود</md-radio-button>
+                        </md-radio-group>
+                    </ng-form>
+
+
+                <menu-item-plugins item="child"></menu-item-plugins>
+
+                <md-card-actions>
+                    <md-button class="simple md-warn" ng-click="vm.removeMenuItem(child,this)" aria-label="حذف"> حذف </md-button>
+                </md-card-actions>
+            </md-accordion-content>
+        </md-accordion-group>
+    </md-accordion>
+    <div style="padding-top: 12px;">
+        <md-icon md-menu-origin md-svg-icon="anchor" ui-tree-handle></md-icon>
+    </div>
+</md-card>
+<div ui-tree-nodes="" ng-model="child.childs" ng-if="!!child.childs">
+    <div style="padding-left: 20px;" ng-repeat="child in child.childs | orderBy: 'order'" ui-tree-node ng-include="'/Src/app/menu/menuitem-template.html'">
+    </div>
+</div>

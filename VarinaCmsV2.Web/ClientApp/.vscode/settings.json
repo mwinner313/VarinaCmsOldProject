@@ -1,0 +1,16 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.autoSave": "onWindowChange",
+    "editor.fontSize": 20,
+    "path-intellisense.extensionOnImport": true,
+    "path-intellisense.autoSlashAfterDirectory": false,
+    "editor.autoIndent": true,
+    "explorer.sortOrder": "default",
+    "relativePath.ignore": [
+        "**/node_modules/**",
+        "**/*.dll",
+        "**/obj/**",
+        "**/objd/**"
+    ],
+    "git.ignoreLimitWarning": true
+}

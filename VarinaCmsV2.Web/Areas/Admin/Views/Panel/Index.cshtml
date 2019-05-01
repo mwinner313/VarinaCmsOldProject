@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" ng-cloak>
+
+<head>
+    <base href="/panel/" />
+    <!-- need to end with => /-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title ng-bind-template="{{title}}">پنل مدیریت</title>
+    <link rel="stylesheet" href="/ClientApp/build/styles.css" />
+    <link rel="stylesheet" href="/ClientApp/build/style.css" />
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body ng-cloak layout="column">
+    <md-content layout="row" flex>
+        <ng-include replace src="'/Src/app/partials/sideNav.html'"></ng-include>
+        <md-content layout="column" flex id="page-content" style=" position: relative;">
+            <ng-include replace src="'/Src/app/partials/main-toolbar.html'"></ng-include>
+            <ui-view loading-bar>
+            </ui-view>
+        </md-content>
+    </md-content>
+    <script src="/ClientApp/build/scripts.js"></script>
+</body>
+
+</html>

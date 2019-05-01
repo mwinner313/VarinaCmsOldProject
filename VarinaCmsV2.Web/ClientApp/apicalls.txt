@@ -1,0 +1,5 @@
+GET http://localhost:2000/api/category HTTP/1.1
+content-type: application/json
+X-Requested-With:XMLHttpRequest
+
+

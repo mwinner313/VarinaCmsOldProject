@@ -1,0 +1,780 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-icon class="tool-bar-icon" md-svg-icon="box"></md-icon>
+        {{vm.title}} محصول
+        <span flex></span>
+        <md-button ng-disabled="vm.isSendingData" ng-click="vm.submit()" class="md-fab down-edge">
+            <md-icon md-svg-icon="check-white"></md-icon>
+            <md-tooltip>ثبت محصول</md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-progress-linear md-mode="indeterminate" ng-show="vm.isSendingData" class="md-warn"></md-progress-linear>
+
+<form ng-scrollbars ng-scrollbars-config="scrollConfig" layout="column" novalidate name="vm.productForm">
+    <md-tabs dir="rtl" md-dynamic-height>
+        <md-tab>
+            <md-tab-label>
+                اطلاعات محصول
+            </md-tab-label>
+            <md-tab-body>
+                <md-whiteframe layout-padding layout="row" class='md-whiteframe-2dp'>
+                    <div flex-gt-md="65">
+
+                        <md-card>
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+
+                                    <md-icon class="tool-bar-icon" md-svg-icon="info"></md-icon>
+                                    اطلاعات کلی
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <label>نوع محصول</label>
+                                    <md-select ng-model="vm.product.type">
+                                        <md-option ng-value="5">
+                                            ساده
+                                        </md-option>
+                                        <md-option ng-click="vm.product.visibleIndividually=true" ng-value="10">
+                                            گروهی
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container ng-show="vm.product.type==5">
+                                    <md-checkbox ng-model='vm.product.visibleIndividually' aria-label="Checkbox 1">
+                                        انتشار به صورت فردی
+                                    </md-checkbox>
+                                </md-input-container>
+
+                                <md-input-container ng-show="vm.product.type==5">
+                                    <md-checkbox ng-model='vm.product.canAddToCart' aria-label="Checkbox 1">
+                                        امکان افزودن به سبد خرید
+                                    </md-checkbox>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <label for='title'>عنوان محصول</label>
+                                    <input type='text' ng-remote-validate="/api/ProductValidator/ExistsTitle" ng-remote-throttle="800" ng-remote-data="{id:vm.product.id}"
+                                        autocomplete="off" name='title' required ng-model='vm.product.title'>
+                                    <div ng-messages='vm.productForm.title.$error'>
+                                        <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        <p ng-message="ngRemoteValidate">این عنوان در سیستم ثبت گردیده است</p>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <label for='shortDescription'>توضیح مختصر </label>
+                                    <textarea autocomplete="off" name='shortDescription' ng-model='vm.product.shortDescription' rows="4"></textarea>
+                                </md-input-container>
+
+
+                                <md-input-container>
+                                    <p>توضیحات کلی</p>
+                                    <md-divider md-inset></md-divider>
+                                    <textarea ui-tinymce="vm.tinyMceOptions" ng-model="vm.product.fullDescription" name="fullDescriotion"></textarea>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <label for='sku'>
+                                        کد محصول
+                                        <em>(sku)</em>
+                                    </label>
+                                    <input type='text' autocomplete="off" name='sku' ng-model='vm.product.sku'>
+                                </md-input-container>
+
+
+                                <md-input-container>
+                                    <label for=""></label>
+                                    <tag-input model="vm.product.tags"></tag-input>
+                                </md-input-container>
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.allowCustomerReviews' aria-label="Checkbox 1">
+                                        میتواند نظر داشته باشد
+                                    </md-checkbox>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for='adminComment'>کامنت ادمین </label>
+                                    <textarea autocomplete="off" name='adminComment' ng-model='vm.product.adminComment' rows="4"></textarea>
+                                </md-input-container>
+                            </div>
+
+                        </md-card>
+                        <md-card ng-show="vm.editorSetting.downLoadFile && vm.product.type==5">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="download-1"></md-icon>
+                                    محصول دانلودی
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container ng-if="vm.product.type==5">
+                                    <md-checkbox ng-model='vm.product.isDownLoadFile' aria-label="Checkbox 1">
+                                        این محصول یک محصول دانلودی میباشد؟
+                                    </md-checkbox>
+                                </md-input-container>
+
+                                <div layout="column" ng-if="vm.product.isDownLoadFile">
+
+                                    <div>
+                                        <md-button md-colors="{background: 'deep-orange'}" ng-click="vm.openFilePicker()">
+                                            انتخاب فایل
+                                        </md-button>
+                                        <span class="product-file" ng-show="!!vm.product.file">{{vm.product.file.name|strlimit:130}}{{vm.product.file.extension}} </span>
+                                    </div>
+
+                                    <md-input-container>
+                                        <md-checkbox ng-model='vm.product.unlimitedDownloads' aria-label="Checkbox 1">
+                                            امکان تعداد دانلود از این فایل بی نهایت باشد؟
+                                        </md-checkbox>
+                                    </md-input-container>
+                                    <md-input-container ng-if="!vm.product.unlimitedDownloads">
+                                        <label for='maxNumberOfDownloads'>تعداد مجاز دانلود</label>
+                                        <input type='number' ng-min="1" name='maxNumberOfDownloads' ng-required="!vm.product.unlimitedDownloads" ng-model='vm.product.maxNumberOfDownloads'>
+                                        <div ng-messages='vm.productForm.maxNumberOfDownloads.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label for='downloadExpirationDays'>مدت زمان دسترسی کاربر به لینک دانلود بر حسب روز
+                                            <em> (درصورت صورت خالی ماندن سیستم محدودیتی قایل نخواهد شد)</em>
+                                        </label>
+                                        <input type='number' ng-min="0" name='downloadExpirationDays' ng-model='vm.product.downloadExpirationDays'>
+                                        <div ng-messages='vm.productForm.maxNumberOfDownloads.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                            <p ng-message="min" class="text-danger">x</p>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label> نحوه فعال سازی لینک دانلود </label>
+                                        <md-select ng-model="vm.product.downLoadActivationType">
+                                            <md-option ng-value="10">
+                                                بعد از خرید خودکار فعال شود
+                                            </md-option>
+                                            <md-option ng-value="5">
+                                                به صورت دستی
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <md-checkbox ng-model='vm.product.hasSampleFile' aria-label="Checkbox 1">
+                                            دارای فایل نمونه برای دانلود میباشد؟
+                                        </md-checkbox>
+                                    </md-input-container>
+
+                                    <div ng-show="vm.product.hasSampleFile">
+                                        <md-button md-colors="{background: 'deep-orange'}" ng-click="vm.openFilePickerForSampleFile()">
+                                            انتخاب فایل نمونه
+                                        </md-button>
+                                        <span class="product-file" ng-show="!!vm.product.sampleFile">{{vm.product.sampleFile.name|strlimit:130}}{{vm.product.sampleFile.extension}}
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </md-card>
+
+                        <md-card ng-show="vm.product.type==5">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="money"></md-icon>
+                                    قیمت گذاری
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <label for='pice'>
+                                        قیمت
+                                        <em>به تومان</em>
+                                    </label>
+                                    <input type='number' name='pice' required ng-model='vm.product.price'>
+                                    <div ng-messages='vm.productForm.price.$error'>
+                                        <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for='oldPrice'>
+                                        قیمت قبلی
+                                        <em>به تومان</em>
+                                    </label>
+                                    <input type='number' name='oldPrice' ng-model='vm.product.oldPrice'>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for='productCost'>
+                                        هزنیه محصول
+                                        <em>به تومان</em>
+                                    </label>
+                                    <input type='number' name='producCost' ng-model='vm.product.productCost'>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.availableForPreOrder' aria-label="Checkbox 1">
+                                        امکان پیش خرید وجود دارد؟
+                                    </md-checkbox>
+                                </md-input-container>
+
+                                <md-input-container ng-if="vm.product.availableForPreOrder">
+                                    <label for="preOrderAvailabilityStartDateTime">تاریخ شروع پیش خرید</label>
+                                    <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.product.preOrderAvailabilityStartDateTime"
+                                        name="preOrderAvailabilityStartDateTime" ng-required="true" />
+                                    <div ng-messages="vm.pageForm.preOrderAvailabilityStartDateTime.$error">
+                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                        <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.callForPrice' aria-label="Checkbox 1">
+                                        برای قیمت تماس بگیرید
+                                    </md-checkbox>
+                                </md-input-container>
+                            </div>
+
+
+                        </md-card>
+                    </div>
+                    <div flex-gt-md="35">
+                        <md-card>
+                            <md-toolbar md-colors="{background: 'teal'}">
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="calendar-date"></md-icon>
+
+                                    انتشار
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <label for="publishDateTime">تاریخ انتشار</label>
+                                    <input autocomplete="off" persian-date ng-pattern="::vm.datetimeRegex" ng-model="vm.product.publishDateTime" name="publishDateTime"
+                                        ng-required="true" />
+                                    <div ng-messages="vm.productForm.publishDateTime.$error">
+                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                        <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                    </div>
+                                </md-input-container>
+                                <!-- <md-input-container>
+                                    <label for='availibleEndTime'>تاریخ پایان موجود بودن</label>
+                                    <input type='text' name='availibleEndTime' required  persian-date ng-pattern="::vm.datetimeRegex" ng-model='vm.product.availibleEndTime'>
+                                    <div ng-messages='vm.productForm.availibleEndTime.$error'>
+                                       <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                       <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                     </div>
+                                  </md-input-container> -->
+                                <!-- <md-input-container>
+                                   <label for='availibleStartTime'>تاریخ شروع موجود بودن</label>
+                                   <input type='text' name='availibleStartTime' required  persian-date ng-pattern="::vm.datetimeRegex" ng-model='vm.product.availibleStartTime'>
+                                   <div ng-messages='vm.productForm.availibleStartTime.$error'>
+                                      <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                      <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                                    </div>
+                                 </md-input-container> -->
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.isVisible' aria-label="Checkbox 1">
+                                        قابل مشاهد در سایت
+                                    </md-checkbox>
+                                </md-input-container>
+                            </div>
+
+                        </md-card>
+                        <md-card ng-show="vm.product.type==10">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    محصولات تخصیص یافته
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <div layout="column">
+                                    <md-button ng-click="vm.chooseAssociatedProductDialog()" md-colors="{background: 'red'}">افزودن محصول + </md-button>
+                                    <div ng-show="vm.product.associatedProducts.length" ng-scrollbars ng-scrollbars-config="vm.scrollopts">
+                                        <md-list>
+                                            <md-list-item class="md-3-line" ng-repeat="product in vm.product.associatedProducts">
+                                                <img ng-src="http://localhost:21217{{prouct.primaryImage.path}}" class="md-avatar">
+
+                                                <div class="md-list-item-text">
+                                                    <h3>{{product.title}}</h3>
+                                                </div>
+                                                <md-icon class="md-secondary" ng-click="vm.removeFromAssociatedProducts(product, $event)" md-svg-icon="delete"></md-icon>
+
+                                                <md-divider inset></md-divider>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </md-card>
+                        <md-card ng-if="vm.product.type==5">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="inventory"></md-icon>
+                                    موجودی
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <label>نحوه بررسی موجودی انبار</label>
+                                    <md-select name="trackMethod" required ng-model="vm.product.inventory.trackMethod">
+                                        <md-option ng-value="5">
+                                            احتیاجی به مدیریت نیست
+                                        </md-option>
+                                        <md-option ng-value="10">
+                                            مدیریت بر اساس تعداد موجود
+                                        </md-option>
+                                    </md-select>
+                                    <div ng-messages="vm.productForm.trackMethod.$error">
+                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                    </div>
+                                </md-input-container>
+
+                                <div layout="column" ng-if="vm.product.inventory.trackMethod === 10">
+
+                                    <md-input-container>
+                                        <label for='stockQty'>تعداد موجود</label>
+                                        <input type='number' ng-min="0" name='stockQty' required ng-model='vm.product.inventory.stockQuantity'>
+                                        <div ng-messages='vm.productForm.stockQty.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label for='notifyAdminForQuantityBelow'>تعداد محصول به این مقدار رسید به من خبر یده</label>
+                                        <input type='text' name='notifyAdminForQuantityBelow' required ng-model='vm.product.inventory.notifyAdminForQuantityBelow'>
+                                        <div ng-messages='vm.productForm.notifyAdminForQuantityBelow.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label for='minStockQuantity'>حد اقل موجودی انبار</label>
+                                        <input type='number' ng-min="0" name='minStockQuantity' required ng-model='vm.product.inventory.minStockQuantity'>
+                                        <div ng-messages='vm.productForm.minStockQuantity.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>عملیات مورد نظر در صورت رسیدن موجودی به حداقل انبار</label>
+                                        <md-select name="minStockQuntityAction" required ng-model="vm.product.inventory.minStockQuntityAction">
+                                            <md-option ng-value="5">
+                                                محصول به حالت منتشر نشده درآید
+                                            </md-option>
+                                            <md-option ng-value="10">
+                                                امکان اضافه شدن به سبد خرید از بین برود
+                                                <em>(دکمه خرید غیر فعال شود)</em>
+                                            </md-option>
+                                            <md-option ng-value="15">
+                                                لازم به اعمال عملیاتی نیست
+                                            </md-option>
+                                        </md-select>
+                                        <div ng-messages="vm.productForm.minStockQuntityAction.$error">
+                                            <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                        </div>
+                                    </md-input-container>
+
+                                </div>
+
+                                <md-input-container>
+                                    <label for='orderMinimumQuantity'>حد اقل تعداد در سبد خرید</label>
+                                    <input type='number' ng-min="0" name='orderMinimumQuantity' required ng-model='vm.product.inventory.orderMinimumQuantity'
+                                    />
+                                    <div ng-messages='vm.productForm.orderMinimumQuantity.$error'>
+                                        <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container>
+                                    <label for='orderMaximumQuantity'>حداکثر تعداد در سبد خرید</label>
+                                    <input type='number' ng-min="0" name='orderMaximumQuantity' required ng-model='vm.product.inventory.orderMaximumQuantity'
+                                    />
+                                    <div ng-messages='vm.productForm.orderMaximumQuantity.$error'>
+                                        <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for='allowedQuantities'>تعداد های مجاز در سبد خرید</label>
+                                    <input type='text' ng-pattern="/^[0-9,]+$/" name='allowedQuantities' ng-model='vm.product.inventory.allowedQuantities' />
+                                    <div ng-messages='vm.productForm.allowedQuantities.$error'>
+                                        <p ng-message="pattern">test</p>
+                                    </div>
+                                </md-input-container>
+
+                            </div>
+                        </md-card>
+                        <md-card ng-show="vm.editorSetting.shipment && vm.product.type==5">
+                            <md-toolbar md-colors="{background: 'brown'}">
+                                <div class="md-toolbar-tools">
+
+                                    <md-icon class="tool-bar-icon" md-svg-icon="shipment"></md-icon>
+                                    حمل و نقل
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.shipment.isShipEnabled' aria-label="Checkbox 1">
+                                        حمل ونقل برای این محصول وجود دارد؟
+                                    </md-checkbox>
+                                </md-input-container>
+                                <div layout="column" ng-if="vm.product.shipment.isShipEnabled">
+                                    <md-input-container>
+                                        <md-checkbox ng-model='vm.product.shipment.freeShipping' aria-label="Checkbox 1">
+                                            ارسال رایگان
+                                        </md-checkbox>
+                                    </md-input-container>
+                                    <!-- <md-input-container>
+                                        <md-checkbox ng-model='vm.product.shipment.shipSeparately' aria-label="Checkbox 1">
+                                            ارسال به صورت جداگانه
+                                        </md-checkbox>
+                                    </md-input-container> -->
+                                    <!-- <md-input-container>
+                                        <label for='sendPrice'>هزینه ارسال</label>
+                                        <input type='number' ng-min="0" name='sendPrice' ng-model='vm.product.shipment.sendPrice'>
+                                        <div ng-messages='vm.productForm.sendPrice.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container> -->
+                                    <md-input-container>
+                                        <label for='weight'>وزن</label>
+                                        <input type='number' ng-min="0" name='weight' ng-model='vm.product.shipment.weight'>
+                                        <div ng-messages='vm.productForm.weight.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label for='length'>طول</label>
+                                        <input type='number' ng-min="0" name='length' ng-model='vm.product.shipment.length'>
+                                        <div ng-messages='vm.productForm.length.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label for='width'>عرض</label>
+                                        <input type='number' ng-min="0" name='width' ng-model='vm.product.shipment.width'>
+                                        <div ng-messages='vm.productForm.width.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label for='height'>ارتفاع</label>
+                                        <input type='number' ng-min="0" name='height' ng-model='vm.product.shipment.height'>
+                                        <div ng-messages='vm.productForm.height.$error'>
+                                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </md-card>
+                        <md-card>
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="connection"></md-icon>
+                                    نگاشت ها
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-autocomplete md-no-cache="false" md-selected-item="vm.product.scheme" md-search-text="vm.schemeSearchText" md-items="scheme in vm.schemes | filter :{title:vm.schemeSearchText}"
+                                    md-item-text="scheme.title" md-min-length="0" placeholder="مجموعه فیلدها">
+                                    <md-item-template>
+                                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{scheme.title}}</span>
+                                    </md-item-template>
+                                    <md-not-found>
+                                        موردی یافت نشد!
+                                    </md-not-found>
+                                </md-autocomplete>
+                                <md-input-container style="padding: 0px;">
+                                    <input type="text" ng-hide="true" ng-model="vm.product.scheme.id" name="schemeId" required />
+                                    <div ng-messages="vm.productForm.schemeId.$error">
+                                        <div ng-messages-include="/Src/app.core/partials/messages.html"></div>
+                                    </div>
+                                </md-input-container>
+                                <primary-category-selector use-product-category="true" before-select="vm.confirmCategoryChange()" on-select="vm.refreshPcatFdsForEntity()"
+                                    flex model="vm.product" name="primaryCategory" form="vm.productForm" input-placeholder="دسته بندی اصلی را انتخاب کنید"></primary-category-selector>
+                                <list-selector prop="displayName" flex service="productCategorySrv" req-params="vm.secondaryCatParams" model="vm.product.relatedCategories"></list-selector>
+                                <!-- <list-selector prop="name" flex service="discountSrv" place-holder="تخفیف ها" req-params="{discountType:2}" model="vm.product.discounts"></list-selector> -->
+                            </div>
+                        </md-card>
+                        <md-card ng-show="vm.editorSetting.requiredProducts && vm.product.type==5">
+                            <md-toolbar md-colors="{background: 'green'}">
+                                <div class="md-toolbar-tools">
+                                    الزام به محصولات دیگر
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.hasRequiredProducts' aria-label="Checkbox 1">
+                                        خرید این محصول الزام به خرید محصولات دیگر دارد؟
+                                    </md-checkbox>
+                                </md-input-container>
+                                <div ng-if="vm.product.hasRequiredProducts" layout="column">
+                                    <md-input-container>
+                                        <md-checkbox ng-model='vm.product.automaticallyAddRequiredProducts' aria-label="Checkbox 1">
+                                            به طور خود کار محصولات اجباری را به سبد خرید اضافه کن
+                                        </md-checkbox>
+                                    </md-input-container>
+                                    <md-button ng-click="vm.chooseRequiredProductDialog()" md-colors="{background: 'green'}">افزودن محصول الزامی + </md-button>
+                                    <md-content flex>
+                                        <div ng-show="vm.product.requiredProducts.length" ng-scrollbars ng-scrollbars-config="vm.scrollopts">
+                                            <md-list>
+                                                <md-list-item class="md-3-line" ng-repeat="product in vm.product.requiredProducts">
+                                                    <img ng-src="http://localhost:21217{{product.primaryImage.path}}" class="md-avatar">
+
+                                                    <div class="md-list-item-text">
+                                                        <h3>{{product.title}}</h3>
+                                                    </div>
+                                                    <md-icon class="md-secondary" ng-click="vm.removeFromRequiredProducts(product, $event)" md-svg-icon="delete"></md-icon>
+
+                                                    <md-divider inset></md-divider>
+                                                </md-list-item>
+                                            </md-list>
+                                        </div>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </md-card>
+                        <md-card ng-if="vm.editorSetting.upSellings">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    محصولات مرتبط
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-radio-group ng-model="vm.product.relatedProductLoadType">
+                                    <md-radio-button ng-value="5" class="md-primary">از دسته بندی اصلی بگیر</md-radio-button>
+                                    <md-radio-button ng-value="10"> خودم انتخاب میکنم </md-radio-button>
+                                </md-radio-group>
+                                <div layout="column" ng-show="vm.product.relatedProductLoadType==10">
+                                    <md-button ng-click="vm.chooseRelatedProductDialog()" md-colors="{background: 'green'}">افزودن محصول مرتبط + </md-button>
+                                    <div ng-show="vm.product.upSellings.length" ng-scrollbars ng-scrollbars-config="vm.scrollopts">
+                                        <md-list>
+                                            <md-list-item class="md-3-line" ng-repeat="product in vm.product.upSellings">
+                                                <img ng-src="http://localhost:21217{{product.primaryImage.path}}" class="md-avatar">
+
+                                                <div class="md-list-item-text">
+                                                    <h3>{{product.title}}</h3>
+                                                </div>
+                                                <md-icon class="md-secondary" ng-click="vm.removeFromUpSellings(product, $event)" md-svg-icon="delete"></md-icon>
+
+                                                <md-divider inset></md-divider>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </md-card>
+                        <md-card ng-show="vm.editorSetting.eshantions && vm.product.type==5">
+                            <md-toolbar md-colors="{background: 'green'}">
+                                <div class="md-toolbar-tools">
+                                    <md-icon class="tool-bar-icon" md-svg-icon="gift"></md-icon>
+                                    هدیه یا اشانتیون
+                                    <span flex></span>
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.hasEshantion' aria-label="Checkbox 1">
+                                        با خرید این محصول , محصول دیگری به کاربر هدیه داده شود؟
+                                    </md-checkbox>
+                                </md-input-container>
+                                <div layout="column" ng-show="vm.product.hasEshantion">
+                                    <md-button ng-click="vm.chooseEshantionsProductDialog()" md-colors="{background: 'green'}">افزودن محصول هدیه + </md-button>
+                                    <div ng-show="vm.product.eshantions.length" ng-scrollbars ng-scrollbars-config="vm.scrollopts">
+                                        <md-list>
+                                            <md-list-item class="md-3-line" ng-repeat="product in vm.product.eshantions">
+                                                <img ng-src="http://localhost:21217{{product.primaryImage.path}}" class="md-avatar">
+
+                                                <div class="md-list-item-text">
+                                                    <h3>{{product.title}}</h3>
+                                                </div>
+                                                <md-icon class="md-secondary" ng-click="vm.removeFromEshantionProducts(product, $event)" md-svg-icon="delete"></md-icon>
+
+                                                <md-divider inset></md-divider>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-card>
+                        <md-card ng-if="vm.editorSetting.crossSellings">
+                            <md-toolbar>
+                                <div class="md-toolbar-tools">
+                                    محصولات پیشنهادی
+                                </div>
+                            </md-toolbar>
+                            <div layout-padding layout="column">
+                                <md-input-container>
+                                    <md-checkbox ng-model='vm.product.hasCrossSelledProducts' aria-label="Checkbox 1">
+                                        همراه باخرید این محصول پیشنهاد خرید محصول دیگری وجود دارد؟
+                                    </md-checkbox>
+                                </md-input-container>
+                                <div layout="column" ng-show="vm.product.hasCrossSelledProducts">
+                                    <p class="md-subtitle">این محصولات در صفحه خرید به کاربر نشان داده خواهند شد.</p>
+                                    <md-button ng-click="vm.chooseCrossSellingsProductDialog()" md-colors="{background: 'green'}">افزودن محصول پیشنهادی + </md-button>
+                                    <div ng-show="vm.product.crossSellings.length" ng-scrollbars ng-scrollbars-config="vm.scrollopts">
+                                        <md-list>
+                                            <md-list-item class="md-3-line" ng-repeat="product in vm.product.crossSellings">
+                                                <img ng-src="http://localhost:21217{{product.primaryImage.path}}" class="md-avatar" />
+                                                <div class="md-list-item-text">
+                                                    <h3>{{product.title}}</h3>
+                                                </div>
+                                                <md-icon class="md-secondary" ng-click="vm.removeFromCrossSelledProducts(product, $event)" md-svg-icon="delete"></md-icon>
+
+                                                <md-divider inset></md-divider>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </md-card>
+                </md-whiteframe>
+            </md-tab-body>
+        </md-tab>
+        <md-tab>
+            <md-tab-label>
+                تصاویر
+            </md-tab-label>
+            <md-tab-body>
+
+                <md-button ng-click="vm.choosePicture()" md-colors="{background: 'purple'}">انتخاب تصویر</md-button>
+                <md-card ng-show="!!vm.newPicture.path">
+                    <md-card-content flex layout-gt-sm="row">
+                        <div flex>
+                            <img class="md-card-image" flex height="300"  ng-src="http://localhost:21217{{vm.newPicture.path}}" alt="">
+                        </div>
+                        <div  layout="column" flex layout-padding >
+                            <md-input-container>
+                                <label for='newPictureTitle'>عنوان عکس</label>
+                                <input type='text' name='newPictureTitle' ng-model='vm.newPicture.titleAttribute'>
+                            </md-input-container>
+                            <md-input-container>
+                                <label for='alt'>alt</label>
+                                <input type='text' name='alt' ng-model='vm.newPicture.altAttribute'>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button ng-click="vm.addProductPicture()" ng-show="!!vm.newPicture.path">افزودن تصویر</md-button>
+                    </md-card-actions>
+                </md-card>
+                <div dnd-list="vm.product.pictures" layout="column">
+                    <md-card ng-repeat="pic in vm.product.pictures" dnd-nodrag dnd-draggable="pic" dnd-moved="vm.pictureDragged(pic,$index)"
+                        dnd-effect-allowed="move">
+                        <md-card-title>
+                            <md-button dnd-handle class="md-icon-button">
+                                <md-icon md-menu-origin md-svg-icon="anchor"></md-icon>
+                            </md-button>
+                            <md-card-title-text>
+                                <div layout-xs="column" layout-sm="column">
+                                    <md-input-container>
+                                        <label for="">عنوان</label>
+                                        <input type="text" ng-model="pic.titleAttribute">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label for="">alt</label>
+                                        <input type="text" ng-model="pic.altAttribute">
+                                    </md-input-container>
+                                </div>
+                            </md-card-title-text>
+                            <md-button ng-click="vm.confirmImageDelete(pic,$event)" class="md-icon-button">
+                                <md-icon md-menu-origin md-svg-icon="delete"></md-icon>
+                            </md-button>
+                            <md-card-title-media>
+                                <div class="md-media-md card-media">
+                                    <img style="height: 117px;" src="http://localhost:21217{{::pic.path}}" />
+                                </div>
+                            </md-card-title-media>
+                        </md-card-title>
+                    </md-card>
+                </div>
+            </md-tab-body>
+        </md-tab>
+        <md-tab>
+            <md-tab-label>
+                فیلد های توصیفی
+            </md-tab-label>
+            <md-tab-body>
+                <div ng-if="::!vm.product.id">
+                    <md-card ng-repeat="fdg in vm.product.primaryCategory.fieldDefenitionGroups">
+                        <div class='md-subheader _md' role='heading' aria-level='2'>
+                            <div class='md-subheader-inner'>
+                                <div class='md-subheader-content'>{{fdg.title}}</div>
+                            </div>
+                        </div>
+                        <div layout-padding>
+                            <field-factory model="vm.product.fields[vm.getCreatedIndex(fd)]" form="vm.entityForm" ng-repeat="fd in fdg.fieldDefenitions"
+                                fd="fd"></field-factory>
+                        </div>
+                    </md-card>
+                    <md-card ng-repeat="fdg in vm.product.scheme.fieldDefenitionGroups">
+                        <div class='md-subheader _md' role='heading' aria-level='2'>
+                            <div class='md-subheader-inner'>
+                                <div class='md-subheader-content'>{{fdg.title}}</div>
+                            </div>
+                        </div>
+                        <div layout-padding>
+
+                            <field-factory model="vm.product.fields[vm.getCreatedIndex(fd)]" form="vm.entityForm" ng-repeat="fd in fdg.fieldDefenitions"
+                                fd="fd"></field-factory>
+                        </div>
+                    </md-card>
+                    <md-card ng-show="vm.product.scheme.fieldDefenitions.length ||vm.product.primaryCategory.fieldDefenitions.length">
+
+                        <div layout-padding>
+                            <field-factory ng-repeat="fd in vm.product.primaryCategory.fieldDefenitions | orderBy:'order'" model="vm.product.fields[vm.getCreatedIndex(fd)]"
+                                fd="fd" form="vm.productForm"></field-factory>
+                            <field-factory ng-repeat="fd in vm.product.scheme.fieldDefenitions | orderBy:'order'" model="vm.product.fields[vm.getCreatedIndex(fd)]"
+                                fd="fd" form="vm.productForm"></field-factory>
+                        </div>
+
+                    </md-card>
+                </div>
+                <md-card ng-if="::!!vm.product.id">
+                    <fields-organizer form="vm.productForm" entity="vm.product" primary-category="vm.product.primaryCategory" scheme="vm.product.scheme"></fields-organizer>
+                </md-card>
+
+            </md-tab-body>
+        </md-tab>
+        <md-tab>
+            <md-tab-label>
+                سئو
+            </md-tab-label>
+            <md-tab-body>
+                <md-card layout-padding>
+                    <md-input-container>
+                        <label for='url'>ادرس
+                            <em>(url)</em>
+                        </label>
+                        <input type='text' name='url' ng-model='vm.product.url'>
+                    </md-input-container>
+                    <md-input-container>
+                        <label for='url'>MetaKeywords
+                        </label>
+                        <input type='text' name='MetaKeywords' ng-model='vm.product.metaKeywords'>
+                    </md-input-container>
+                    <md-input-container>
+                        <label for='MetaDescription'>MetaDescription
+                        </label>
+                        <input type='text' name='MetaDescription' ng-model='vm.product.metaDescription'>
+                    </md-input-container>
+                    <md-input-container>
+                        <label for='MetaTitle'>MetaTitle
+                        </label>
+                        <input type='text' name='MetaTitle' ng-model='vm.product.metaTitle'>
+                        <div ng-messages='bm.productForm.MetaTitle.error'>
+                            <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                        </div>
+                    </md-input-container>
+                </md-card>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</form>

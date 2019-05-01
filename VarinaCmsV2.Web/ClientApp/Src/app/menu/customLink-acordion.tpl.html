@@ -1,0 +1,20 @@
+<md-accordion-group>
+        <md-divider style="margin: 0px 0px;"></md-divider>
+    <md-accordion-content md-heading="لینک سفارشی" md-arrow="true">
+        <div  >
+            <ng-form novalidate name="vm.customLinkForm">
+            <md-input-container class="md-block">
+                <label for="custom-link-url">مسیر</label>
+                <input autocomplete="off" id='custom-link-url' name="url"  style="direction: ltr;" type="text" ng-model="vm.customLink.url" required>
+                <div ng-messages="vm.customLinkForm.url.$error" ng-show="vm.customLinkForm.url.$dirty">
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label for="custom-link-title">عنوان</label>
+                <input id="custom-link-title" autocomplete="off" name="title"  type="text"  ng-model="vm.customLink.title" required>
+            </md-input-container>
+            <md-button class="simple md-primary md-raised" ng-disabled="vm.customLinkForm.$invalid" ng-click="vm.addCustomLinkToMenu()" aria-label="افزودن به لیست"> افزودن به لیست </md-button>
+        </ng-form>
+        </div>
+    </md-accordion-content>
+</md-accordion-group>

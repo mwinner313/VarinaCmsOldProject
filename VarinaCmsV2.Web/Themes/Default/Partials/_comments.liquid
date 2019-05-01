@@ -1,0 +1,69 @@
+<div class="box-comment">
+    <h5 class="title-comment">تعداد نظرات</h5>
+    {%if vm.current_user == nil %}
+    <div class="row">
+        <div class="col-xs-12 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1">
+            <div class="box-login">
+                <p>وارد شوید</p>
+                <p class="m-t-30">برای گفتگو با کاربران، وارد حساب کاربری خود شوید.</p>
+                <a href="" class="btn-login pull-left">ورود</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    {%else%}
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+            <form method="post" class="comment" action="{{url}}">
+              <textarea id="example1" name="text" rows="1" placeholder="برای ما پیام بگذارید..." class="form-control"></textarea>
+              <input type="hidden" name="TargetId" value="{{target_id}}"/>
+              <button type="submit">ارسال</button>
+            </form>
+        </div>
+    </div>
+
+    <ul class="list-comment">
+        {% for comment in comments %}
+        <li>
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-lg-10">
+                    <a href="#" title="" class="name-user">{{comment.creator.name}}</a>
+                    <div class="cm-content">
+                        <ol class="grid pull-left like">
+                            <li class="grid__item like">
+                                <span class="number">{{comment.like_count}}</span>
+                                <button class="icobutton icobutton--thumbs-up">
+                                    <span class="fa fa-thumbs-up icon"></span>
+                                </button>
+                            </li>
+                            <li class="grid__item dislike">
+                                <span class="number">{{comment.dislike_count}}</span>
+                                <button class="icobutton icobutton--thumbs-up">
+                                    <span class="fa fa-thumbs-down icon"></span>
+                                </button>
+                            </li>
+                        </ol>
+                        <p>{{comment.text}}</p>
+                    </div>
+                    <ul class="list-addition">
+                        <li>
+                            <p>{{comment.create_date_time.from_now}}
+                                <i class="fa fa-clock-o pull-right"></i>
+                            </p>
+                        </li>
+                    </ul>
+                    <a href="#" replay-id="{{comment.id}}" class="pull-left reply">پاسخ
+                        <i class="fa fa-reply"></i>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+            {% if comment.childs != nill %}
+                {% include 'partials/reply_comment' with {comments:comment.childs}%}
+            {% endif %}
+        {%endfor%}
+    </ul>
+    <div class="clearfix"></div>
+    {%endif%}
+</div>

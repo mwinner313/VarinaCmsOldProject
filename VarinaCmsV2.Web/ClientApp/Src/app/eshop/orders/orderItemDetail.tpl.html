@@ -1,0 +1,14 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            جزییات سفارش
+        </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding>
+        <p>نام محصول : {{vm.item.product.title}}</p>
+        <p>تعداد دانلود : {{vm.item.downloadCount}}</p>
+        <md-button ng-class="{'md-raised':vm.item.isDownloadActivated}" class="md-primary" ng-click="vm.changeDownloadActivationState()" ng-show="vm.item.product.downLoadActivationType==5">
+           {{vm.item.isDownloadActivated?'غیرفعال سازی لینک دانلود':'فعال سازی لینک دانلود'}}  
+        </md-button>
+    </md-dialog-content>
+</md-dialog>

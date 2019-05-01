@@ -1,0 +1,227 @@
+<md-toolbar class="md-table-toolbar md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-icon class="tool-bar-icon" md-svg-icon="checklist"></md-icon>
+        <h2 class="title">{{::vm.title}}</h3>
+            <span flex></span>
+            <md-button ng-disabled="vm.isSendingData" class="md-fab down-edge" ng-click="vm.submit()">
+                <md-icon md-svg-icon="check-white"></md-icon>
+            </md-button>
+    </div>
+</md-toolbar>
+<md-progress-linear md-mode="indeterminate" ng-show="vm.isSendingData" class="md-warn"></md-progress-linear>
+<md-content layout-fill ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <form name="vm.discountForm" novalidate>
+
+        <md-tabs dir="rtl" md-dynamic-height>
+            <md-tab>
+                <md-tab-label>
+                    اطلاعات
+                </md-tab-label>
+                <md-tab-body>
+                    <md-card layout-padding>
+                        <md-input-container>
+                            <label for='name'>نام تخفیف</label>
+                            <input type='text' name='name' required ng-model='vm.discount.name'>
+                            <div ng-messages='vm.discountForm.name.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>نوع تخفیف</label>
+                            <md-select required flex ng-model="vm.discount.discountType">
+                                <md-option ng-value="1">به کل قیمت سفارش</md-option>
+                                <md-option ng-value="2">به محصول</md-option>
+                                <md-option ng-value="5">به دسته بندی</md-option>
+                                <md-option ng-value="10">به هزینه ارسال</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container ng-if="vm.discount.discountType==1">
+                            <label for='MinimumCartAmountRequirement'>حد اقل مبلغ سبد خرید</label>
+                            <input ng-min="1"  type='number' name='MinimumCartAmountRequirement' required ng-model='vm.discount.minimumCartAmountRequirement'>
+                            <div ng-messages='vm.discountForm.minimumCartAmountRequirement.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+
+                        <list-selector place-holder="انتخاب دسته بندی ها" ng-show="vm.discount.discountType===5" req-params="{mapForTreeView:false,checkByType:false}"
+                            prop="displayName" flex service="productCategorySrv" model="vm.discount.appliedToCategories"></list-selector>
+
+                        <md-input-container ng-if="vm.discount.discountType===5">
+                            <md-checkbox ng-model='vm.discount.appliedToSubCategories' aria-label="Checkbox 1">
+                                به دسته بندی های زیر مجموعه هم اعمال شود
+                            </md-checkbox>
+                        </md-input-container>
+
+                        <md-input-container ng-if="vm.discount.usePercentage">
+                            <label for='discountPercentage'>درصد</label>
+                            <input ng-min="1" ng-max="100" type='number' name='discountPercentage' required ng-model='vm.discount.discountPercentage'>
+                            <div ng-messages='vm.discountForm.discountPercentage.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container ng-if="!vm.discount.usePercentage">
+                            <label for='discountAmount'>مقدار تخفیف به تومان</label>
+                            <input type='number' name='discountAmount' required ng-model='vm.discount.discountAmount'>
+                            <div ng-messages='vm.discountForm.discountAmount.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="no-margin">
+                            <md-checkbox ng-model='vm.discount.usePercentage' aria-label="Checkbox 1">
+                                از درصد استفاده کن
+                            </md-checkbox>
+                        </md-input-container>
+
+                        <md-input-container class="no-margin">
+                            <md-checkbox ng-model='vm.discount.requiresCouponCode' aria-label="Checkbox 1">
+                                نیاز به کپن دارد
+                            </md-checkbox>
+                        </md-input-container>
+
+                        <!-- <md-input-container ng-if="vm.discount.requiresCouponCode">
+                            <label>نوع کپن</label>
+                            <md-select required flex ng-model="vm.discount.couponCodeType">
+                                <md-option ng-value="5">تکی</md-option>
+                                <md-option ng-value="10">چندتایی</md-option>
+                            </md-select>
+                        </md-input-container> -->
+
+                        <md-input-container ng-if="vm.discount.requiresCouponCode && vm.discount.couponCodeType==5">
+                            <label for='couponCode'>کد کپن</label>
+                            <input type='text' name='couponCode' required ng-model='vm.discount.couponCode'>
+                            <div ng-messages='vm.discountForm.couponCode.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label for='startDate'>تاریخ شروع</label>
+                            <input type='text' ng-pattern="::vm.datetimeRegex" persian-date name='startDate' ng-model='vm.discount.startDate'>
+                            <div ng-messages='vm.discountForm.startDate.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label for='endDate'>تاریخ پایان</label>
+                            <input type='text' ng-pattern="::vm.datetimeRegex" persian-date name='endDate' ng-model='vm.discount.endDate'>
+                            <div ng-messages='vm.discountForm.endDate.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                                <p ng-message="pattern"> الگوی غیر مجاز تاریخ, قالب صحیح :(1396/05/09 - 15:53)</p>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>محدودیت استفاده</label>
+                            <md-select required flex ng-model="vm.discount.limitationType">
+                                <md-option ng-value="5">نامحدود</md-option>
+                                <md-option ng-value="15">n بار به ازای کاربر</md-option>
+                                <md-option ng-value="25">n بار به ازای تعداد استفاده</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container ng-if="vm.discount.limitationType!==5">
+                            <label for='limitationTimes'>تعداد مجاز استفاده</label>
+                            <input type='number' ng-min="0" name='limitationTimes' required ng-model='vm.discount.limitationTimes'>
+                            <div ng-messages='vm.discountForm.limitationTimes.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container ng-if="vm.discount.discountType===5||vm.discount.discountType===2">
+                            <label for='maximumDiscountedQuantity'>به چند محصول در سبد خرید اعمال شود</label>
+                            <input type='number' ng-min="0" name='maximumDiscountedQuantity' ng-model='vm.discount.maximumDiscountedQuantity'>
+                            <div ng-messages='vm.discountForm.maximumDiscountedQuantity.$error'>
+                                <div ng-messages-include='/Src/app.core/partials/messages.html'></div>
+                            </div>
+                        </md-input-container>
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+            <md-tab ng-if="vm.discount.discountType==2">
+                <md-tab-label>
+                    محصولات
+                </md-tab-label>
+                <md-tab-body>
+
+                    <div layout-padding layout="column">
+                        <md-button ng-click="vm.chooseProducts()" class="md-raised md-primary">
+                            افزودن +
+                        </md-button>
+                    </div>
+                    <md-card>
+                        <md-card-container style="padding: 0px;">
+                            <md-table-container>
+                                <table md-table>
+                                    <thead md-head>
+                                        <tr md-row>
+                                            <th md-column md-numeric>تصویر</th>
+                                            <th md-column md-numeric style="text-align: right">عنوان</th>
+                                            <th md-column md-numeric>نوع</th>
+                                            <th md-column md-numeric>موجودی</th>
+                                            <th md-column md-numeric>قیمت</th>
+                                            <th md-column md-numeric>کد کالا</th>
+                                            <th md-column md-numeric>تاریخ انتشار</th>
+                                            <th md-column md-numeric></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody md-body>
+                                        <tr md-row md-select="product" md-select-id="id" ng-repeat="product in vm.discount.appliedToProducts">
+                                            <td md-cell>
+                                                <img class="product-image" ng-src="http://localhost:21217{{product.primaryImage.path}}" alt="">
+                                            </td>
+                                            <td md-cell style="text-align: right" class="md-title" ng-bind="product.title | strlimit:30"></td>
+                                            <td md-cell ng-bind="product.type===5?'ساده':'گروهی'"></td>
+                                            <td md-cell ng-bind="product.inventory.stockQuantity"></td>
+                                            <td md-cell ng-bind-template="{{product.price| currency:'':0}} تومان"></td>
+                                            <td md-cell ng-bind="product.sku"></td>
+                                            <td md-cell ng-bind="product.publishDateTime"></td>
+                                            <td md-cell>
+                                                <md-button class="md-raised md-accent" ng-click="vm.confirmProductDelete(product)">
+                                                    حذف
+                                                </md-button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card-container>
+
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+            <md-tab ng-if="vm.discount.couponCodeType==10">
+                <md-tab-label>
+                    کوپن ها
+                </md-tab-label>
+                <md-tab-body>
+                    <div layout-padding layout="column">
+                        <md-button class="md-raised" md-colors="{background:'green'}">افزودن کپن+</md-button>
+                    </div>
+
+                    <md-grid-list md-cols="6" md-gutter="1em" md-row-height="4:3">
+                        <md-grid-tile flex>
+                            <md-card>testtesttesttesttest</md-card>
+                        </md-grid-tile>
+                        <md-grid-tile>
+                            <md-card>tetesttesttesttestst</md-card>
+                        </md-grid-tile>
+                        <md-grid-tile>
+                            <md-card>tetesttesttesttestst</md-card>
+                        </md-grid-tile>
+                        <md-grid-tile>
+                            <md-card>tetesttesttesttestst</md-card>
+                        </md-grid-tile>
+                        <md-grid-tile>
+                            <md-card>tetesttesttesttestst</md-card>
+                        </md-grid-tile>
+                        <md-grid-tile>
+                            <md-card>ttesttesttesttestest</md-card>
+                        </md-grid-tile>
+                    </md-grid-list>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </form>
+</md-content>

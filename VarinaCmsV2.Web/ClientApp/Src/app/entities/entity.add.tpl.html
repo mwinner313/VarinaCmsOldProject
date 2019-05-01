@@ -1,0 +1,77 @@
+<md-toolbar class="md-hue-2">
+    <md-progress-linear class="md-warn" ng-show="vm.isSending" md-mode="indeterminate"></md-progress-linear>
+
+    <div class="md-toolbar-tools">
+        <h1>
+            <md-icon md-svg-icon="check-white"></md-icon>
+            افزودن {{vm.scheme.title}}
+        </h1>
+        <span flex></span>
+
+        <md-button ng-disabled="vm.isSending ||vm.entityForm.$pending" class="md-fab" ng-click="vm.add()">
+            <md-icon md-svg-icon="check-white"></md-icon>
+
+            <md-tooltip>
+                اعمال تغییرات
+            </md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-content ng-keydown="($event.ctrlKey && $event.which==83 && ($event.preventDefault() ||vm.add()))" ng-scrollbars ng-scrollbars-config="scrollConfig">
+    <md-card>
+        <form name="vm.entityForm" novalidate layout-padding>
+            <div layout-gt-sm="row" flex layout-padding>
+                <div replace ng-include="'/Src/app/entities/enitiyAdd-Update-sharedFields.html'"></div>
+            </div>
+
+
+
+            <div layout-gt-sm="column" flex>
+
+
+
+              
+
+                <md-card ng-repeat="fdg in vm.scheme.fieldDefenitionGroups">
+                    <div class='md-subheader _md' role='heading' aria-level='2'>
+                        <div class='md-subheader-inner'>
+                            <div class='md-subheader-content'>{{fdg.title}}</div>
+                        </div>
+                    </div>
+                    <div layout-padding>
+
+                        <field-factory model="vm.entity.fields[vm.getCreatedIndex(fd)]" form="vm.entityForm" ng-repeat="fd in fdg.fieldDefenitions"
+                            fd="fd"></field-factory>
+                    </div>
+                </md-card>
+
+                <md-card ng-repeat="fdg in vm.entity.primaryCategory.fieldDefenitionGroups">
+                        <div class='md-subheader _md' role='heading' aria-level='2'>
+                            <div class='md-subheader-inner'>
+                                <div class='md-subheader-content'>{{fdg.title}}</div>
+                            </div>
+                        </div>
+                        <div layout-padding>
+                            <field-factory model="vm.entity.fields[vm.getCreatedIndex(fd)]" form="vm.entityForm" ng-repeat="fd in fdg.fieldDefenitions"
+                                fd="fd"></field-factory>
+                        </div>
+                    </md-card>
+    
+
+                <md-card ng-show="vm.scheme.fieldDefenitions.length||vm.entity.primaryCategory.fieldDefenitions.length">
+
+                    <div layout-padding>
+                        <field-factory ng-repeat="fd in vm.scheme.fieldDefenitions | orderBy:'order'" model="vm.entity.fields[vm.getCreatedIndex(fd)]"
+                            fd="fd" form="vm.entityForm"></field-factory>
+                        <field-factory ng-repeat="fd in vm.entity.primaryCategory.fieldDefenitions | orderBy:'order'" model="vm.entity.fields[vm.getCreatedIndex(fd)]"
+                            fd="fd" form="vm.entityForm"></field-factory>
+                    </div>
+                </md-card>
+            </div>
+
+        </form>
+    </md-card>
+
+
+</md-content>

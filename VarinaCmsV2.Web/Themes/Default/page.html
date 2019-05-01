@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="fa" xmlns="http://www.w3.org/1999/xhtml" dir="rtl" ng-app="app" class="no-js">
+
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    {% include 'partials/styles'%}
+    <script src="/Scripts/plugin/modernizr.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include 'partials/header' %}
+
+        <section id="header" data-parallax="scroll" data-image-src="{{vm.model.image.path}}" class="header-content parallax-window">
+            <div class="container-puz width">
+                <div class="box-content">
+                    <h1 class="title">{{vm.model.title}}</h1>
+                    <ul>
+                        <li>{{vm.model.visit_count}} بازدید
+                            <i class="fa fa-eye pull-right"></i>
+                        </li>
+                        <li>{{vm.model.publish_date_time.full}}
+                            <i class="fa fa-calendar pull-right"></i>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#author" class="mousse page-scroll">
+                    <div class="down"></div>
+                </a>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        <section id="author" class="author">
+            <div class="container-puz width">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2">
+                        <ul class="list-author">
+                            <li>
+                                <img src="{{vm.model.creator.avatar_path}}" class="img-responsive">
+                            </li>
+                            <li>
+                                <p>{{vm.model.creator.name}}</p>
+                            </li>
+                            <li>
+                                <p>{{vm.model.creator.title}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                        <ul class="pull-left list-like">
+                            <li>
+                                <p>
+                                    <span id="like-count">{{vm.model.like_count}}</span>
+                                    <i class="fa fa-heart-o pull-right"></i>
+                                </p>
+                            </li>
+                            <li>
+                                <a href="" id="like-btn" entity-id="{{vm.model.id}}" class="like">پسندیدم</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+
+
+        <section class="article-content">
+            <div class="container-puz width">
+                <div class="row">
+                    <div class="ool-xs-12 col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <article class="content">
+                            {{vm.model.html_content}}
+                        </article>
+                        <ul class="list-tag m-t-b-10">
+                            <li>
+                                <p>برچسب ها :</p>
+                            </li>
+                            {%for tag in vm.model.tags %}
+                            <li>
+                                <a href="{{tag.to_url}}" title="{{tag.title}}">{{tag.title}} </a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-puz width">
+                <div class="row">
+                    <div class="ool-xs-12 col-sm-6 col-md-8 col-lg-8 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+                        <div class="box-comment">
+                            <h5 class="title-comment">تعداد نظرات</h5>
+                            {% if vm.current_user %}
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                                    <form class="comment">
+                                        <textarea id="example1" rows="1" placeholder="برای ما پیام بگذارید..." class="form-control"></textarea>
+                                        <a href="" class="btn-comment"></a>
+                                        <a href="" class="pull-right reply-form">در پاسخ به سجاد شاه بالا
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="list-comment">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-1 col-lg-1">
+                                            <a href="">
+                                                <img src="/Content/HomeImages/user-icon.jpg" class="img-user">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-10 col-lg-10">
+                                            <a href="" title="" class="name-user">سجاد شاه بالا</a>
+                                            <div class="cm-content">
+                                                <ol class="grid pull-left like">
+                                                    <li class="grid__item like">
+                                                        <span class="number">85</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-up icon"></span>
+                                                        </button>
+                                                    </li>
+                                                    <li class="grid__item dislike">
+                                                        <span class="number">75</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-down icon"></span>
+                                                        </button>
+                                                    </li>
+                                                </ol>
+                                                <p>فن اپلم ، ولي انصافا يكم از فناي سوني و اچ تي سي ياد بگيريد بي ادعا كارشونو
+                                                    ميكنن منفجر هم نميشن! جالبيش اينه همه هم با سامبمب مشكل دارن ! شما ديدي
+                                                    اين 3 تا برند بهم فحش بدن يا يه فن اپل بياد زيره پست سوني فحش بده ؟ !!
+                                                    دليلشم واسه طرفداراي بچه سال سامسونگ ك تو هر پست 3000 تا كامنت ميزارن
+                                                    نفرتو حوص خوردنو از تايپشون ميشه فهميد ، تا كي ميخواي خراب شي ؟ يكم بزرگ
+                                                    شيد خدايي مارم نخندونيد !</p>
+                                            </div>
+                                            <ul class="list-addition">
+                                                <li>
+                                                    <p>21 ساعت پیش
+                                                        <i class="fa fa-clock-o pull-right"></i>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <a href="">لینک کامنت
+                                                        <i class="fa fa-link pull-right"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">گزارش
+                                                        <i class="fa fa-lightbulb-o pull-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <a href="" class="pull-left reply-a">پاسخ
+                                                <i class="fa fa-reply"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="reply">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-1 col-lg-1">
+                                                    <a href="">
+                                                        <img src="/Content/HomeImages/user-icon.jpg" class="img-user">
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-12 col-md-10 col-lg-10">
+                                                    <a href="" title="" class="name-user">خیرخواه</a>
+                                                    <p class="p-reply">درپاسخ به سجاد شاه بالا
+                                                        <i class="fa fa-reply pull-right"></i>
+                                                    </p>
+                                                    <div class="cm-content">
+                                                        <ol class="grid pull-left like">
+                                                            <li class="grid__item like">
+                                                                <span class="number">85</span>
+                                                                <button class="icobutton icobutton--thumbs-up">
+                                                                    <span class="fa fa-thumbs-up icon"></span>
+                                                                </button>
+                                                            </li>
+                                                            <li class="grid__item dislike">
+                                                                <span class="number">75</span>
+                                                                <button class="icobutton icobutton--thumbs-up">
+                                                                    <span class="fa fa-thumbs-down icon"></span>
+                                                                </button>
+                                                            </li>
+                                                        </ol>
+                                                        <p>فن اپلم ، ولي انصافا يكم از فناي سوني و اچ تي سي ياد بگيريد بي ادعا
+                                                            كارشونو ميكنن منفجر هم نميشن! جالبيش اينه همه هم با سامبمب مشكل
+                                                            دارن ! شما ديدي اين 3 تا برند بهم فحش بدن يا يه فن اپل بياد زيره
+                                                            پست سوني فحش بده ؟ !! دليلشم واسه طرفداراي بچه سال سامسونگ ك
+                                                            تو هر پست 3000 تا كامنت ميزارن نفرتو حوص خوردنو از تايپشون ميشه
+                                                            فهميد ، تا كي ميخواي خراب شي ؟ يكم بزرگ شيد خدايي مارم نخندونيد
+                                                            !
+                                                        </p>
+                                                    </div>
+                                                    <ul class="list-addition">
+                                                        <li>
+                                                            <p>21 ساعت پیش
+                                                                <i class="fa fa-clock-o pull-right"></i>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">لینک کامنت
+                                                                <i class="fa fa-link pull-right"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">گزارش
+                                                                <i class="fa fa-lightbulb-o pull-right"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="" class="pull-left reply-p">پاسخ
+                                                        <i class="fa fa-reply"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="reply">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-1 col-lg-1">
+                                                    <a href="">
+                                                        <img src="/Content/HomeImages/user-icon.jpg" class="img-user">
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-12 col-md-10 col-lg-10">
+                                                    <a href="" title="" class="name-user">خیرخواه</a>
+                                                    <p class="p-reply">درپاسخ به سجاد شاه بالا
+                                                        <i class="fa fa-reply pull-right"></i>
+                                                    </p>
+                                                    <div class="cm-content">
+                                                        <ol class="grid pull-left like">
+                                                            <li class="grid__item like">
+                                                                <span class="number">85</span>
+                                                                <button class="icobutton icobutton--thumbs-up">
+                                                                    <span class="fa fa-thumbs-up icon"></span>
+                                                                </button>
+                                                            </li>
+                                                            <li class="grid__item dislike">
+                                                                <span class="number">75</span>
+                                                                <button class="icobutton icobutton--thumbs-up">
+                                                                    <span class="fa fa-thumbs-down icon"></span>
+                                                                </button>
+                                                            </li>
+                                                        </ol>
+                                                        <p>فن اپلم ، ولي انصافا يكم از فناي سوني و اچ تي سي ياد بگيريد بي ادعا
+                                                            كارشونو ميكنن منفجر هم نميشن! جالبيش اينه همه هم با سامبمب مشكل
+                                                            دارن ! شما ديدي اين 3 تا برند بهم فحش بدن يا يه فن اپل بياد زيره
+                                                            پست سوني فحش بده ؟ !! دليلشم واسه طرفداراي بچه سال سامسونگ ك
+                                                            تو هر پست 3000 تا كامنت ميزارن نفرتو حوص خوردنو از تايپشون ميشه
+                                                            فهميد ، تا كي ميخواي خراب شي ؟ يكم بزرگ شيد خدايي مارم نخندونيد
+                                                            !
+                                                        </p>
+                                                    </div>
+                                                    <ul class="list-addition">
+                                                        <li>
+                                                            <p>21 ساعت پیش
+                                                                <i class="fa fa-clock-o pull-right"></i>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">لینک کامنت
+                                                                <i class="fa fa-link pull-right"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">گزارش
+                                                                <i class="fa fa-lightbulb-o pull-right"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="" class="pull-left reply-p">پاسخ
+                                                        <i class="fa fa-reply"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-1 col-lg-1">
+                                            <a href="">
+                                                <img src="/Content/HomeImages/user-icon.jpg" class="img-user">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-10 col-lg-10">
+                                            <a href="" title="" class="name-user">وحید باقریان</a>
+                                            <div class="cm-content">
+                                                <ol class="grid pull-left like">
+                                                    <li class="grid__item like">
+                                                        <span class="number">85</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-up icon"></span>
+                                                        </button>
+                                                    </li>
+                                                    <li class="grid__item dislike">
+                                                        <span class="number">75</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-down icon"></span>
+                                                        </button>
+                                                    </li>
+                                                </ol>
+                                                <p>فن اپلم ، ولي انصافا يكم از فناي سوني و اچ تي سي ياد بگيريد بي ادعا كارشونو
+                                                    ميكنن منفجر هم نميشن! جالبيش اينه همه هم با سامبمب مشكل دارن ! شما ديدي
+                                                    اين 3 تا برند بهم فحش بدن يا يه فن اپل بياد زيره پست سوني فحش بده ؟ !!
+                                                    دليلشم واسه طرفداراي بچه سال سامسونگ ك تو هر پست 3000 تا كامنت ميزارن
+                                                    نفرتو حوص خوردنو از تايپشون ميشه فهميد ، تا كي ميخواي خراب شي ؟ يكم بزرگ
+                                                    شيد خدايي مارم نخندونيد !</p>
+                                            </div>
+                                            <ul class="list-addition">
+                                                <li>
+                                                    <p>21 ساعت پیش
+                                                        <i class="fa fa-clock-o pull-right"></i>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <a href="">لینک کامنت
+                                                        <i class="fa fa-link pull-right"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">گزارش
+                                                        <i class="fa fa-lightbulb-o pull-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <a href="" class="pull-left reply-a">پاسخ
+                                                <i class="fa fa-reply"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-1 col-lg-1">
+                                            <a href="">
+                                                <img src="/Content/HomeImages/user-icon.jpg" class="img-user">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-10 col-lg-10">
+                                            <a href="" title="" class="name-user">زهرا درخشان پور</a>
+                                            <div class="cm-content">
+                                                <ol class="grid pull-left like">
+                                                    <li class="grid__item like">
+                                                        <span class="number">85</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-up icon"></span>
+                                                        </button>
+                                                    </li>
+                                                    <li class="grid__item dislike">
+                                                        <span class="number">75</span>
+                                                        <button class="icobutton icobutton--thumbs-up">
+                                                            <span class="fa fa-thumbs-down icon"></span>
+                                                        </button>
+                                                    </li>
+                                                </ol>
+                                                <p>فن اپلم ، ولي انصافا يكم از فناي سوني و اچ تي سي ياد بگيريد بي ادعا كارشونو
+                                                    ميكنن منفجر هم نميشن! جالبيش اينه همه هم با سامبمب مشكل دارن ! شما ديدي
+                                                    اين 3 تا برند بهم فحش بدن يا يه فن اپل بياد زيره پست سوني فحش بده ؟ !!
+                                                    دليلشم واسه طرفداراي بچه سال سامسونگ ك تو هر پست 3000 تا كامنت ميزارن
+                                                    نفرتو حوص خوردنو از تايپشون ميشه فهميد ، تا كي ميخواي خراب شي ؟ يكم بزرگ
+                                                    شيد خدايي مارم نخندونيد !</p>
+                                            </div>
+                                            <ul class="list-addition">
+                                                <li>
+                                                    <p>21 ساعت پیش
+                                                        <i class="fa fa-clock-o pull-right"></i>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <a href="">لینک کامنت
+                                                        <i class="fa fa-link pull-right"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">گزارش
+                                                        <i class="fa fa-lightbulb-o pull-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <a href="" class="pull-left reply-a">پاسخ
+                                                <i class="fa fa-reply"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+
+                            {% else %}
+                            <div class="row">
+                                <div class="col-xs-12 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1">
+                                    <div class="box-login">
+                                        <p>وارد شوید</p>
+                                        <p class="m-t-30">برای گفتگو با کاربران، وارد حساب کاربری خود شوید.</p>
+                                        <a href="" class="btn-login pull-left">ورود</a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        {% include 'partials/footer'%}
+        <!--include footer-->
+        <a href="#header" class="go-to-top page-scroll"></a>
+    </div>
+    {% include 'partials/scripts'%}
+</body>
+
+</html>

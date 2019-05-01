@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52E43EF2-57D5-444C-8380-4200EFB35370}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VarinaCmsV2.ViewModel</RootNamespace>
+    <AssemblyName>VarinaCmsV2.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotLiquid, Version=2.0.254.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.0.254\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDate, Version=3.5.6540.21108, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDate.3.5.3\lib\net35\PersianDate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseVeiwModel.cs" />
+    <Compile Include="Category\CategoryAddOrUpdateViewModel.cs" />
+    <Compile Include="Category\CategoryLiquidViewModel.cs" />
+    <Compile Include="Category\CategoryViewModel.cs" />
+    <Compile Include="Comment\CommentAddOrUpdateViewModel.cs" />
+    <Compile Include="Comment\CommentDetailVeiwModel.cs" />
+    <Compile Include="Comment\CommentLiquidViewModel.cs" />
+    <Compile Include="Comment\CommentViewModel.cs" />
+    <Compile Include="Comment\CommentWebClientViewModel.cs" />
+    <Compile Include="DTO\UserEntitiesPaginatedLiquidAdapted.cs" />
+    <Compile Include="Entities\AccessPremissionEnumViewModel.cs" />
+    <Compile Include="Entities\EntityAddOrUpdateViewModel.cs" />
+    <Compile Include="Entities\EntityCatLiquid.cs" />
+    <Compile Include="Entities\EntityLiquidAdapter.cs" />
+    <Compile Include="Entities\EntitySchemeStateViewModel.cs" />
+    <Compile Include="Entities\EntitySchemeUpdateViewModel.cs" />
+    <Compile Include="Entities\EntitySchemeViewModel.cs" />
+    <Compile Include="Entities\EntityViewModel.cs" />
+    <Compile Include="Entities\FieldAddOrUpdateViewModel.cs" />
+    <Compile Include="Entities\FieldDefenitionGroupLiquidVeiwModel.cs" />
+    <Compile Include="Entities\FieldDefenitionGroupUpdateModel.cs" />
+    <Compile Include="Entities\FieldDefenitionGroupViewModel.cs" />
+    <Compile Include="Entities\FieldDefenitionLiquidVeiwModel.cs" />
+    <Compile Include="Entities\FieldDefenitionViewModel.cs" />
+    <Compile Include="Entities\FieldDefenitionAddOrUpdateViewModel.cs" />
+    <Compile Include="Entities\FieldViewModel.cs" />
+    <Compile Include="Entities\LanguageViewModel.cs" />
+    <Compile Include="Entities\EntitySearchResaultLiquidAdapted.cs" />
+    <Compile Include="Entities\LocalizedNameViewModel.cs" />
+    <Compile Include="Entities\RelatedCategoryViewModel.cs" />
+    <Compile Include="Entities\RolePremissionViewModel.cs" />
+    <Compile Include="Eshop\DeliveryDateLiquidVeiwModel.cs" />
+    <Compile Include="Eshop\DiscountIdModel.cs" />
+    <Compile Include="Eshop\Discount\DiscountAddOrUpdateModel.cs" />
+    <Compile Include="Eshop\Discount\DiscountLiquidViewModel.cs" />
+    <Compile Include="Eshop\DownLoadFileLiquidAdapter.cs" />
+    <Compile Include="Eshop\InventoryLiquidViewModel.cs" />
+    <Compile Include="Eshop\Discount\DiscountUsageHistoryLiquidViewModel.cs" />
+    <Compile Include="Eshop\Orders\AddressViewModel.cs" />
+    <Compile Include="Eshop\Orders\DiscountUsageHistoryViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderAddOrUpdateViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderedProductViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderItemLiquidViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderItemViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderLiquidViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderLogViewModel.cs" />
+    <Compile Include="Eshop\Orders\OrderViewModel.cs" />
+    <Compile Include="Eshop\Orders\ShipmentViewModel.cs" />
+    <Compile Include="Eshop\ProductCategoryAddOrUpdateModel.cs" />
+    <Compile Include="Eshop\ProductCategoryLiquidVeiwModel.cs" />
+    <Compile Include="Eshop\ProductCatLiquidVeiwModel.cs" />
+    <Compile Include="Eshop\ProductIdModel.cs" />
+    <Compile Include="Eshop\ProductLiquidAdapter.cs" />
+    <Compile Include="Eshop\ProductPictureLiquidViewModel.cs" />
+    <Compile Include="Eshop\ProductCategoryIdModel.cs" />
+    <Compile Include="Eshop\ProductReviewLiquidViewModel.cs" />
+    <Compile Include="Eshop\ProductsCompareModel.cs" />
+    <Compile Include="Eshop\ProductsCompareModelLiquidVeiwModel.cs" />
+    <Compile Include="Eshop\ProductShipmentLiquidViewModel.cs" />
+    <Compile Include="Eshop\ProductSimpleModel.cs" />
+    <Compile Include="Eshop\ProductTagLiquidViewModel.cs" />
+    <Compile Include="Eshop\Review\ProductReviewHelpfulnessLiquidViewModel.cs" />
+    <Compile Include="Eshop\Review\ProductReviewHelpfulnessViewModel.cs" />
+    <Compile Include="Eshop\Review\ReviewAddOrupdateViewModel.cs" />
+    <Compile Include="Eshop\Review\ReviewLiquidViewModel.cs" />
+    <Compile Include="Eshop\Review\ReviewViewModel.cs" />
+    <Compile Include="Eshop\SearchProductResultLiquidViewModel.cs" />
+    <Compile Include="Eshop\Shipment\DeliveryDateViewModel.cs" />
+    <Compile Include="Eshop\Discount\DiscountViewModel.cs" />
+    <Compile Include="Eshop\ProductCategoryViewModel.cs" />
+    <Compile Include="Eshop\ProductInventoryViewModel.cs" />
+    <Compile Include="Eshop\ProductPictureViewModel.cs" />
+    <Compile Include="Eshop\ProductReviewViewModel.cs" />
+    <Compile Include="Eshop\ProductShipmentViewModel.cs" />
+    <Compile Include="Eshop\Shipment\ShipmentAddOrUpdateVeiwModel.cs" />
+    <Compile Include="Eshop\Shipment\ShippingMethodLiquidViewModel.cs" />
+    <Compile Include="Eshop\Shipment\ShippingPageLiquidViewDataModel.cs" />
+    <Compile Include="FileData\FileDataAddOrUpdateVeiwModel.cs" />
+    <Compile Include="FileData\FileDataViewModelWithMeta.cs" />
+    <Compile Include="Forms\FormSchemeAddOrUpdateViewModel.cs" />
+    <Compile Include="Forms\FormSchemeViewModel.cs" />
+    <Compile Include="Forms\FormViewModel.cs" />
+    <Compile Include="HomePageDataLiquidViewModel.cs" />
+    <Compile Include="IEntityViewModel.cs" />
+    <Compile Include="IHaveMetaDataViewModel.cs" />
+    <Compile Include="LiquidTemplateViewModel.cs" />
+    <Compile Include="Menu\IMenuItemMapped.cs" />
+    <Compile Include="Menu\MenuAddUpdateViewModel.cs" />
+    <Compile Include="Menu\MenuItemAddUpdateViewModel.cs" />
+    <Compile Include="Menu\MenuItemLiquidDecorator.cs" />
+    <Compile Include="Menu\MenuItemLiquidViewModel.cs" />
+    <Compile Include="Menu\MenuItemViewModel.cs" />
+    <Compile Include="Menu\MenuLiquidViewModel.cs" />
+    <Compile Include="Menu\MenuViewModel.cs" />
+    <Compile Include="Meta\MetaDataAddOrUpdateViewModel.cs" />
+    <Compile Include="Meta\MetaDataLiquidViewMdoel.cs" />
+    <Compile Include="Meta\MetaDataViewModel.cs" />
+    <Compile Include="Entities\EntitySchemeLiquidViewModel.cs" />
+    <Compile Include="Page\PageAddUpdateViewModel.cs" />
+    <Compile Include="Page\PageLiquidViewModel.cs" />
+    <Compile Include="Page\PageViewModel.cs" />
+    <Compile Include="Eshop\ProductAddOrUpdateViewModel.cs" />
+    <Compile Include="Eshop\ProductViewModel.cs" />
+    <Compile Include="Settings\WebSiteBasicInformationLiquidVeiwModel.cs" />
+    <Compile Include="States\StateProvinceLiquidViewModel.cs" />
+    <Compile Include="States\StateProvinceViewModel.cs" />
+    <Compile Include="Tag\EntityTagLiquidViewModel.cs" />
+    <Compile Include="ParentChildIdViewModel.cs" />
+    <Compile Include="TagViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag\PageTagLiquidViewModel.cs" />
+    <Compile Include="User\AddressAddOrUpdateModel.cs" />
+    <Compile Include="User\AddressLiquidViewModel.cs" />
+    <Compile Include="User\CouponCodeUsage.cs" />
+    <Compile Include="User\UserAddressesResponseLiquidViewModel.cs" />
+    <Compile Include="User\UserCartLiquidViewModel.cs" />
+    <Compile Include="User\Account\ChangePasswordViewModel.cs" />
+    <Compile Include="User\Account\UserInfoEditViewModel.cs" />
+    <Compile Include="User\Account\UserLiquidViewModel.cs" />
+    <Compile Include="User\Account\CurrentUserViewModel.cs" />
+    <Compile Include="User\Account\SignUpViewModel.cs" />
+    <Compile Include="User\Account\SignInViewModel.cs" />
+    <Compile Include="User\RoleViewModel.cs" />
+    <Compile Include="User\ShoppingCartItemLiquidViewModel.cs" />
+    <Compile Include="User\UserAddOrUpdateViewModel.cs" />
+    <Compile Include="User\UserRoleAddOrUpdateModel.cs" />
+    <Compile Include="User\UserViewModel.cs" />
+    <Compile Include="User\UserWebClientViewModel.cs" />
+    <Compile Include="Widget\WidgetAddOrUpdateViewModel.cs" />
+    <Compile Include="Widget\WidgetContainerAddOrUpdateViewModel.cs" />
+    <Compile Include="Widget\WidgetContainerViewModel.cs" />
+    <Compile Include="Widget\WidgetLiquidViewModel.cs" />
+    <Compile Include="Widget\WidgetViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VaeinaCmsV2.Resources\VarinaCmsV2.Resources.csproj">
+      <Project>{F89ABAFF-75D8-4001-8C3C-E737DDDD98D5}</Project>
+      <Name>VarinaCmsV2.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.Common\VarinaCmsV2.Common.csproj">
+      <Project>{60D537FD-FC3C-4637-8122-A65A4F0ABEBA}</Project>
+      <Name>VarinaCmsV2.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.DomainClasses\VarinaCmsV2.DomainClasses.csproj">
+      <Project>{5B6A1CD7-F23A-4924-B45C-ACEF658DAC42}</Project>
+      <Name>VarinaCmsV2.DomainClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VarinaCmsV2.FileManager\VarinaCmsV2.FileManager.csproj">
+      <Project>{6A80EBFF-1D17-44C9-8F8F-994D6F553039}</Project>
+      <Name>VarinaCmsV2.FileManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,4 @@
+{
+  "/api/*": "/$1",
+  "/schemes/:handle": "/schemes?handle=:handle"
+}

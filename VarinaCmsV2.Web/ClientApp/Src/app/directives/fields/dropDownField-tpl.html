@@ -1,0 +1,10 @@
+<md-input-container flex>
+    <md-select-header>
+        <span> {{vm.fd.title}} </span>
+    </md-select-header>
+    <md-select flex  ng-model="vm.model.rawValue">
+        <md-option ng-repeat="option in vm.fd.metaData.avalibleOptions" ng-value="option">
+            {{option.name}}
+        </md-option>
+    </md-select>
+</md-input-container>
